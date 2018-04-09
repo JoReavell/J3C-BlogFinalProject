@@ -1,24 +1,37 @@
 <?php
   class BlogPost {
 
-    // we define 3 attributes
+    // we define our attributes
+    // A blog post has 9 attributes
     public $id;
-    public $name;
-    public $price;
+    public $title;
+    public $summary;
+    public $mainContent;
+    public $image;
+    public $author;
+    public $dateCreated;
+    public $category;
+    public $noOfViews;
 
-    public function __construct($id, $name, $price) {
+    public function __construct($id, $title, $summary, $mainContent, $image, $author, $dateCreated, $category, $noOfViews) {
       $this->id    = $id;
-      $this->name  = $name;
-      $this->price = $price;
+      $this->title  = $title;
+      $this->summary = $summary;
+      $this->mainContent = $mainContent;
+      $this->image = $image;
+      $this->author = $author;
+      $this->dateCreated = $dateCreated;
+      $this->category = $category;
+      $this->noOfViews = $noOfViews;
     }
 
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM product');
+      $req = $db->query('SELECT * FROM blogPost');
       // we create a list of Product objects from the database results
-      foreach($req->fetchAll() as $product) {
-        $list[] = new Product($product['id'], $product['name'], $product['price']);
+      foreach($req->fetchAll() as $blogPost) {
+        $list[] = new blogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews']);
       }
       return $list;
     }
