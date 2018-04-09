@@ -28,10 +28,12 @@
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM blogPost');
+      $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author, dateCreated, category, noOfViews "
+          . "FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID";
+      $req = $db->query($sql);
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blogPost) {
-        $list[] = new blogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews']);
+        $list[] = new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews']);
       }
       return $list;
     }
@@ -40,19 +42,22 @@
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('SELECT * FROM product WHERE id = :id');
+      $sql = $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author, dateCreated, category, noOfViews "
+          . "FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID "
+          . "WHERE blogPostID = :blogPostID";
+      $req = $db->prepare($sql);
       //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
-      $product = $req->fetch();
-if($product){
-      return new Product($product['id'], $product['name'], $product['price']);
+      $req->execute(array('blogPostID' => $id));
+      $blogPost = $req->fetch();
+if($blogPost){
+      return new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews']);
     }
     else
     {
         //replace with a more meaningful exception
         throw new Exception('A real exception should go here');
     }
-    }
+}
 
 public static function update($id) {
     $db = Db::getInstance();

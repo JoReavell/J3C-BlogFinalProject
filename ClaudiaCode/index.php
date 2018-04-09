@@ -258,11 +258,11 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 						</footer>
 					</article>
                                         
-					<!-- Pagination -->
-					<ul class="actions pagination">
-						<li><a href="" class="disabled button big previous">Previous Page</a></li>
-						<li><a href="#" class="button big next">Next Page</a></li>
-					</ul>
+                                <!-- Pagination -->
+                                <ul class="actions pagination">
+                                        <li><a href="" class="disabled button big previous">Previous Page</a></li>
+                                        <li><a href="#" class="button big next">Next Page</a></li>
+                                </ul>
 				</div> <!-- End col-8 -->
 
 				<div class="col-md-4">
@@ -383,7 +383,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 						<section>
 							<div class="widget">
-								<h2 class="title">INSTGRAM</h2>
+								<h2 class="title">INSTAGRAM</h2>
 								<div class="widget-content">
 									<div class="row instagram-feeds row-gallery">
                                                                             <a href="#" class="col-sm-4 col-xs-3"><img src="images/teamwork.jpg"></a>
