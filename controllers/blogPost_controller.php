@@ -20,8 +20,8 @@ class BlogPostController {
 
         try{
         // we use the given id to get the correct post
-        $product = Product::find($_GET['id']);
-        require_once('views/products/read.php');
+        $blogPost = BlogPost::find($_GET['id']);
+        require_once('views/blogPost/viewSinglePost.php');
         }
         catch (Exception $ex){
             return call('pages','error');
