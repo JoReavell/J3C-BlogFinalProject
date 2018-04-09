@@ -2,42 +2,45 @@
 //Controller class contains all the functions we need to DO things to the products
 //Handles business logic and links VIEW to MODEL (front end to database)
 
+//Read all method. To be displayed on main page when we go to site
 class BlogPostController {
     public function readAll() {
-      //This function will need to return ALL the blog post items to display on mian page
+      //This function will need to return ALL the blog post items to display on main page
         
-      $products = Product::all();
-      require_once('views/products/readAll.php');
+      $blogPosts = BlogPost::all();
+      require_once('views/blogPost/viewAll.php');
     }
 
     public function read() {
-      // we expect a url of form ?controller=posts&action=show&id=x
-      // without an id we just redirect to the error page as we need the post id to find it in the database
-      //This will return a single blog after a user has clicked on it.
-      if (!isset($_GET['id']))
-        return call('pages', 'error');
+        // we expect a url of form ?controller=posts&action=show&id=x
+        // without an id we just redirect to the error page as we need the post id to find it in the database
+        //This will return a single blog after a user has clicked on it.
+        if (!isset($_GET['id']))
+          return call('pages', 'error');
 
-      try{
-      // we use the given id to get the correct post
-      $product = Product::find($_GET['id']);
-      require_once('views/products/read.php');
-      }
- catch (Exception $ex){
-     return call('pages','error');
- }
+        try{
+        // we use the given id to get the correct post
+        $product = Product::find($_GET['id']);
+        require_once('views/products/read.php');
+        }
+        catch (Exception $ex){
+            return call('pages','error');
+        }
     }
+    
+    //Insert a blog post
     public function create() {
       // we expect a url of form ?controller=products&action=create
       // if it's a GET request display a blank form for creating a new product
       // else it's a POST so add to the database and redirect to readAll action
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          require_once('views/products/create.php');
+          require_once('views/blogPost/createBlogPost.php');
       }
       else { 
-            Product::add();
+          BlogPost::add();
              
-            $products = Product::all(); //$products is used within the view
-            require_once('views/products/readAll.php');
+            $blogPost = BlogPost::all(); //$blogPost is used within the view
+            require_once('views/blogPost/All.php');
       }
       
     }

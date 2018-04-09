@@ -3,7 +3,7 @@ Initialize the session (don't forget to close it on logout)
 session_start();
  
 // If session variable is not set it will redirect to login page
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){   
   header("location: Login/Login.php");
   exit;
 }
@@ -37,7 +37,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <?php 
     require_once 'Header.php';
     ?>
-        <!-- Carousel-->
+       <!-- Carousel-->
        <section class="slide"> 
         <div class="container">
             <div id="carouselExampleIndicators" class="carousel slide carouseltop" data-ride="carousel">
