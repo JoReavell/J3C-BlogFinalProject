@@ -11,16 +11,18 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<!-- Font Awesome -->
-	<link rel='stylesheet' href='css/font-awesome.min.css'/>
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Main Style -->
-	<link rel='stylesheet' href='css/style.css'/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
 
 
 	<!-- Google Fonts -->
-	<link href='/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
-	<link href='/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
+	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
+	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="images/sky.jpg"/>
+	
 	
 </head>
 
