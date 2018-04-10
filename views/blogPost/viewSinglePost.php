@@ -12,7 +12,7 @@
                         </div>
                         <div class="meta">
                             <time class="published" datetime="2018-04-14"><?php echo $blogPost->dateCreated; ?></time>
-                            <a href="#" class="author"><span class="name"><?php echo $blogPost->author; ?></span><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></a>
+                            <a href="#" class="author"><span class="name"><?php echo $blogPost->author; ?></span><img src="views/images/<?php echo $blogPost->profilePic; ?>" alt="" /></a>
                         </div>
                     </header>
                     <div class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></div>
