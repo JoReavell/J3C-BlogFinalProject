@@ -1,24 +1,54 @@
-<p>Fill in the following form to create a new product:</p>
-<form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-    
-    <h2>Add New Item</h2>
+<div id="main" class="top-margin">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+    <div class="contact-form pad-top-big pad-bottom-big">
+    <h3>Upload a new blog post</h3>
+    <form method="post" enctype="multipart/form-data">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
+            <div class="form-group">
+                <input type="text" name="title" placeholder="Title" />
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-right">
+            <div class="form-group">
+                <input type="text" name="summary" placeholder="Summary" />
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+            <div class="form-group">
+                <textarea name="mainContent" placeholder="Main Content"></textarea>
+            </div>
+        </div>
+        <div>
+        <label class="control-label col-sm-4" for="itemtype">Category:  </label>
+        <div class="col-sm-4">
+        <select name="category">
+           <option value="0">  </option>
+            <option value="1">PHP</option>
+           <option value="2">JavaScript</option>
+           <option value="3">MySQL</option>
+           <option value="4">General</option>
+        </select>
+        </div>
+        </div>
+        <br>
+        <div>
+            <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+            <input type="file" name="image" class="btn" required />
+        </div>
+        <br>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+            <div class="form-group contactus-btn">
+                <input type="submit" class="cntct-btn" value="Upload Post"> 
+            </div>
+        </div>
+    </form>
 </div>
-    <p>
-        <input class="w3-input" type="text" name="name" required autofocus>
-        <label>Name</label>
-    </p>
-        <p>
-        <input class="w3-input" type="text" name="price" required>
-        <label>Price</label>
-    </p>
-            
-  <input type="hidden" 
-	   name="MAX_FILE_SIZE" 
-         value="10000000"
-         />
-
-  <input type="file" name="myUploader" class="w3-btn w3-pink" required />
-  <p>
-    <input class="w3-btn w3-pink" type="submit" value="Add Product">
-  </p>
-</form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+           
+                

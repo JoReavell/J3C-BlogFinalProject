@@ -20,8 +20,8 @@ class BlogPostController {
 
         try{
         // we use the given id to get the correct post
-        $product = Product::find($_GET['id']);
-        require_once('views/products/read.php');
+        $blogPost = BlogPost::find($_GET['id']);
+        require_once('views/blogPost/viewSinglePost.php');
         }
         catch (Exception $ex){
             return call('pages','error');
@@ -37,12 +37,10 @@ class BlogPostController {
           require_once('views/blogPost/createBlogPost.php');
       }
       else { 
-          BlogPost::add();
-             
-            $blogPost = BlogPost::all(); //$blogPost is used within the view
-            require_once('views/blogPost/All.php');
-      }
-      
+            BlogPost::add();        
+            $blogPosts = BlogPost::all(); //$blogPost get all the posts again and redirect to main page
+            require_once('views/blogPost/viewAll.php');
+      }      
     }
     public function update() {
         
@@ -61,7 +59,7 @@ class BlogPostController {
             Product::update($id);
                         
             $products = Product::all();
-            require_once('views/products/readAll.php');
+            require_once('views/products/viewAll.php');
       }
       
     }
@@ -71,7 +69,7 @@ class BlogPostController {
             Product::remove($_GET['id']);
             
             $products = Product::all();
-            require_once('views/products/readAll.php');
+            require_once('views/products/viewAll.php');
       }
       
     }
