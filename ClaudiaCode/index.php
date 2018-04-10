@@ -1,13 +1,13 @@
-<!--<php //
-Initialize the session (don't forget to close it on logout)
+<?php
+// Initialize the session (don't forget to close it on logout)
 session_start();
  
 // If session variable is not set it will redirect to login page
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){   
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: Login/Login.php");
   exit;
 }
-?>-->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +24,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 	<link rel='stylesheet' href='css/font-awesome.min.css'/>
 
 	<!-- Main Style -->
-	<link rel='stylesheet' href='css/style.css'/>
+        <link href="css/cssnewlog.css" rel="stylesheet" type="text/css"/>
 
 
 	<!-- Google Fonts -->

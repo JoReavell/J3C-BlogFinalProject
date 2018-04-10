@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials with MySQL (check if what the user is posting is the same with the user from mysql
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT username, password FROM Member WHERE username = :username";
+        $sql = "SELECT username, password FROM bloguser WHERE username = :username";
         //A prepared statement is a feature used to execute the same (or similar) SQL statements repeatedly with high efficiency.
         if($stmt = $pdo->prepare($sql)){
         // Bind variables to the prepared statement as parameters
@@ -87,11 +87,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <html>
     <head>
-        
         <meta charset="utf-8" />
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="../css/cssnewlog.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/cssnew.css" rel="stylesheet" type="text/css"/>
         <title>Login</title>
         
     </head>
@@ -105,9 +105,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             <div class="card">
                 <div class="card-body">
-                    
+
                     <h3 class="text-center mt-0 m-b-15">
-                        <a href="../images/logo.png" class="logo logo-admin"><img src="../images/logo.png" height="40" alt="logo"></a>
+                        <a href="../Images/SL@1X.png" class="logo logo-admin"><img src="../Images/SL@1X.png" height="40" alt="logo"></a>
                     </h3>
 
                     <div class="p-3">
