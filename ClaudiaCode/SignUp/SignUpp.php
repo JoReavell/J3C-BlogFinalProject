@@ -1,4 +1,3 @@
-
 <?php
 // Include config file
 require_once "../Login/db-config.php";
@@ -22,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement from MySQL
-        $sql = "SELECT bloguserID FROM bloguser WHERE username = :username";
+        $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
         //prepare the statement
         
         if($stmt = $pdo->prepare($sql)){
