@@ -3,7 +3,7 @@
 <img src="views/images/standard/_errorimage.jpg" width="150" />
 <p>It looks like something went wrong :(</p>
 </div>-->
-
+<!--
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,25 +13,26 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap -->
+     Bootstrap 
     <link rel='stylesheet' href='css/bootstrap.min.css'/>
 
-    <!-- Font Awesome -->
+     Font Awesome 
     <link rel='stylesheet' href='css/font-awesome.min.css'/>
 
 
-    <!-- Main Style -->
+     Main Style 
     <link rel='stylesheet' href='css/style.css'/>
 
 
-    <!-- Google Fonts -->
+     Google Fonts 
     <link href='/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
     <link href='/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="images/sky.jpg"/>
-</head>
-<body>
+</head>-->
+
+<!--<body>-->
     
-<?php require_once 'Header.php'; ?>
+<?php include '../Header.php'; ?>
 
 <!-- Main -->
 <div id="main">
@@ -106,10 +107,10 @@
     
 </div><!-- End Main -->
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 
 <?php require_once 'Footer.php';?>
-</body>
-</html>
+<!--</body>
+</html>-->
