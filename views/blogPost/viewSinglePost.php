@@ -2,7 +2,7 @@
 <div id="main" class="top-margin">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <!-- Post -->
                 <article class="post">
                     <header>
@@ -18,14 +18,19 @@
                     <div class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></div>
                     <p><?php echo $blogPost->mainContent; ?></p>
             </div>
-                <!-- Pagination -->
+           <?php include_once 'sidebar.php'; ?> 
+<!-- Pagination -->
                 <ul class="actions pagination">
                     <li><a href="" class="disabled button big previous">Previous Post</a></li>
                     <li><a href="#" class="button big next">Next Post</a></li>
                 </ul>
-            </div> <!-- End col-12 -->
+                
+            </div> <!-- End col-8 -->
+            
         </div> <!-- End row -->
+        
     </div> <!-- End Container -->
+    
 
 
 
