@@ -11,24 +11,25 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<!-- Font Awesome -->
-	<link rel='stylesheet' href='css/font-awesome.min.css'/>
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Main Style -->
-	<link rel='stylesheet' href='css/style.css'/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
 
 
 	<!-- Google Fonts -->
-	<link href='/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
-	<link href='/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
+
+	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
+	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="images/sky.jpg"/>
 	
 </head>
 <body >
-    
     <!--Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand " href="#"><img class="logo" src="views/images/logo.png" alt="logo"></a>
+        <a class="navbar-brand " href="#"><img class="logo" src="images/logo.png" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,4 +76,4 @@
 </nav>
         
 	<!-- End navigation -->
-</body>
+<!--</body>-->
