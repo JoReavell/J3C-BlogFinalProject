@@ -65,10 +65,10 @@
                             <a class="nav-link icon fa fa-user " href="#">My Profile</a>
                         </li>
          
-                        <li class="nav-item">
-                            <a class="nav-link icon fa fa-sign-out " href="#">Sign Out</a>
+                        <li class="nav-item" >
+                            <a class="nav-link icon fa fa-sign-out " href="blogUser/Logout.php">Sign Out</a>
                         </li>
-         
+                        
                     </ul>
                 </div>
     </div>
