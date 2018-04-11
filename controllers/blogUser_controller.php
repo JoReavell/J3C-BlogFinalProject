@@ -6,6 +6,11 @@ class BlogUserController {
     
     public function login() {
         //User login functionality
+        //have code to start login here then go to model to do actual login
+        //set session variable with userID
+        $blogUser = BlogUser::login();
+        //set session variables here too!!
+        require_once('views/blogPost/viewAll.php');
     }
     
     public function readAll() {
