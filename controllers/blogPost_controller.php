@@ -10,6 +10,20 @@ class BlogPostController {
       $blogPosts = BlogPost::all();
       require_once('views/blogPost/viewAll.php');
     }
+    
+    public function readAllMyPosts() {
+    if (!isset($_GET['UserID']))
+      return call('pages', 'error');
+    
+    try{
+    
+    $blogPost = BlogPost::allMyPosts($_GET['username']);
+    require_once('views/blogPost/viewAllMyPosts.php');
+    }
+    catch (Exception $ex){
+            return call('pages','error');
+        }    
+    }
 
     public function read() {
         // we expect a url of form ?controller=posts&action=show&id=x

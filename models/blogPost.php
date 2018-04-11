@@ -8,7 +8,7 @@
     public $summary;
     public $mainContent;
     public $image;
-    public $author;
+    public $author; //is this now username?
     public $dateCreated;
     public $category;
     public $noOfViews;
@@ -40,6 +40,26 @@
       }
       return $list;
     }
+    
+     
+    public static function allMyPosts($username) {
+        
+      $list = [];
+      $db = Db::getInstance();
+      $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
+              . ", dateCreated, category, noOfViews, profilePic, blogUserID " 
+              . "FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
+              . "WHERE username = :username" //will this be available following login?
+              . "ORDER BY dateCreated DESC LIMIT 10";
+      $req = $db->prepare($sql);
+      $req->execute(array('username' => $username));
+      foreach($req->fetchAll() as $blogPost) {
+        $list[] = new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews'], $blogPost['profilePic']);
+      }
+      return $list;
+    } 
+    //do we need to declare username session varaiable
+    //do we need to start session on all pages?
 
     public static function find($id) {
       $db = Db::getInstance();
