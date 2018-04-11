@@ -67,7 +67,7 @@
                         </li>
          
                         <li class="nav-item">
-                            <a class="nav-link icon fa fa-sign-in " href="#">Login</a>
+                            <a class="nav-link icon fa fa-sign-in " href="?controller=blogUser&action=login">Login</a>
                         </li>
          
                     </ul>

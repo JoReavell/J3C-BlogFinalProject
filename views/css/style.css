@@ -750,6 +750,11 @@ body.is-menu-visible #wrapper {
     margin: 0 0 2em 0
 }
 
+.allPostsImages {
+    max-height: 100px;
+    width: auto;
+}
+
 @media screen and (max-width:1280px) {
     .mini-posts {
         display: -moz-flex;
@@ -856,7 +861,10 @@ body.is-menu-visible #wrapper {
     -moz-transition: -moz-transform .2s ease-out;
     -webkit-transition: -webkit-transform .2s ease-out;
     -ms-transition: -ms-transform .2s ease-out;
-    transition: transform .2s ease-out
+    transition: transform .2s ease-out;
+    height: auto;
+    max-width: 90%;
+    margin-left: 5%;
 }
 
 .post>.image.featured:hover img {

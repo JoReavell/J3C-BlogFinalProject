@@ -12,12 +12,11 @@ class BlogPostController {
     }
     
     public function readAllMyPosts() {
-    if (!isset($_GET['UserID']))
-      return call('pages', 'error');
-    
+//    if (!isset($_GET['UserID']))
+//      return call('pages', 'error');    
     try{
-    
-    $blogPost = BlogPost::allMyPosts($_GET['username']);
+    $blogPosts = BlogPost::allMyPosts('JoReavell');
+    //$blogPost = BlogPost::allMyPosts($_GET['username']);
     require_once('views/blogPost/viewAllMyPosts.php');
     }
     catch (Exception $ex){
@@ -51,7 +50,7 @@ class BlogPostController {
           require_once('views/blogPost/createBlogPost.php');
       }
       else { 
-            BlogPost::add();        
+            BlogPost::add();       
             $blogPosts = BlogPost::all(); //$blogPost get all the posts again and redirect to main page
             require_once('views/blogPost/viewAll.php');
       }      
