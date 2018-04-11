@@ -6,16 +6,12 @@ require_once "../Login/db-config.php";
 $username="";
 $password ="";
 $confirm_password ="";
-
-$first_name= "";
-$surname = "";
-$email_address="";
-$telephone="";
-$house_number = "";
-$postcode="";
+$email="";
+$firstName= "";
+$lastName = "";
 
 $username_err = $password_err = $confirm_password_err = "";
-$first_name_err = $surname_err = $email_address_err = $telephone_err = $house_number_err = $postcode_err = "";
+$firstName_err = $lastName_err = $email_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -25,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement from MySQL
-        $sql = "SELECT borrower_id FROM Member WHERE username = :username";
+        $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
         //prepare the statement
         
         if($stmt = $pdo->prepare($sql)){
@@ -73,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //            && empty($first_name_err) && empty($surname_err) && empty($email_address_err) && empty($telephone_err) && empty($house_number_err) && empty($postcode_err) ){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO Member (username, password, first_name, surname, email_address, telephone, house_number, postcode) VALUES (:username, :password, :first_name, :surname, :email_address, :telephone, :house_number, :postcode)";
+        $sql = "INSERT INTO bloguser (username, password, firstName, lastName, email) VALUES (:username, :password, :firstName, :lastName, :email)";
         
        
         
@@ -81,43 +77,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $param_first_name = $first_name;
-            $param_surname = $surname;
-            $param_email_address = $email_address;
-            $param_telephone = $telephone;
-            $param_house_number = $house_number;
-            $param_postcode = $postcode;
-         
+            $param_firstName = $firstName;
+            $param_lastName = $lastName;
+            $param_email = $email;
+            
             //catch the post
        
-            
-        
-        if($stmt = $pdo->prepare($sql)){
+            if($stmt = $pdo->prepare($sql)){
 //            
-           $param_first_name = trim($_POST["first_name"]);
-           $param_surname = trim($_POST["surname"]);
-           $param_email_address = trim($_POST["email_address"]);
-           $param_telephone = trim($_POST["telephone"]);
-           $param_house_number = trim($_POST["house_number"]);
-           $param_postcode = trim($_POST["postcode"]);
+           $param_firstName = trim($_POST["firstName"]);
+           $param_lastName = trim($_POST["lastName"]);
+           $param_email = trim($_POST["email"]);
+           
 //            
 //            Bind variables to the prepared statement as parameters
             $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
             $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-            $stmt->bindParam(':first_name', $param_first_name, PDO::PARAM_STR);
-            $stmt->bindParam(':surname', $param_surname, PDO::PARAM_STR);
-            $stmt->bindParam(':email_address', $param_email_address, PDO::PARAM_STR);
-            $stmt->bindParam(':telephone', $param_telephone, PDO::PARAM_STR);
-            $stmt->bindParam(':house_number', $param_house_number, PDO::PARAM_STR);
-            $stmt->bindParam(':postcode', $param_postcode, PDO::PARAM_STR);
- 
-            
-            
-            
-            
-            
-            
-            
+            $stmt->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
+            $stmt->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $param_email, PDO::PARAM_STR);
+              
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Redirect to login page
@@ -141,9 +120,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html>
     <head>
         <meta charset="utf-8" />
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="../css/cssnewlog.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/cssnew.css" rel="stylesheet" type="text/css"/>
         <title>SignUp</title>
     </head>
 
@@ -157,7 +137,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="card-body">
 
                     <h3 class="text-center mt-0 m-b-15">
-                        <a href="index.html" class="logo logo-admin"><img src="../images/logo.png" height="40" alt="logo"></a>
+                        <a href="index.html" class="logo logo-admin"><img src="../Images/SL@1X.png" height="40" alt="logo"></a>
                     </h3>
 
                     <div class="p-3">
@@ -165,8 +145,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             <div class="row">
                                 <div class="col-12 <?php echo (!empty($email_address_err)) ? 'has-error' : ''; ?>">
-                                    <input  class="form-control"  name="email_address" type="email" required="" placeholder="Email" value="<?php echo $email_address; ?>">
-                                    <span class="help-block"><?php echo $email_address_err; ?></span>
+                                    <input  class="form-control"  name="email" type="email" required="" placeholder="Email" value="<?php echo $email; ?>">
+                                    <span class="help-block"><?php echo $email_err; ?></span>
                                 </div>
                             </div>
 
@@ -193,43 +173,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                            
                             
                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($first_name_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="first_name" type="text" required="" placeholder="First Name" value="<?php echo $first_name; ?>">
-                                    <span class="help-block"><?php echo $first_name_err; ?></span>
+                                <div class="col-12 <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?> ">
+                                    <input class="form-control" name="firstName" type="text" required="" placeholder="First Name" value="<?php echo $firstName; ?>">
+                                    <span class="help-block"><?php echo $firstName_err; ?></span>
 
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($surname_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="surname" type="text" required="" placeholder="Surname" value="<?php echo $surname; ?>">
-                                    <span class="help-block"><?php echo $surname_err; ?></span>
+                                <div class="col-12 <?php echo (!empty($lastName_err)) ? 'has-error' : ''; ?> ">
+                                    <input class="form-control" name="lastName" type="text" required="" placeholder="lastName" value="<?php echo $lastName; ?>">
+                                    <span class="help-block"><?php echo $lastName_err; ?></span>
 
                                 </div>
                             </div>
                             
                             
-                            
-                            <div class="row">
-                                <div class="col-12 <?php echo (!empty($house_number_err)) ? 'has-error' : ''; ?>">
-                                    <input class="form-control" name="house_number" type="text" required="" placeholder="House Number" value="<?php echo $house_number; ?>" >
-                                    <span class="help-block"><?php echo $house_number_err; ?></span>
-
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-12<?php echo (!empty($postcode_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="postcode" type="text" required="" placeholder="Post Code" value="<?php echo $postcode; ?>">
-                                    <span class="help-block"><?php echo $postcode_err; ?></span>
-                                </div>
-                            </div>
-                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($telephone_err)) ? 'has-error' : ''; ?>">
-                                    <input class="form-control" name="telephone" type="text" required="" placeholder="Telephone" value="<?php echo $telephone; ?>">
-                                    <span class="help-block"><?php echo $telephone_err; ?></span>
-                                </div>
-                            </div>
                            <div class="row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
