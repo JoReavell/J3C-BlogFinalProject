@@ -3,15 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/BlogFinalProject/models/blogPost.php</file>
-            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/layout.php</file>
-            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogPost/viewAll.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogPost/carouselAndFeatured.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/HeaderAfterLogin.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/controllers/pages_controller.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogPost/updateBlogPost.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogUser/register.php</file>
             <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogPost/createBlogPost.php</file>
-            <file>file:/C:/xampp/htdocs/BlogFinalProject/index.php</file>
-            <file>file:/C:/xampp/htdocs/BlogFinalProject/ClaudiaCode/SignUp/SignUpp.php</file>
-            <file>file:/C:/xampp/htdocs/BlogFinalProject/routes.php</file>
-            <file>file:/C:/xampp/htdocs/BlogFinalProject/controllers/blogPost_controller.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogPost/viewAll.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/models/blogPost.php</file>
             <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogPost/viewSinglePost.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/layout.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogUser/login.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/index.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/controllers/blogPost_controller.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/blogPost/sidebar.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/ClaudiaCode/SignUp/SignUpp.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/views/pages/home.php</file>
+            <file>file:/C:/xampp/htdocs/BlogFinalProject/routes.php</file>
         </group>
     </open-files>
 </project-private>

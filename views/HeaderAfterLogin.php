@@ -1,5 +1,7 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Developer@Sky | Blogging Our Experience</title>
 	<meta charset="utf-8" />
@@ -14,22 +16,20 @@
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<!-- Main Style -->
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-
-
 	<!-- Google Fonts -->
-
 	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
 	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="images/sky.jpg"/>
+        
+        <!-- Main Style -->
+        <link href="views/css/style.css" rel="stylesheet" type="text/css"/>
 	
 </head>
 <body >
     <!--Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand " href="#"><img class="logo" src="images/logo.png" alt="logo"></a>
+        <a class="navbar-brand " href="#"><img class="logo" src="views/images/logo.png" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

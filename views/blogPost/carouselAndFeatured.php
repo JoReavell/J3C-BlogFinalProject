@@ -63,6 +63,24 @@
 
  </div>
 </section> 
+<!-- JavaScript for the carousel -->
+<script type="text/javascript">
+            $(document).ready(function(){
+                $(".start-slide").click(function(){
+                    $("#myCarousel").carousel('cycle');
+                });
+            });
+            $(document).ready(function(){
+                $(".prev-slide").click(function(){
+                    $("#myCarousel").carousel('prev');
+                });
+            });
+            $(document).ready(function(){
+                $(".next-slide").click(function(){
+                    $("#myCarousel").carousel('next');
+                });
+            });
+</script>
 <!-- End Carousel-->              
 <!-- Featured Posts -->
 <section class="featured-posts">
