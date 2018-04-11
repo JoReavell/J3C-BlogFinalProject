@@ -47,12 +47,12 @@
       $list = [];
       $db = Db::getInstance();
       $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
-              . ", dateCreated, category, noOfViews, profilePic, blogUserID " 
-              . "FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
-              . "WHERE username = :username" //will this be available following login?
-              . "ORDER BY dateCreated DESC LIMIT 10";
+              . ", dateCreated, category, noOfViews, profilePic, blogUserID" 
+              . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
+              . " WHERE username = :username" //will this be available following login?
+              . " ORDER BY dateCreated DESC LIMIT 10";
       $req = $db->prepare($sql);
-      $req->execute(array('username' => $username));
+      $req->execute(['username' => $username]);
       foreach($req->fetchAll() as $blogPost) {
         $list[] = new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews'], $blogPost['profilePic']);
       }
@@ -126,7 +126,7 @@ public static function add() {
     $summary = $filteredSummary;
     $mainContent = $filteredMainContent;
     $image = $_FILES['image']['name'];
-    $date = date('Y-m-d H:i:s');
+    $date = date('Y-m-d H:i');
     $category = $_POST['category'];
 
 //The author needs to be got from the session after login UPDATE!!!!!

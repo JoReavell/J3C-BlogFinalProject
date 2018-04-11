@@ -12,6 +12,9 @@
       $this->price = $price;
     }
 
+    public function login() {
+        //check user do db stuff
+    }
     public static function all() {
       $list = [];
       $db = Db::getInstance();
