@@ -4,17 +4,18 @@
 
 class BlogUserController {
     
-    // Create / sign up a new blog user 
+    // Sign up a new blog user 
     public function signUp() {
         // we expect a url of form ?controller=blogUser&action=signUp
-        // if it's a POST request add user to the database and redirect to login action
-        // else it's an error
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            BlogUser::signUp();       
-            require_once('views/blogUser/login.php'); // redirect to login after signup
+        // if it's a GET request display a blank form for signing up a new user
+        // else it's a POST request - add user to the database and redirect to login action
+
+        if($_SERVER["REQUEST_METHOD"] == "GET") {
+            require_once('views/blogUser/signUp.php'); // show signup page
         } 
         else { 
-            require_once('views/pages/error.php'); // redirect to error page 
+            BlogUser::signUp();       
+            require_once('views/blogUser/login.php'); // redirect to login after signup 
         }      
     }        
             
