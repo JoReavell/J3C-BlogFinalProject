@@ -19,6 +19,7 @@
     if(empty($username_err) && empty($password_err)){
     $db = Db::getInstance();
     $sql = "SELECT username, password FROM bloguser WHERE username = :username";
+    
     if($stmt = $pdo->prepare($sql)){
         $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
         $param_username = trim($_POST["username"]);
