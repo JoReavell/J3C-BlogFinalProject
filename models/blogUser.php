@@ -13,7 +13,33 @@
     }
 
     public function login() {
-        //check user do db stuff
+    if(empty($username_err) && empty($password_err)){
+    $sql = "SELECT username, password FROM bloguser WHERE username = :username";
+    if($stmt = $pdo->prepare($sql)){
+        $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
+        $param_username = trim($_POST["username"]);
+    if($stmt->execute()){
+        if($stmt->rowCount() == 1){
+            if($row = $stmt->fetch()){
+                $hashed_password = $row['password'];
+                if(password_verify($password, $hashed_password)){
+                session_start();
+                $_SESSION['username'] = $username; 
+                header("location: views/blogPost/viewAll.php");
+                    } else{
+                    $password_err = 'The password you entered was not valid.';
+                    }
+                  }
+                } else{
+                    // Display an error message if username doesn't exist
+                    $username_err = 'No account found with that username.';
+                }
+            } else{ 
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+//        unset($stmt);
+    }
     }
     public static function all() {
       $list = [];
