@@ -4,7 +4,7 @@
 
 class BlogUserController {
     
-    public function login() {
+    public function login($username, $password) {
         
         //User login functionality
         //have code to start login here then go to model to do actual login
@@ -56,7 +56,7 @@ $username_err = $password_err = "";
 //        }
 //        unset($stmt);
 //    }
-    unset($pdo);
+//    unset($pdo);
 }
 }
     

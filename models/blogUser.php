@@ -12,7 +12,7 @@
       $this->price = $price;
     }
 
-    public function login() {
+    public function login($username, $password) {
     if(empty($username_err) && empty($password_err)){
     $sql = "SELECT username, password FROM bloguser WHERE username = :username";
     if($stmt = $pdo->prepare($sql)){
@@ -41,6 +41,7 @@
 //        unset($stmt);
     }
     }
+    
     public static function all() {
       $list = [];
       $db = Db::getInstance();
