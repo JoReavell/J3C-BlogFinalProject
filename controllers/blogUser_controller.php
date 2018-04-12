@@ -4,22 +4,10 @@
 
 class BlogUserController {
     
-    
-     
-        //User login functionality
-        //have code to start login here then go to model to do actual login
-        //set session variable with userID
-//        $blogUser = BlogUser::login();
-        //set session variables here too!!
-        
-//        require_once 'views/pages/home.php';
- 
-//Define variables and initialized with empty values
-
-    
+   
     public function login() {
         
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if($_SERVER["REQUEST_METHOD"] == "GET"){
         require_once('views/blogUser/login.php');
     }else{
         $blogUser = BlogUser::login();
