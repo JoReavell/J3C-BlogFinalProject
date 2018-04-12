@@ -136,7 +136,7 @@
                     </h3>
 
                     <div class="p-3">
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form-horizontal m-t-20">
+                        <form method="post" class="form-horizontal m-t-20">
                             
                         
                             <div class="row">
