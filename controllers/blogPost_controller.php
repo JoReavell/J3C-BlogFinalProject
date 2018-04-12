@@ -55,8 +55,8 @@ class BlogPostController {
             require_once('views/blogPost/viewAll.php');
       }      
     }
-    public function update() {
-        
+    
+    public function update() {        
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
           if (!isset($_GET['id']))
         return call('pages', 'error');

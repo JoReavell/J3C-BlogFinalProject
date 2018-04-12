@@ -4,14 +4,33 @@
 
 class BlogUserController {
     
+   
     public function login() {
-        //User login functionality
-        //have code to start login here then go to model to do actual login
-        //set session variable with userID
+        
+    if($_SERVER["REQUEST_METHOD"] == "GET"){
+        require_once('views/blogUser/login.php');
+    }else{
         $blogUser = BlogUser::login();
-        //set session variables here too!!
-        require_once('views/blogPost/viewAll.php');
+        require_once 'views/pages/home.php';
     }
+        $username = $password = "";
+        $username_err = $password_err = "";
+        
+        if(empty(trim($_POST["username"]))){
+            $username_err = 'Please enter username.';
+//            require_once('views/blogUser/login.php');
+        } else{
+            $username = trim($_POST["username"]);
+        }
+        
+    if(empty(trim($_POST['password']))){
+            $password_err = 'Please enter your password.';
+        } else{
+            $password = trim($_POST['password']);
+            
+        }
+}
+
     
     public function readAll() {
       // we store all the posts in a variable

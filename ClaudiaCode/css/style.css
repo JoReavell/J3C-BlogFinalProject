@@ -210,6 +210,10 @@ hr.major {
     white-space: nowrap
 }
 
+.imagebloghome {
+    max-height: 50%;
+}
+
 .author .name {
     display: block;
     margin: 0 1.5em 0 0
