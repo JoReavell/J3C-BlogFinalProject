@@ -5,22 +5,25 @@
 class BlogUserController {
     
     public function login($username, $password) {
-        
+     
         //User login functionality
         //have code to start login here then go to model to do actual login
         //set session variable with userID
         $blogUser = BlogUser::login();
         //set session variables here too!!
         
-        require_once 'view/connection.php';
+        require_once 'views/pages/home.php';
  
 //Define variables and initialized with empty values
 $username = $password = "";
 $username_err = $password_err = "";
 
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        
         if(empty(trim($_POST["username"]))){
             $username_err = 'Please enter username.';
+            require_once('views/blogUser/login.php');
         } else{
             $username = trim($_POST["username"]);
         }
@@ -29,34 +32,6 @@ $username_err = $password_err = "";
         } else{
             $password = trim($_POST['password']);
         }
-//    if(empty($username_err) && empty($password_err)){
-//        $sql = "SELECT username, password FROM bloguser WHERE username = :username";
-//    if($stmt = $pdo->prepare($sql)){
-//        $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-//        $param_username = trim($_POST["username"]);
-//    if($stmt->execute()){
-//        if($stmt->rowCount() == 1){
-//            if($row = $stmt->fetch()){
-//                $hashed_password = $row['password'];
-//                if(password_verify($password, $hashed_password)){
-//                session_start();
-//                $_SESSION['username'] = $username; 
-//                header("location: views/blogPost/viewAll.php");
-//                    } else{
-//                    $password_err = 'The password you entered was not valid.';
-//                    }
-//                  }
-//                } else{
-//                    // Display an error message if username doesn't exist
-//                    $username_err = 'No account found with that username.';
-//                }
-//            } else{ 
-//                echo "Oops! Something went wrong. Please try again later.";
-//            }
-//        }
-//        unset($stmt);
-//    }
-//    unset($pdo);
 }
 }
     

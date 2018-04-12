@@ -12,8 +12,12 @@
       $this->price = $price;
     }
 
+
+    
+    
     public function login($username, $password) {
     if(empty($username_err) && empty($password_err)){
+    $db = Db::getInstance();
     $sql = "SELECT username, password FROM bloguser WHERE username = :username";
     if($stmt = $pdo->prepare($sql)){
         $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
@@ -25,7 +29,7 @@
                 if(password_verify($password, $hashed_password)){
                 session_start();
                 $_SESSION['username'] = $username; 
-                header("location: views/blogPost/viewAll.php");
+//                header("location: views/pages/home.php");
                     } else{
                     $password_err = 'The password you entered was not valid.';
                     }
@@ -42,7 +46,7 @@
     }
     }
     
-    public static function all() {
+     public static function all() {
       $list = [];
       $db = Db::getInstance();
       $req = $db->query('SELECT * FROM product');
