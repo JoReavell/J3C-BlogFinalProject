@@ -16,6 +16,8 @@
     
     
     public function login($username, $password) {
+    $username_err=$password_err="";  
+    $pdo= self::$instance;
     if(empty($username_err) && empty($password_err)){
     $db = Db::getInstance();
     $sql = "SELECT username, password FROM bloguser WHERE username = :username";
@@ -30,22 +32,20 @@
                 if(password_verify($password, $hashed_password)){
                 session_start();
                 $_SESSION['username'] = $username; 
-//                header("location: views/pages/home.php");
                     } else{
                     $password_err = 'The password you entered was not valid.';
                     }
                   }
                 } else{
-                    // Display an error message if username doesn't exist
                     $username_err = 'No account found with that username.';
                 }
             } else{ 
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
-//        unset($stmt);
+        unset($stmt);
     }
-    }
+    } 
     
      public static function all() {
       $list = [];
