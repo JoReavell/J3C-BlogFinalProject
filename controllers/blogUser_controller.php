@@ -9,6 +9,7 @@ class BlogUserController {
         
     if($_SERVER["REQUEST_METHOD"] == "GET"){
         require_once('views/blogUser/login.php');
+        echo "GET";
     }else{
         BlogUser::login();
         $blogUser = BlogUser::login();
