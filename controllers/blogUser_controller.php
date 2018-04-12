@@ -10,25 +10,26 @@ class BlogUserController {
     if($_SERVER["REQUEST_METHOD"] == "GET"){
         require_once('views/blogUser/login.php');
     }else{
+        BlogUser::login();
         $blogUser = BlogUser::login();
         require_once 'views/pages/home.php';
     }
-        $username = $password = "";
-        $username_err = $password_err = "";
-        
-        if(empty(trim($_POST["username"]))){
-            $username_err = 'Please enter username.';
-//            require_once('views/blogUser/login.php');
-        } else{
-            $username = trim($_POST["username"]);
-        }
-        
-    if(empty(trim($_POST['password']))){
-            $password_err = 'Please enter your password.';
-        } else{
-            $password = trim($_POST['password']);
-            
-        }
+    
+//        $username_err = $password_err = "";
+//        
+//        if(empty(trim($_POST["username"]))){
+//            $username_err = 'Please enter username.';
+////            require_once('views/blogUser/login.php');
+//        } else{
+//            $username = trim($_POST["username"]);
+//        }
+//        
+//    if(empty(trim($_POST['password']))){
+//            $password_err = 'Please enter your password.';
+//        } else{
+//            $password = trim($_POST['password']);
+//            
+//        }
 }
 
     
