@@ -14,6 +14,7 @@ class BlogUserController {
         $password_err = "";
         require_once('views/blogUser/login.php');
     }else{
+
         if(empty(trim($_POST["username"]))){
             $username_err = 'Please enter username.';
             require_once('views/blogUser/login.php');
@@ -45,6 +46,13 @@ class BlogUserController {
     } else{
         $password = trim($_POST['password']);            
     }
+=======
+        BlogUser::login();
+        $blogUser = BlogUser::login();
+        require_once 'views/pages/home.php';
+    }
+    
+
 }
 
     

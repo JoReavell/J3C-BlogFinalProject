@@ -14,9 +14,23 @@
 
 
     
+    public function login(){
+        $db=Db::getInstance();
+        $req=$db->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
+       
+    if(empty(trim($_POST["username"]))){
+        $username_err = 'Please enter username.';
+    } else{
+        $username = trim($_POST["username"]);
+    }
     
-    public function login($username, $password) {
+    if(empty(trim($_POST['password']))){
+        $password_err = 'Please enter your password.';
+    } else{
+        $password = trim($_POST['password']);
+    }
     if(empty($username_err) && empty($password_err)){
+
     $db = Db::getInstance();
     $sql = "SELECT userID, username, password FROM bloguser WHERE username = :username";
     if($stmt = $db->prepare($sql)){
@@ -35,11 +49,36 @@
                 } else{
                     $password_err = 'The password you entered was not valid.';
                 }
+        
+//        $sql = "SELECT username, password FROM bloguser WHERE username = :username";
+//        if($stmt = $pdo->prepare($sql)){
+        $param_username = trim($_POST["username"]);
+        $req->bindParam(':username', $param_username, PDO::PARAM_STR);
+        
+        if($req->execute()){
+        if($req->rowCount() == 1){
+        if($row = $req->fetch()){
+        $hashed_password = $row['password'];
+
+        if(password_verify($password, $hashed_password)){
+        session_start();
+        $_SESSION['username'] = $username; 
+        } else{
+        $password_err = 'The password you entered was not valid.';
+        }
+       }
+      } else{
+        $username_err = 'No account found with that username.';
+        }
+        } else{ 
+        echo "Oops! Something went wrong. Please try again later.";
+
             }
         } else{
             // Display an error message if username doesn't exist
             $username_err = 'No account found with that username.';
         }
+
     } else{ 
         echo "Oops! Something went wrong. Please try again later.";
     }
@@ -47,7 +86,49 @@
 //        unset($stmt);
 }
 }
+
+         BlogUser::login($_SESSION['username']['password']);
+//        unset($stmt);
+    }
+   
+   
+//     unset($pdo);
+
+
+
     
+    
+//    $username_err=$password_err="";  
+//    
+//    if(empty($username_err) && empty($password_err)){
+//    $db = Db::getInstance();
+//    $sql = "SELECT username, password FROM bloguser WHERE username = :username";
+//    
+//    if($stmt = $pdo->prepare($sql)){
+//        $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
+//        $param_username = trim($_POST["username"]);
+//    if($stmt->execute()){
+//        if($stmt->rowCount() == 1){
+//            if($row = $stmt->fetch()){
+//                $hashed_password = $row['password'];
+//                if(password_verify($password, $hashed_password)){
+//                session_start();
+//                $_SESSION['username'] = $username; 
+//                    } else{
+//                    $password_err = 'The password you entered was not valid.';
+//                    }
+//                  }
+//                } else{
+//                    $username_err = 'No account found with that username.';
+//                }
+//            } else{ 
+//                echo "Oops! Something went wrong. Please try again later.";
+//            }
+//        }
+//        unset($stmt);
+//    }
+//    } 
+   
      public static function all() {
       $list = [];
       $db = Db::getInstance();
