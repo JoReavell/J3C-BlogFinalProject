@@ -46,14 +46,13 @@ class BlogUserController {
     } else{
         $password = trim($_POST['password']);            
     }
-=======
         BlogUser::login();
         $blogUser = BlogUser::login();
         require_once 'views/pages/home.php';
     }
     
 
-}
+
 
     
     public function readAll() {
