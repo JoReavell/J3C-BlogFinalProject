@@ -18,33 +18,35 @@
     public function login($username, $password) {
     if(empty($username_err) && empty($password_err)){
     $db = Db::getInstance();
-    $sql = "SELECT username, password FROM bloguser WHERE username = :username";
-    if($stmt = $pdo->prepare($sql)){
-        $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
+    $sql = "SELECT userID, username, password FROM bloguser WHERE username = :username";
+    if($stmt = $db->prepare($sql)){
+        $stmt->bindParam(':username', $param_username, DB::PARAM_STR);
         $param_username = trim($_POST["username"]);
     if($stmt->execute()){
         if($stmt->rowCount() == 1){
             if($row = $stmt->fetch()){
                 $hashed_password = $row['password'];
                 if(password_verify($password, $hashed_password)){
-                session_start();
+                    //don't need this cos we start the session in the header on every page
+//               session_start();
+                $_SESSION['userID'] = $row['userID'];
                 $_SESSION['username'] = $username; 
 //                header("location: views/pages/home.php");
-                    } else{
-                    $password_err = 'The password you entered was not valid.';
-                    }
-                  }
                 } else{
-                    // Display an error message if username doesn't exist
-                    $username_err = 'No account found with that username.';
+                    $password_err = 'The password you entered was not valid.';
                 }
-            } else{ 
-                echo "Oops! Something went wrong. Please try again later.";
             }
+        } else{
+            // Display an error message if username doesn't exist
+            $username_err = 'No account found with that username.';
         }
+    } else{ 
+        echo "Oops! Something went wrong. Please try again later.";
+    }
+}
 //        unset($stmt);
-    }
-    }
+}
+}
     
      public static function all() {
       $list = [];
