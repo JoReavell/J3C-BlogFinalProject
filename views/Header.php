@@ -71,7 +71,7 @@
     <div class="dropdown-menu">
         <a id="button" class="btn btn-primary" href="?controller=blogUser&action=login" role="button">Login</a>
         <br>
-        <a id="button" class="btn btn-primary p-0" style="font-size:14px; height:24px;" href="?controller=blogUser&action=register" role="button">Register</a>
+        <a id="button" class="btn btn-primary p-0" style="font-size:14px; height:24px;" href="?controller=blogUser&action=signUp" role="button">Register</a>
         <div class="dropdown-divider"></div>
         <span class="m-2" style="font-size:12px;">Please login</span>
     </div>

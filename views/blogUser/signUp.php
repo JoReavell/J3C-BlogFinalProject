@@ -12,7 +12,7 @@
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form-horizontal"  method="post">
 
                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($email_address_err)) ? 'has-error' : ''; ?>">
+                                <div class="col-12 <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                                     <input  class="form-control"  name="email" type="email" required="" placeholder="Email" value="<?php echo $email; ?>">
                                     <span class="help-block"><?php echo $email_err; ?></span>
                                 </div>
@@ -73,7 +73,7 @@
                             
                             <div class="m-t-10 mb-0 row">
                                 <div class="col-12 m-t-20 text-center">
-                                    <a href="login.php" class="text-muted">Already have account?</a>
+                                    <a href="login.php" class="text-muted">Already have an account?</a>
                                 </div>
                             </div>
                             
