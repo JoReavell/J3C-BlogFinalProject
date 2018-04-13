@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php
+// Initialize the session (don't forget to close it on logout)
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: Login/Login.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +50,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Browse By Topic</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">JavaScript</a>
-                                <a class="dropdown-item" href="#">MySQL</a>
-                                <a class="dropdown-item" href="#">PHP</a>
-                                <a class="dropdown-item" href="#">General</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=3">JavaScript</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=2">MySQL</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=1">PHP</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=4">General</a>
                             </div>
                     </li>        
                     <li class="nav-item">
@@ -86,9 +95,9 @@
     <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <img style="height: 20px; width: 20px;" src="images/magnif.png"></button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <form class="form-inline m-2" method="POST" action="searchResults.php">
+        <form class="form-inline m-2" method="POST" action="?controller=blogPost&action=searchByKeyword">
             <input class="form-control mx-1 my-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
-            <button type="submit" class="btn btn-secondary mx-1 mt-0" style="font-size:12px; width:195px;">Search library</button> 
+            <button type="submit" class="btn btn-secondary mx-1 mt-0" style="font-size:12px; width:195px;">Search</button> 
         </form>
     </div>
 </div>
