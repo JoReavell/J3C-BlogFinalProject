@@ -56,7 +56,17 @@ class BlogUserController {
         $blogUser = BlogUser::login();
         require_once 'views/pages/home.php';
     }
-
+ //logout
+    
+    public function logout(){
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            require_once 'views/blogUser/logout.php';
+        }else{
+            BlogUser::logout();
+            require_once 'views/blogUser/login';
+        }
+    }
+    
     public function readAll() {
       // we store all the posts in a variable
         //Get all the products from the database using the all() function in product.php MODEL
