@@ -56,7 +56,7 @@ class BlogUserController {
     
 
 
-
+    }
 
     
     public function readAll() {
