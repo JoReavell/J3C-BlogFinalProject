@@ -67,6 +67,19 @@
         }
         if(!empty(trim($_POST["email"]))){
             $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
+            $sql = "SELECT blogUserID FROM bloguser WHERE email = :email";
+
+            $checkEmail = $db->prepare($sql);
+            $checkEmail->execute([':email' => $filteredEmail]);
+            $checkEmail->fetchAll();
+            if($checkEmail->rowCount() != 0){
+                $email_err = "Sorry! This email is already in use. Please choose another";
+                //return out of the function. We don't want to do the insert.
+                return $email_err;
+            } 
+            else {
+                $email = $filteredEmail;
+            }
         }
         if(!empty(trim($_POST["firstName"]))){
             $filteredFirstName = filter_input(INPUT_POST,'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
