@@ -29,25 +29,25 @@ class BlogUserController {
 //        $password_err = "";
         require_once('views/blogUser/login.php');
     }else{
-
-        if(empty(trim($_POST["username"]))){
-            $username_err = 'Please enter username.';
-            require_once('views/blogUser/login.php');
-        } else{
-            $username = trim($_POST["username"]);
-        }
-
-        if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
-        require_once('views/blogUser/login.php');
-    } else{
-        $password = trim($_POST['password']);            
-    }
-        //your function in blog user requires some parameters. Are you going to pass these in?
-        //
-        $blogUser = BlogUser::login();
-        require_once 'views/pages/home.php';
-    }      
+//
+//        if(empty(trim($_POST["username"]))){
+//            $username_err = 'Please enter username.';
+//            require_once('views/blogUser/login.php');
+//        } else{
+//            $username = trim($_POST["username"]);
+//        }
+//
+//        if(empty(trim($_POST['password']))){
+//        $password_err = 'Please enter your password.';
+//        require_once('views/blogUser/login.php');
+//    } else{
+//        $password = trim($_POST['password']);            
+//    }
+//        //your function in blog user requires some parameters. Are you going to pass these in?
+//        //
+//        $blogUser = BlogUser::login();
+//        require_once 'views/pages/home.php';
+//    }      
                     
         BlogUser::login();
         $blogUser = BlogUser::login();
