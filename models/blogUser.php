@@ -12,7 +12,6 @@
     public $firstName= "";
     public $lastName = "";
     
-    // Not sure we need these errors since the form won't submit if empty due to required fields
     public $username_err = "";
     public $password_err = "";
     public $confirm_password_err = "";
@@ -52,9 +51,14 @@
         if(!empty(trim($_POST["username"]))){
             $filteredUsername = filter_input(INPUT_POST,'username', FILTER_SANITIZE_SPECIAL_CHARS);
             $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
-            
-            if($req->rowCount() == 1){
-                $username_err = "This username is already taken.";
+
+            $checkUsername = $db->prepare($sql);
+            $checkUsername->execute([':username' => $filteredUsername]);
+            $checkUsername->fetchAll();
+            if($checkUsername->rowCount() != 0){
+                $username_err = "Sorry! This username is already taken. Please choose another";
+                //return out of the function. We don't want to do the insert.
+                return $username_err;
             } 
             else {
                 $username = $filteredUsername;
@@ -62,6 +66,19 @@
         }
         if(!empty(trim($_POST["email"]))){
             $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
+            $sql = "SELECT blogUserID FROM bloguser WHERE email = :email";
+
+            $checkEmail = $db->prepare($sql);
+            $checkEmail->execute([':email' => $filteredEmail]);
+            $checkEmail->fetchAll();
+            if($checkEmail->rowCount() != 0){
+                $email_err = "Sorry! This email is already in use. Please choose another or sign in";
+                //return out of the function. We don't want to do the insert.
+                return $email_err;
+            } 
+            else {
+                $email = $filteredEmail;
+            }
         }
         if(!empty(trim($_POST["firstName"]))){
             $filteredFirstName = filter_input(INPUT_POST,'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -86,7 +103,14 @@
         if(!empty(trim($_POST['password']))){
             if(strlen(trim($_POST['password'])) < 6){
                 $password_err = "Password must have atleast 6 characters.";
+                //return out of the function. We don't want to do the insert.
+                return $password_err;
             } 
+            else if(trim($_POST['password']) !== trim($_POST['confirm_password'])){
+                $password_err = "Your passwords do not match. Please enter the same password twice.";
+                //return out of the function. We don't want to do the insert.
+                return $password_err;
+            }
             else {
                 $password = trim($_POST['password']);
                 $password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
@@ -110,6 +134,7 @@
             'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
             )
         );
+        //all went OK, return true
     }        
 
   
