@@ -43,8 +43,9 @@
 
     public static function signUp() {
         $db = Db::getInstance();
-        $req = $db->prepare("INSERT INTO bloguser (username, password, firstName, lastName, email) "
-                . "VALUES (:username, :password, :firstName, :lastName, :email)");
+        $req = $db->prepare("INSERT INTO bloguser (username, firstName, lastName, email, password) "
+                . "VALUES (:username, :firstName, :lastName, :email, :password)");
+
         
         // set parameters and execute
         //Filter the text part of the input.
@@ -87,83 +88,24 @@
         }    
         
         $req->bindParam(':username', $username);
-        $req->bindParam(':email', $email);
         $req->bindParam(':firsName', $firstName);
         $req->bindParam(':lastName', $lastName);
+        $req->bindParam(':email', $email);
         $req->bindParam(':password', $password);
         $req->bindParam(':confirm_password', $confirm_password);
 
 
-        
         $req->execute(
-//                array(
-//            'username' => $username,
-//            'email' => $email,
-//            'firstName' => $firstName,
-//            'lastName' => $lastName,
-//            'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
-//            //'confirm_password' => $confirm_password
-//            )
+                array(
+            'username' => $username,
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'email' => $email,
+            'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
+            )
         );
-        
-//        if($req->execute()){
-//            if($req->rowCount() == 1){
-//                $username_err = "This username is already taken.";
-//            } 
-//            else {
-//                $username = trim($_POST["username"]);
-//            }
-//        } 
+    }        
 
-
-            
-        // Attempt to execute the prepared statement
-            if($req->execute()) {
-                // Redirect to login page
-                header("location: login.php");
-            } 
-            else {
-                echo "Something went wrong. Please try again later.";
-            }
-            
-    }
-
-            
-//                // Set parameters
-//                    $param_username = $username;
-//                    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-//                    $param_firstName = $firstName;
-//                    $param_lastName = $lastName;
-//                    $param_email = $email;
-
-//                    //catch the post
-//
-//                    if($stmt == $pdo_options->prepare($sql)){
-//                    
-//                    $param_firstName = trim($_POST["firstName"]);
-//                    $param_lastName = trim($_POST["lastName"]);
-//                    $param_email = trim($_POST["email"]);
-//
-//                 
-//                // Bind variables to the prepared statement as parameters
-//                    $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-//                    $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-//                    $stmt->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
-//                    $stmt->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
-//                    $stmt->bindParam(':email', $param_email, PDO::PARAM_STR);
-//
-                    
-                    
-
-//                // Close statement
-//                unset($stmt);
-//            }
-//
-//            // Close connection
-//            unset($pdo_options);
-        
-               
-                
 
         
          
