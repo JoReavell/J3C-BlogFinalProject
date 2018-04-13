@@ -30,13 +30,9 @@ class BlogUserController {
     
     public function login() {
     if($_SERVER["REQUEST_METHOD"] == "GET"){
-//        $username = "";
-//        $password = "";
-//        $username_err = "";
-//        $password_err = "";
+        
         require_once('views/blogUser/login.php');
     }else{
-
         if(empty(trim($_POST["username"]))){
             $username_err = 'Please enter username.';
             require_once('views/blogUser/login.php');
@@ -63,7 +59,7 @@ class BlogUserController {
     
 
 
-
+    }
 
     
     public function readAll() {

@@ -1,12 +1,12 @@
 <?php
 // Initialize the session (don't forget to close it on logout)
 session_start();
- 
+ if (isset($_SESSION['username'])) { echo 'logged in'; }
 // If session variable is not set it will redirect to login page
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: Login/Login.php");
-  exit;
-}
+//if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+//  header("location: Login/Login.php");
+//  exit;
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
