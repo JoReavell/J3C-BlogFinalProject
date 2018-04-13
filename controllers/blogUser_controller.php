@@ -56,10 +56,6 @@ class BlogUserController {
         $blogUser = BlogUser::login();
         require_once 'views/pages/home.php';
     }
-    
-
-
-    }
 
     
     public function readAll() {
