@@ -58,8 +58,44 @@
       }
       return $list;
     } 
-    //do we need to declare username session varaiable
-    //do we need to start session on all pages?
+    
+    public static function searchByCategory($category) {
+        
+      $list = [];
+      $db = Db::getInstance();
+      $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
+              . ", dateCreated, category, noOfViews, profilePic, blogUserID" 
+              . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
+              . " WHERE category = :category"
+              . " ORDER BY dateCreated DESC LIMIT 10";
+      $req = $db->prepare($sql);
+      $req->execute(['category' => $category]);
+      foreach($req->fetchAll() as $blogPost) {
+        $list[] = new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews'], $blogPost['profilePic']);
+      }
+      return $list;
+    } 
+    
+    public static function searchByKeyword($keyword) {
+        
+      $list = [];
+      $db = Db::getInstance();
+      $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
+              . ", dateCreated, category, noOfViews, profilePic, blogUserID" 
+              . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
+              . " WHERE title LIKE $keyword"
+              . " OR summary LIKE $keyword"
+              . " OR mainContent LIKE $keyword"
+              . " ORDER BY dateCreated DESC LIMIT 10";
+
+      $req = $db->prepare($sql);
+      //$req->execute(['keyword' => $keyword]); //for some reason it isn't working this way so put $keyword straight into search sql????
+      $req->execute();
+      foreach($req->fetchAll() as $blogPost) {
+        $list[] = new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews'], $blogPost['profilePic']);
+      }
+      return $list;
+    } 
 
     public static function find($id) {
       $db = Db::getInstance();
