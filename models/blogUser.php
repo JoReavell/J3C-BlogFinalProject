@@ -50,6 +50,13 @@
         if(!empty(trim($_POST["username"]))){
             $filteredUsername = filter_input(INPUT_POST,'username', FILTER_SANITIZE_SPECIAL_CHARS);
             $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
+            
+            if($req->rowCount() == 1){
+                $username_err = "This username is already taken.";
+            } 
+            else {
+                $username = $filteredUsername;
+            }
         }
         if(!empty(trim($_POST["email"]))){
             $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -66,14 +73,6 @@
         $firstName = $filteredFirstName;
         $lastName = $filteredLastName;
         
-        
-        if($req->rowCount() == 1){
-                $username_err = "This username is already taken.";
-            } 
-            else {
-                $username = trim($_POST["username"]);
-            }
-            
             
         // Validate password
         if(!empty(trim($_POST['password']))){
@@ -95,14 +94,15 @@
 
 
         
-        $req->execute(array(
-            'username' => $username,
-            'email' => $email,
-            'firstName' => $firstName,
-            'lastName' => $lastName,
-            'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
-            //'confirm_password' => $confirm_password
-            )
+        $req->execute(
+//                array(
+//            'username' => $username,
+//            'email' => $email,
+//            'firstName' => $firstName,
+//            'lastName' => $lastName,
+//            'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
+//            //'confirm_password' => $confirm_password
+//            )
         );
         
 //        if($req->execute()){
