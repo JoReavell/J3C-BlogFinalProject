@@ -24,10 +24,10 @@
 
 // for validation we list the allowed controllers and their actions
 // Add an entry for each new controller and its actions
-$controllers = array('pages' => ['home', 'error'],
+$controllers = array('pages' => ['home', 'error', 'login'],
                     'blogPost' => ['readAll','read','create','update','delete', 'readAllMyPosts'],
                     'blogUser' => ['login','readAll','read','create','update','delete'],
-                    );
+                    );  
 
   // check that the requested controller and action are both allowed
   // if someone tries to access something else they will be redirected 
