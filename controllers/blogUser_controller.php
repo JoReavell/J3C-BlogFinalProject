@@ -56,12 +56,7 @@ class BlogUserController {
         $blogUser = BlogUser::login();
         require_once 'views/pages/home.php';
     }
-    
-
-
-    }
-
-    
+       
     public function readAll() {
       // we store all the posts in a variable
         //Get all the products from the database using the all() function in product.php MODEL
