@@ -87,7 +87,7 @@
                             
                             <div class="row">
                                 <div class="col-12 <?php //echo (!empty($lastName_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="lastName" type="text" required="" placeholder="lastName" value="<?php //echo $lastName; ?>">
+                                    <input class="form-control" name="lastName" type="text" required="" placeholder="Last Name" value="<?php //echo $lastName; ?>">
                                     <span class="help-block"><?php //echo $lastName_err; ?></span>
 
                                 </div>

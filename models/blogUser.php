@@ -43,17 +43,43 @@
 
     public static function signUp() {
         $db = Db::getInstance();
-        $req = $db->prepare("INSERT INTO bloguser (username, password, firstName, lastName, email) "
-                . "VALUES (:username, :password, :firstName, :lastName, :email)");
+        $req = $db->prepare("INSERT INTO bloguser (username, firstName, lastName, email, password) "
+                . "VALUES (:username, :firstName, :lastName, :email, :password)");
+
         
         // set parameters and execute
         //Filter the text part of the input.
         if(!empty(trim($_POST["username"]))){
             $filteredUsername = filter_input(INPUT_POST,'username', FILTER_SANITIZE_SPECIAL_CHARS);
             $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
+
+            $checkUsername = $db->prepare($sql);
+            $checkUsername->execute([':username' => $filteredUsername]);
+            $checkUsername->fetchAll();
+            if($checkUsername->rowCount() != 0){
+                $username_err = "Sorry! This username is already taken. Please choose another";
+                //return out of the function. We don't want to do the insert.
+                return $username_err;
+            } 
+            else {
+                $username = $filteredUsername;
+            }
         }
         if(!empty(trim($_POST["email"]))){
             $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
+            $sql = "SELECT blogUserID FROM bloguser WHERE email = :email";
+
+            $checkEmail = $db->prepare($sql);
+            $checkEmail->execute([':email' => $filteredEmail]);
+            $checkEmail->fetchAll();
+            if($checkEmail->rowCount() != 0){
+                $email_err = "Sorry! This email is already in use. Please choose another";
+                //return out of the function. We don't want to do the insert.
+                return $email_err;
+            } 
+            else {
+                $email = $filteredEmail;
+            }
         }
         if(!empty(trim($_POST["firstName"]))){
             $filteredFirstName = filter_input(INPUT_POST,'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -67,19 +93,13 @@
         $firstName = $filteredFirstName;
         $lastName = $filteredLastName;
         
-        
-        if($req->rowCount() == 1){
-                $username_err = "This username is already taken.";
-            } 
-            else {
-                $username = trim($_POST["username"]);
-            }
-            
             
         // Validate password
         if(!empty(trim($_POST['password']))){
             if(strlen(trim($_POST['password'])) < 6){
                 $password_err = "Password must have atleast 6 characters.";
+                //return out of the function. We don't want to do the insert.
+                return $password_err;
             } 
             else {
                 $password = trim($_POST['password']);
@@ -88,82 +108,25 @@
         }    
         
         $req->bindParam(':username', $username);
-        $req->bindParam(':email', $email);
         $req->bindParam(':firsName', $firstName);
         $req->bindParam(':lastName', $lastName);
+        $req->bindParam(':email', $email);
         $req->bindParam(':password', $password);
         $req->bindParam(':confirm_password', $confirm_password);
 
 
-        
-        $req->execute(array(
+        $req->execute(
+                array(
             'username' => $username,
-            'email' => $email,
             'firstName' => $firstName,
             'lastName' => $lastName,
+            'email' => $email,
             'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
-            //'confirm_password' => $confirm_password
             )
         );
-        
-//        if($req->execute()){
-//            if($req->rowCount() == 1){
-//                $username_err = "This username is already taken.";
-//            } 
-//            else {
-//                $username = trim($_POST["username"]);
-//            }
-//        } 
+        //all went OK, return true
+    }        
 
-
-            
-        // Attempt to execute the prepared statement
-            if($req->execute()) {
-                // Redirect to login page
-                header("location: login.php");
-            } 
-            else {
-                echo "Something went wrong. Please try again later.";
-            }
-            
-    }
-
-            
-//                // Set parameters
-//                    $param_username = $username;
-//                    $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-//                    $param_firstName = $firstName;
-//                    $param_lastName = $lastName;
-//                    $param_email = $email;
-
-//                    //catch the post
-//
-//                    if($stmt == $pdo_options->prepare($sql)){
-//                    
-//                    $param_firstName = trim($_POST["firstName"]);
-//                    $param_lastName = trim($_POST["lastName"]);
-//                    $param_email = trim($_POST["email"]);
-//
-//                 
-//                // Bind variables to the prepared statement as parameters
-//                    $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-//                    $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-//                    $stmt->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
-//                    $stmt->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
-//                    $stmt->bindParam(':email', $param_email, PDO::PARAM_STR);
-//
-                    
-                    
-
-//                // Close statement
-//                unset($stmt);
-//            }
-//
-//            // Close connection
-//            unset($pdo_options);
-        
-               
-                
 
         
          
