@@ -48,7 +48,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us/Contact</a>
                     </li> 
-                    <!-- remove this when we have fixed the login -->
+
+                    
+        <!-- REMOVE THIS section below once login is fixed -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Blogs</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -57,6 +59,10 @@
                                 <a class="dropdown-item" href="#">My Account</a>
                             </div>
                     </li> 
+
+        <!-- remove the section above once login is fixed -->
+                    
+        
                 </ul>
             </div>
     </div>
@@ -67,7 +73,7 @@
     <div class="dropdown-menu">
         <a id="button" class="btn btn-primary" href="?controller=blogUser&action=login" role="button">Login</a>
         <br>
-        <a id="button" class="btn btn-primary p-0" style="font-size:14px; height:24px;" href="?controller=blogUser&action=register" role="button">Register</a>
+        <a id="button" class="btn btn-primary p-0" style="font-size:14px; height:24px;" href="?controller=blogUser&action=signUp" role="button">Register</a>
         <div class="dropdown-divider"></div>
         <span class="m-2" style="font-size:12px;">Please login</span>
     </div>

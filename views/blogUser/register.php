@@ -29,6 +29,8 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
     <input class="w3-btn w3-gray" type="submit" value="Update Product">
     </p>
 </form>-->
+
+
 <?php
 // Include config file
 require_once "../../connection.php";
