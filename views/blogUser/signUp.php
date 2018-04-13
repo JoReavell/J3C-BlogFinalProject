@@ -13,29 +13,6 @@
 
 
     <body>
-        
-<!-- This php code is just to temp store the variables so can test the signup form displays correctly in browser -->        
-<?php
-    $userID;
-     $username="";
-     $password ="";
-     $confirm_password ="";
-     $email="";
-     $firstName= "";
-     $lastName = "";
-    
-     $username_err = "";
-     $password_err = "";
-     $confirm_password_err = "";
-     $firstName_err = "";
-     $lastName_err = "";
-     $email_err = "";
-    ?>
-<!-- delete above php once MVC is sorted -->
-
-
-
-<div class="accountbg"></div>
         <div class="wrapper-page">
 
             <div class="card">
@@ -46,49 +23,49 @@
                     </h3>
 
                     <div class="p-3">
-                        <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form-horizontal"  method="post">
+                        <form action="" class="form-horizontal"  method="post">
 
                             <div class="row">
-                                <div class="col-12 <?php //echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                                    <input  class="form-control"  name="email" type="email" required="" placeholder="Email" value="<?php //echo $email; ?>">
-                                    <span class="help-block"><?php //echo $email_err; ?></span>
+                                <div class="col-12">
+                                    <input  class="form-control"  name="email" type="email" required="" placeholder="Email" value="">
+                                    <span class="help-block"></span>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-12 <?php //echo (!empty($username_err)) ? 'has-error' : ''; ?>" >
-                                    <input class="form-control" name="username" type="text" required="" placeholder="Username" value="<?php //echo $username; ?>">
-                                    <span class="help-block"><?php //echo $username_err; ?></span>
+                                <div class="col-12" >
+                                    <input class="form-control" name="username" type="text" required="" placeholder="Username" value="">
+                                    <span class="help-block"></span>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-12  <?php //echo (!empty($password_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="password" type="password" required="" placeholder="Password" value="<?php //echo $password; ?>">
-                                    <span class="help-block"><?php //echo $password_err; ?></span>
+                                <div class="col-12">
+                                    <input class="form-control" name="password" type="password" required="" placeholder="Password" value="">
+                                    <span class="help-block"></span>
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-12  <?php //echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="confirm_password" type="password" required="" placeholder="Confirm Password" value="<?php //echo $confirm_password; ?>">
-                                    <span class="help-block"><?php //echo $confirm_password_err; ?></span>
+                                <div class="col-12 ">
+                                    <input class="form-control" name="confirm_password" type="password" required="" placeholder="Confirm Password" value="">
+                                    <span class="help-block"></span>
                                 </div>
                             </div>
                            
                             
                             <div class="row">
-                                <div class="col-12 <?php //echo (!empty($firstName_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="firstName" type="text" required="" placeholder="First Name" value="<?php //echo $firstName; ?>">
-                                    <span class="help-block"><?php //echo $firstName_err; ?></span>
+                                <div class="col-12">
+                                    <input class="form-control" name="firstName" type="text" required="" placeholder="First Name" value="">
+                                    <span class="help-block"></span>
 
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-12 <?php //echo (!empty($lastName_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="lastName" type="text" required="" placeholder="Last Name" value="<?php //echo $lastName; ?>">
-                                    <span class="help-block"><?php //echo $lastName_err; ?></span>
+                                <div class="col-12">
+                                    <input class="form-control" name="lastName" type="text" required="" placeholder="Last Name" value="">
+                                    <span class="help-block"></span>
 
                                 </div>
                             </div>
