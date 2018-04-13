@@ -8,10 +8,10 @@ class BlogUserController {
     public function login() {
         
     if($_SERVER["REQUEST_METHOD"] == "GET"){
-        $username = "";
-        $password = "";
-        $username_err = "";
-        $password_err = "";
+//        $username = "";
+//        $password = "";
+//        $username_err = "";
+//        $password_err = "";
         require_once('views/blogUser/login.php');
     }else{
 
@@ -33,27 +33,14 @@ class BlogUserController {
         $blogUser = BlogUser::login();
         require_once 'views/pages/home.php';
     }      
-    if(empty(trim($_POST["username"]))){
-        $username_err = 'Please enter username.';
-        require_once('views/blogUser/login.php');
-    } else{
-        $username = trim($_POST["username"]);
-    }
-        
-    if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
-        require_once('views/blogUser/login.php');
-    } else{
-        $password = trim($_POST['password']);            
-    }
-=======
+                    
         BlogUser::login();
         $blogUser = BlogUser::login();
         require_once 'views/pages/home.php';
     }
     
 
-}
+
 
     
     public function readAll() {
