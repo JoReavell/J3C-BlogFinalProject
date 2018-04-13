@@ -4,6 +4,7 @@
 
 //Read all method. To be displayed on main page when we go to site
 class BlogPostController {
+    
     public function readAll() {
       //This function will need to return ALL the blog post items to display on main page
         
@@ -85,6 +86,23 @@ class BlogPostController {
             require_once('views/products/viewAll.php');
       }
       
+    public function searchByCategory() {
+        //This function will need to return the posts for a given category
+        if (!isset($_GET['categoryID']))
+          return call('pages', 'error');
+        
+      $blogPosts = BlogPost::searchByCategory($_GET['categoryID']);
+      require_once('views/blogPost/viewAll.php');
     }
-  
+    
+    public function searchByKeyword() {
+      //This function will need to return the posts for a given keyword
+        if (!isset($_POST['searchString']))
+          return call('pages', 'error');
+      $keyword = "'%" . filter_input(INPUT_POST, 'searchString', FILTER_SANITIZE_STRING) . "%'";
+      $blogPosts = BlogPost::searchByKeyword($keyword);
+      require_once('views/blogPost/viewAll.php');
+    }
+    
+    }  
 ?>

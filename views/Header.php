@@ -39,15 +39,16 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Browse By Topic</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">JavaScript</a>
-                                <a class="dropdown-item" href="#">MySQL</a>
-                                <a class="dropdown-item" href="#">PHP</a>
-                                <a class="dropdown-item" href="#">General</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=3">JavaScript</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=2">MySQL</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=1">PHP</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=4">General</a>
                             </div>
                     </li>        
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us/Contact</a>
                     </li> 
+
                     
         <!-- REMOVE THIS section below once login is fixed -->
                     <li class="nav-item dropdown">
@@ -58,6 +59,7 @@
                                 <a class="dropdown-item" href="#">My Account</a>
                             </div>
                     </li> 
+
         <!-- remove the section above once login is fixed -->
                     
         
@@ -82,9 +84,9 @@
     <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <img style="height: 20px; width: 20px;" src="views/images/magnif.png"></button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <form class="form-inline m-2" method="POST" action="searchResults.php">
+        <form class="form-inline m-2" method="POST" action="?controller=blogPost&action=searchByKeyword">
             <input class="form-control mx-1 my-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
-            <button type="submit" class="btn btn-secondary mx-1 mt-0" style="font-size:12px; width:195px;">Search library</button> 
+            <button type="submit" class="btn btn-secondary mx-1 mt-0" style="font-size:12px; width:195px;">Search</button> 
         </form>
 </div>
 </div>
