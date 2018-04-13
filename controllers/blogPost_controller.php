@@ -16,7 +16,7 @@ class BlogPostController {
 //    if (!isset($_GET['UserID']))
 //      return call('pages', 'error');    
     try{
-    $blogPosts = BlogPost::allMyPosts('JoReavell');
+    $blogPosts = BlogPost::allMyPosts("JennyOleary");
     //$blogPost = BlogPost::allMyPosts($_GET['username']);
     require_once('views/blogPost/viewAllMyPosts.php');
     }
@@ -80,10 +80,11 @@ class BlogPostController {
     public function delete() {
         //Delete a selected blog post. This will have an id in the $_GET variable
         //This could be called from the view blogs page?
-            Product::remove($_GET['id']);
+            blogPost::remove($_GET['id']);
             
-            $products = Product::all();
-            require_once('views/products/viewAll.php');
+          $blogPosts = BlogPost::allMyPosts("JennyOleary"); //$blogPost get all the posts again and redirect to main page
+          
+          require_once('views/blogPost/viewAllMyPosts.php');
       }
       
     public function searchByCategory() {

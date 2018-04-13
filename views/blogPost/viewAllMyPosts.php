@@ -1,4 +1,4 @@
-<?php include_once 'carouselAndFeatured.php' ?>
+
 <!-- Main -->
 <div id="main">
     <div class="container">
@@ -20,9 +20,21 @@
                     <a href="#" class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></a>
                         <footer>
                             <ul class="actions">
-                                    <li><a href="single-post.html" class="button big">Spend 3 min reading</a></li>
+                            <li><a <a href="?controller=blogPost&action=read&id=<?php echo $blogPost->id ; ?>" class="button big">Spend 3 min reading</a></li>
+                            
+                            <li class="dropup">
+                            <button type="button" data-toggle="dropdown" class="button big">Update Post
+                            <span class="caret"></span></button> 
+
+                            <ul class="dropdown-menu">
+                            <li><a href="#">Edit</a></li><br/>
+                            <li><a href="?controller=blogPost&action=delete&id=<?php echo $blogPost->id ;?>">Delete</a></li>
                             </ul>
-                            <ul class="stats">
+                            </li>
+                            </ul>
+                            
+                            
+                        <ul class="stats">
                                     <li><a href="#">General</a></li>
                                     <li><a href="#" class="icon fa fa-heart">28</a></li>
                                     <li><a href="#" class="icon fa fa-comment">128</a></li>

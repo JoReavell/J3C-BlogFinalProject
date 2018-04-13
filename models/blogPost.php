@@ -220,9 +220,11 @@ public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('delete FROM product WHERE id = :id');
+      $sql = "delete FROM blogpost WHERE blogPostID = :id";
+      $req = $db->prepare($sql);
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
+      $req->bindParam(':id', $id);
+      $req->execute();
   }
   
 }
