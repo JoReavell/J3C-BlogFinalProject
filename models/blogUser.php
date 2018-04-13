@@ -12,7 +12,6 @@
     public $firstName= "";
     public $lastName = "";
     
-    // Not sure we need these errors since the form won't submit if empty due to required fields
     public $username_err = "";
     public $password_err = "";
     public $confirm_password_err = "";
@@ -73,7 +72,7 @@
             $checkEmail->execute([':email' => $filteredEmail]);
             $checkEmail->fetchAll();
             if($checkEmail->rowCount() != 0){
-                $email_err = "Sorry! This email is already in use. Please choose another";
+                $email_err = "Sorry! This email is already in use. Please choose another or sign in";
                 //return out of the function. We don't want to do the insert.
                 return $email_err;
             } 
@@ -101,6 +100,11 @@
                 //return out of the function. We don't want to do the insert.
                 return $password_err;
             } 
+            else if(trim($_POST['password']) !== trim($_POST['confirm_password'])){
+                $password_err = "Your passwords do not match. Please enter the same password twice.";
+                //return out of the function. We don't want to do the insert.
+                return $password_err;
+            }
             else {
                 $password = trim($_POST['password']);
                 $password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
