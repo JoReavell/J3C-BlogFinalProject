@@ -14,8 +14,15 @@ class BlogUserController {
             require_once('views/blogUser/signUp.php'); // show signup page
         } 
         else { 
-            BlogUser::signUp();       
-            require_once('views/blogUser/login.php'); // redirect to login after signup 
+            $signup = BlogUser::signUp();
+            echo $signup;
+            if($signup == null) {
+                require_once('views/blogUser/login.php'); // redirect to login after signup 
+            }
+            else    {
+                //return call('pages','error');
+                require_once('views/blogUser/signUp.php');
+            }
         }      
     }        
             
@@ -38,11 +45,11 @@ class BlogUserController {
         }
 
         if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
-        require_once('views/blogUser/login.php');
-    } else{
-        $password = trim($_POST['password']);            
-    }
+            $password_err = 'Please enter your password.';
+            require_once('views/blogUser/login.php');
+        } else{
+            $password = trim($_POST['password']);            
+        }
         //your function in blog user requires some parameters. Are you going to pass these in?
         //
         $blogUser = BlogUser::login();

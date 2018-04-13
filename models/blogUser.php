@@ -52,9 +52,14 @@
         if(!empty(trim($_POST["username"]))){
             $filteredUsername = filter_input(INPUT_POST,'username', FILTER_SANITIZE_SPECIAL_CHARS);
             $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
-            
-            if($req->rowCount() == 1){
-                $username_err = "This username is already taken.";
+
+            $checkUsername = $db->prepare($sql);
+            $checkUsername->execute([':username' => $filteredUsername]);
+            $checkUsername->fetchAll();
+            if($checkUsername->rowCount() != 0){
+                $username_err = "Sorry! This username is already taken. Please choose another";
+                //return out of the function. We don't want to do the insert.
+                return $username_err;
             } 
             else {
                 $username = $filteredUsername;
@@ -80,6 +85,8 @@
         if(!empty(trim($_POST['password']))){
             if(strlen(trim($_POST['password'])) < 6){
                 $password_err = "Password must have atleast 6 characters.";
+                //return out of the function. We don't want to do the insert.
+                return $password_err;
             } 
             else {
                 $password = trim($_POST['password']);
@@ -104,6 +111,7 @@
             'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
             )
         );
+        //all went OK, return true
     }        
 
 
