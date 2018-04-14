@@ -46,7 +46,7 @@
                             </div>
                     </li>        
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us/Contact</a>
+                        <a class="nav-link" href="?controller=blogPost&action=aboutUs">About Us/Contact</a>
                     </li> 
                     <!-- remove this when we have fixed the login -->
                     <li class="nav-item dropdown">
