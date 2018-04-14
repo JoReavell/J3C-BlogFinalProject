@@ -28,7 +28,7 @@ class BlogUserController {
             
     
     
-    public function login() {
+public function login() {
     if($_SERVER["REQUEST_METHOD"] == "GET"){
         
         require_once('views/blogUser/login.php');
@@ -47,10 +47,17 @@ class BlogUserController {
             $password = trim($_POST['password']);            
         }
         //your function in blog user requires some parameters. Are you going to pass these in?
-        //
+        //being as we've checked the username and password are ok here we could pass them as parameters to the login function
+        //this way we don't need to get them again later
+        // eg: BlogUser::login($username, $password);
+        // then change the function in blogUser.php to accept and use these parameters. Might make more sense.
         $blogUser = BlogUser::login();
-        require_once 'views/pages/home.php';
+        //When we have logged in we want to load the whole page again including refreshing the navbar
+        //I have no idea how to make this happen
+        //I think we should ask Victoria on monday about this and the general login stuff as it is well tricky!!!
+        //require_once 'index.php';
     }      
+
                     
         BlogUser::login();
         $blogUser = BlogUser::login();
@@ -67,6 +74,15 @@ class BlogUserController {
         }
     }
     
+
+}
+
+// public function logout()    {
+//     session_destroy();
+
+// }
+
+
     public function readAll() {
       // we store all the posts in a variable
         //Get all the products from the database using the all() function in product.php MODEL

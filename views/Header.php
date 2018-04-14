@@ -19,7 +19,7 @@
 	<!-- Google Fonts -->
 	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
 	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
-        <link rel="shortcut icon" href="images/sky.jpg"/>
+        <link rel="icon" href="images/favicon/favicon.ico">
 	
 </head>
 <body >
@@ -48,21 +48,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us/Contact</a>
                     </li> 
-
-                    
-        <!-- REMOVE THIS section below once login is fixed -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Blogs</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="?controller=blogPost&action=readAllMyPosts">Update</a>
-                                <a class="dropdown-item" href="?controller=blogPost&action=create">Create</a>
-                                <a class="dropdown-item" href="#">My Account</a>
-                            </div>
-                    </li> 
-
-        <!-- remove the section above once login is fixed -->
-                    
-        
                 </ul>
             </div>
     </div>
