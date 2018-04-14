@@ -27,7 +27,7 @@
                     </h3>
 
                     <div class="p-3">
-                        <form method="post" class="form-horizontal m-t-20">
+                        <form method="post" class="form-horizontal m-t-20" action="?controller=blogUser&action=login">
                             
                         
                             <div class="row">
@@ -57,8 +57,7 @@
 
                             <div class="text-center row m-t-20">
                                 <div class="col-12">
-                                    <a href=""></a>  
-                                    <button class="btn btn-danger btn-block waves-effect waves-light" type="submit" value="Login">Log In</button>
+                                    <button class="btn btn-danger btn-block waves-effect waves-light" type="submit" value="Login">Log In</button>                                    
                                 </div>
                             </div>
 
