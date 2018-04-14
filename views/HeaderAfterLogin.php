@@ -26,7 +26,7 @@
 	
 </head>
 <body >
-    <!--Navigation-->
+<!--Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand " href="#"><img class="logo" src="views/images/logo.png" alt="logo"></a>
@@ -59,17 +59,17 @@
                                 <a class="dropdown-item" href="??controller=blogUser&action=viewMyAccount">My Account</a>
                             </div>
                     </li> 
-                    <li class="nav-item"><?php
-                                if (!empty($_SESSION)) {
-                                    echo "<h6 style='margin-left: 280%; margin-top:5%;'> Hello " . $_SESSION['firstname'] . "," . "</h6>";
-                                } ?></li>
+                    <li class="nav-item">
+                        <?php
+                        if (!empty($_SESSION)) {
+                            echo "<h6 style='margin-left: 280%; margin-top:5%;'> Hello " . $_SESSION['firstname'] . "," . "</h6>";
+                        } 
+                        ?>
+                    </li>
                 </ul>
-            
 
-            
-    
                     
-<!--                    <ul class="navbar-nav navbar-right container-fluid menu-left">
+                <!--<ul class="navbar-nav navbar-right container-fluid menu-left">
                         <li class="nav-item">
                             <a class="nav-link icon fa fa-user " href="#">Log in</a>
                         </li>
@@ -79,31 +79,32 @@
                         </li>
                         
                     </ul>-->
-<!-- LOGIN DROP DOWN  --> 
 
-<div class="btn-group pr-1">
-    <button class="btn btn-sm btn-outline-secondary" type="button"  data-toggle="dropdown">
-    <img style="width: 25px;" src="views/images/user.png"></button>
-    <div class="dropdown-menu" style="width:180px;">
-        <a id="button" class="btn btn-primary center-block" style="font-size:16px; height:48px; width:125px;" href="?controller=blogUser&action=logout" role="button">Logout</a>
-<!--        <div class="dropdown-divider"></div>-->
+            <!-- LOGIN DROP DOWN  --> 
+            <div class="btn-group pr-1">
+                <button class="btn btn-sm btn-outline-secondary" type="button"  data-toggle="dropdown">
+                <img style="width: 25px;" src="views/images/user.png"></button>
+                <div class="dropdown-menu" style="width:180px;">
+                    <a id="button" class="btn btn-primary center-block" style="font-size:16px; height:48px; width:125px;" href="?controller=blogUser&action=logout" role="button">Logout</a>
+            <!--        <div class="dropdown-divider"></div>-->
+                    </div>
+            </div>
+            
+            <!-- SEARCH BAR DROP DOWN  -->   
+            <div class="dropdown btn-group">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img style=" width: 25px;" src="views/images/magnif.png"></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <form class="form-inline m-2" method="POST" action="?controller=blogPost&action=searchByKeyword">
+                        <input class="form-control mx-1 my-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
+                        <button type="submit" class="btn btn-secondary mx-1 mt-0" style="font-size:12px; width:195px">Search</button> 
+                    </form>
+                </div>
+            </div>
+
         </div>
-</div>
-<!-- SEARCH BAR DROP DOWN  -->   
-<div class="dropdown btn-group">
-    <button class="btn btn-sm btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img style=" width: 25px;" src="views/images/magnif.png"></button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <form class="form-inline m-2" method="POST" action="?controller=blogPost&action=searchByKeyword">
-            <input class="form-control mx-1 my-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
-            <button type="submit" class="btn btn-secondary mx-1 mt-0" style="font-size:12px; width:195px">Search</button> 
-        </form>
-    </div>
-</div>
-
-</div>
- </div>     
+    </div>     
 </nav>
         
-	<!-- End navigation -->
+<!-- End navigation -->
 <!--</body>-->
