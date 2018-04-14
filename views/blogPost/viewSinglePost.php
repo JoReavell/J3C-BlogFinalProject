@@ -17,6 +17,10 @@
                     </header>
                     <div class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></div>
                     <p><?php echo $blogPost->mainContent; ?></p>
+                            <ul class="actions">
+                            <li><a <a href="?controller=blogPost&action=readAllMyPosts&id=<?php echo $blogPost->id ; ?>" class="button big">BACK</a></li> 
+                            </ul>
+            
             </div>
            <?php include_once 'sidebar.php'; ?> 
 <!-- Pagination -->
