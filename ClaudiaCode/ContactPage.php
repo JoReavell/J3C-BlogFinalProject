@@ -148,12 +148,21 @@
 
 
         <script>
-      var map;
+      
       function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 53.8008, lng: -1.5491},
-          zoom: 12
           
+      var myLatLng = {lat: 53.789591, lng: -1.5333};
+          
+      var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 53.789591, lng: -1.5333},
+          zoom: 15
+          
+        });
+        
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Sky Leeds'
         });
       }
     </script>

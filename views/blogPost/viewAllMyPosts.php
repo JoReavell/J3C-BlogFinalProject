@@ -19,10 +19,38 @@
                     <a href="#" class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></a>
                         <footer>
                             <ul class="actions">
-                                    <li><a href="single-post.html" class="button big">Spend 3 min reading</a></li>
+                            <li><a <a href="?controller=blogPost&action=read&id=<?php echo $blogPost->id ; ?>" class="button big">READ MORE..</a></li>
+                            
+                            <li class="dropup">
+                            <button type="button" data-toggle="dropdown" class="button big">Update Post
+                            <span class="caret"></span></button> 
+
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="?controller=blogPost&action=update&id=<?php echo $blogPost->id ;?>">Edit</a></li><br/>
+                            <li><a class="dropdown-item" href="?controller=blogPost&action=delete&id=<?php echo $blogPost->id ;?>">Delete</a></li>
                             </ul>
-                            <ul class="stats">
-                                    <li><a href="#">General</a></li>
+                            </li>
+                            </ul>
+                            
+                            <?php 
+                           if ($blogPost->category == 4){
+                           $category='General';}
+                           elseif ($blogPost->category == 1) {
+                           $category='PHP';
+                           }
+                           elseif ($blogPost->category == 2) {
+                           $category='JavaScript';
+                           }
+                           elseif ($blogPost->category == 3) {
+                           $category='MySQL';
+                           }
+                           else {$category='MySQL';}
+        
+                           ?>
+                            
+                            
+                        <ul class="stats">
+                                    <li><a href="#" ><?php echo $category; ?></a></li>
                                     <li><a href="#" class="icon fa fa-heart">28</a></li>
                                     <li><a href="#" class="icon fa fa-comment">128</a></li>
                             </ul>
