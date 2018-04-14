@@ -1,5 +1,3 @@
-
-
 <?php
   class BlogUser {
     // we define our attributes
@@ -141,9 +139,9 @@
         
          
     public static function login(){
-      
+      //Why are we doing this SELECT here and then again on line 177? Surely it only needs to happen once.
         $db=Db::getInstance();
-        $req=$db->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
+        $req=$db->prepare("SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username"); 
        
     
 //Include config file
@@ -154,6 +152,8 @@
 //$username_err = $password_err = "";
 //    
 //// Processing form data when form is submitted
+        
+//We've already checked this stuff in the controller. Why are we doing it again?
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty(if the username inserted in the field is empty) 
@@ -174,9 +174,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err)){
        
         $instance = DB::getInstance();
-        $sql = "SELECT username, password FROM bloguser WHERE username = :username";
+        $sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
         //A prepared statement is a feature used to execute the same (or similar) SQL statements repeatedly with high efficiency.
-        $instance = DB::getInstance();
+        //$instance = DB::getInstance();        //We don't need to do this twice
         if($stmt = $instance->prepare($sql)){
         // Bind variables to the prepared statement as parameters
         //[With bindParam] the variable is bound as a reference and will only be evaluated at the time that PDOStatement::execute() is called.
@@ -203,11 +203,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Password is correct, so start a new session and save the username to the session and go to index.php
 //                    session_start();
                          if (isset($_SESSION['username'])) { echo 'logged in'; }
-                    $param_password = trim($_POST["password"]);
-                        $_SESSION['username'] = $username; 
-                    //thake the user to the landing page
-//                    header("location: ../index.php");
-                    
+                        $param_password = trim($_POST["password"]);
+                        $_SESSION['username'] = $username;
+                        $_SESSION['userID'] = $row['blogUserID'];
+                        $_SESSION['firstname'] = $row['firstName'];
+                    //I don't understand what this is doing. There is no :password in the $stmt sql. 
+                    //Doesn't the password verify do the check that the password is correct?
+                    //You never actually do aything with the parameter anyway so this is pointless
                     $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
                     } else{
                     // Display an error message if password is not valid
@@ -230,10 +232,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Close connection
     //unset() will destroy the variable inside this function???when we close the statement??
-    unset($pdo);
+    //unset($pdo);
     }
     
-            }
+}
     
 
    
