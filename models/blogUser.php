@@ -248,8 +248,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        session_destroy();
 
        // Redirect to login page
-       header("location: ../Login/Login.php");
-       exit;
+//       header("location: login.php");
+//       exit;
         }
  
    
