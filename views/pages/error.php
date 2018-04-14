@@ -32,7 +32,7 @@
 
 <!--<body>-->
 <!--maybe : include 'view/pages/header.php'-->
-<?php include '../Header.php'; ?>
+<?php //include '../Header.php'; ?>
 
 <!-- Main -->
 <div id="main">
@@ -40,14 +40,15 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="error-page text-align-center pad-top-big pad-bottom-big">
-                    <h2>WOW you've found our</h2>
+                    <h2><br>WOW you've found our</h2>
                     <h1>404</h1>
                     <h2>Your search skills put us to shame</h2>
-                    <h3>We are really sorry but the page you requested is missing</h3>
+                    <h3>Sorry but the page you requested is missing</h3>
                     <div class="error-bottom">
                         <a href='/' class='home-page-link'>go to home page<i class="fa fa-angle-right" aria-hidden="true"></i></a></br>
+                       
                     </div>
-                    <div><h3>Or check our trending posts</h3></div>
+                    <div><h3>Or check out our trending posts</h3></div>
                 </div>
             </div>
         </div> <!-- End row -->
@@ -111,6 +112,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 
-<?php require_once 'Footer.php';?>
+<?php //require_once 'Footer.php';?>
 <!--</body>
 </html>-->
