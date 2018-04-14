@@ -14,7 +14,7 @@
                         <!-- Content-Box -->
                         <section class="content-box contact-form">
                             <div class="row wrap-box"><!--Start Box-->
-                                <h2 class="text-center col-md-12">We're looking forward to hearing from you</h2>
+                                <h2 class="text-center col-md-12">We look forward to hearing from you!</h2>
                                 <div class="contact-form ">
                                     <form name='sentMessage' id='contactForm' method='post'><input type='hidden' name='form-name' value='sentMessage' />
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
@@ -88,14 +88,14 @@
                     </section>
                 </div> <!-- End Sidebar -->
             </div><!-- End-col-md-4 -->
-        </div><!-- End-col-md-4 -->
-    </div> <!-- End row -->
+        </div> <!-- End row -->
     
-    <!-- Google maps (centre set to london)-->
-    <div id="map" style="height:400px;width:100%;"></div>   
-    <!-- Map must be in HTML element --> 
-      
-</div> <!-- End Container -->
+    <!-- Google maps (centre set to Sky Leeds Dock)-->
+    <div class="container" id="map" style="height:400px;width:100%;"></div>   
+    </div> <!-- End container for map -->
+    
+</div> <!-- end container main -->
+
 <div id="instagram-footer">
 </div>
 
@@ -109,3 +109,26 @@
     <a href="#top"><i class="fa fa-arrow-up"></i></a>
 </div>
 
+<script>
+    function initMap() {
+          
+      var myLatLng = {lat: 53.789591, lng: -1.5333};
+          
+      var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 53.789591, lng: -1.5333},
+          zoom: 16
+          
+        });
+        
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Sky Leeds'
+        });
+      }
+    </script>
+   
+    <!-- map variable defines properties for map. var map = .... creates new map inside <div> element --> 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrsthx6SjytN7X5hfwab5sINCwjwIATLg&callback=initMap"
+    async defer></script>
+    <!-- script loads once page loaded -->  
