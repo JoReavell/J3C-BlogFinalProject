@@ -61,10 +61,10 @@
                     </li> 
                     <li class="nav-item">
                         <?php
-                        if (!empty($_SESSION)) {
-                            echo "<h6 style='margin-left: 280%; margin-top:5%;'> Hello " . $_SESSION['firstname'] . "," . "</h6>";
-                        } 
-                        ?>
+//                        if (!empty($_SESSION)) {
+//                            echo "<h6 style='margin-left: 280%; margin-top:5%;'> Hello " . $_SESSION['firstname'] . "," . "</h6>";
+//                        } 
+//                        ?>
                     </li>
                 </ul>
 
