@@ -48,7 +48,7 @@
                             </div>
                     </li>        
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us/Contact</a>
+                        <a class="nav-link" href="?controller=pages&action=aboutUs">About Us/Contact</a>
                     </li> 
              
                     <li class="nav-item dropdown">
@@ -56,7 +56,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="?controller=blogPost&action=readAllMyPosts">Update</a>
                                 <a class="dropdown-item" href="?controller=blogPost&action=create">Create</a>
-                                <a class="dropdown-item" href="#">My Account</a>
+                                <a class="dropdown-item" href="??controller=blogUser&action=viewMyAccount">My Account</a>
                             </div>
                     </li> 
                     <li class="nav-item"><?php
