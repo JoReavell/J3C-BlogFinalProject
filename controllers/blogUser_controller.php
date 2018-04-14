@@ -65,22 +65,22 @@ public function login() {
     }
  //logout
     
-    public function logout(){
-        if($_SERVER["REQUEST_METHOD"] == "GET"){
-            require_once 'views/blogUser/logout.php';
-        }else{
-            BlogUser::logout();
-            require_once 'views/blogUser/login';
-        }
-    }
-    
+//    public function logout(){
+//        if($_SERVER["REQUEST_METHOD"] == "GET"){
+//            require_once 'views/blogUser/logout.php';
+//        }else{
+//            BlogUser::logout();
+//            require_once 'views/blogUser/login';
+//        }
+//    }
+//    
 
-}
 
-// public function logout()    {
-//     session_destroy();
 
-// }
+ public function logout()    {
+     session_destroy();
+
+ }
 
 
     public function readAll() {
