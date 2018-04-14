@@ -43,7 +43,7 @@
     
      
     public static function allMyPosts($username) {
-        
+            
       $list = [];
       $db = Db::getInstance();
       $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
@@ -120,28 +120,38 @@ if($blogPost){
 
 public static function update($id) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update product set name=:name, price=:price where id=:id");
-    $req->bindParam(':id', $id);
-    $req->bindParam(':name', $name);
-    $req->bindParam(':price', $price);
-
+    $req = $db->prepare("Update blogPost set title=:title, summary=:summary, mainContent=:mainContent, image=:image, category=:category where blogPostID=:id");
+    
 // set name and price parameters and execute
-    if(isset($_POST['name'])&& $_POST['name']!=""){
-        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['title'])&& $_POST['title']!=""){
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['price'])&& $_POST['price']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['summary'])&& $_POST['summary']!=""){
+        $filteredSummary = filter_input(INPUT_POST,'summary', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$name = $filteredName;
-$price = $filteredPrice;
+    if(isset($_POST['mainContent'])&& $_POST['mainContent']!=""){
+        $filteredMainContent = filter_input(INPUT_POST,'mainContent', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    $title = $filteredTitle;
+    $summary = $filteredSummary;
+    $mainContent = $filteredMainContent;
+    $image = $_FILES['image']['name'];
+    $category = $_POST['category'];
+    
+    
+    $req->bindParam(':title', $title);
+    $req->bindParam(':summary', $summary);
+    $req->bindParam(':mainContent', $mainContent);
+    $req->bindParam(':image', $image);
+    $req->bindParam(':category', $category);
+    $req->bindParam(':id', $id);
 $req->execute();
 
-//upload product image if it exists
-        if (!empty($_FILES[self::InputKey]['name'])) {
-		Product::uploadFile($name);
-	}
+//upload product image
+BlogPost::uploadFile($_FILES['image']['name']);
+}
 
-    }
+
     
 public static function add() {
     $db = Db::getInstance();
@@ -220,9 +230,11 @@ public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('delete FROM product WHERE id = :id');
+      $sql = "delete FROM blogpost WHERE blogPostID = :id";
+      $req = $db->prepare($sql);
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
+      $req->bindParam(':id', $id);
+      $req->execute();
   }
   
 }
