@@ -1,8 +1,5 @@
 
 
-<?php include '../Header.php'; ?>
-<!-- End navigation -->
-
 <!-- Main -->
 <div id="main" class="top-margin">
     <div class="container">
@@ -17,7 +14,7 @@
                         <!-- Content-Box -->
                         <section class="content-box contact-form">
                             <div class="row wrap-box"><!--Start Box-->
-                                <h2 class="text-center col-md-12">We're looking forward to hear from you</h2>
+                                <h2 class="text-center col-md-12">We're looking forward to hearing from you</h2>
                                 <div class="contact-form ">
                                     <form name='sentMessage' id='contactForm' method='post'><input type='hidden' name='form-name' value='sentMessage' />
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
@@ -93,25 +90,22 @@
             </div><!-- End-col-md-4 -->
         </div><!-- End-col-md-4 -->
     </div> <!-- End row -->
+    
+    <!-- Google maps (centre set to london)-->
+    <div id="map" style="height:400px;width:100%;"></div>   
+    <!-- Map must be in HTML element --> 
+      
 </div> <!-- End Container -->
 <div id="instagram-footer">
 </div>
 
 <!-- Featured Posts -->
-<!-- Google maps (centre set to london)-->
-      
-    <div id="map" style="height:400px;width:100%;"></div>   
-      <!-- Map must be in HTML element --> 
-      
+
 <!-- featured-posts-END -->
 
 
+<!--back-to-top-->
+<div id="back-to-top">
+    <a href="#top"><i class="fa fa-arrow-up"></i></a>
+</div>
 
-    <!--back-to-top-->
-
-    <div id="back-to-top">
-        <a href="#top"><i class="fa fa-arrow-up"></i></a>
-    </div>
-
-    
-<?php require_once 'Footer.php';?>
