@@ -1,13 +1,3 @@
-<?php
-// Initialize the session (don't forget to close it on logout)
-session_start();
- if (isset($_SESSION['username'])) { echo 'logged in'; }
-// If session variable is not set it will redirect to login page
-//if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-//  header("location: Login/Login.php");
-//  exit;
-//}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +18,7 @@ session_start();
 	<!-- Google Fonts -->
 	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
 	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
-        <link rel="shortcut icon" href="images/sky.jpg"/>
+        <link rel="icon" href="images/favicon/favicon.ico">
         
         <!-- Main Style -->
         <link href="views/css/style.css" rel="stylesheet" type="text/css"/>
@@ -67,6 +57,7 @@ session_start();
                                 <a class="dropdown-item" href="#">My Account</a>
                             </div>
                     </li> 
+                    <li class="nav-item">Welcome <?php $_SESSION['firstname'] ?></li>
                 </ul>
             </div>
     </div>
@@ -84,7 +75,7 @@ session_start();
 <!-- LOGIN DROP DOWN  -->                    
 <div class="btn-group pr-1">
     <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img style="height: 20px; width: 20px;" src="images/user.png"></button>
+    <img style="height: 20px; width: 20px;" src="views/images/user.png"></button>
     <div class="dropdown-menu">
         <a id="button" class="btn btn-secondary p-0" style="font-size:14px; height:24px;" href="?controller=blogUser&action=logout" role="button">Logout</a>
         <div class="dropdown-divider"></div>
@@ -93,7 +84,7 @@ session_start();
 <!-- SEARCH BAR DROP DOWN  -->   
 <div class="dropdown btn-group">
     <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img style="height: 20px; width: 20px;" src="images/magnif.png"></button>
+    <img style="height: 20px; width: 20px;" src="views/images/magnif.png"></button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <form class="form-inline m-2" method="POST" action="?controller=blogPost&action=searchByKeyword">
             <input class="form-control mx-1 my-2" type="search" placeholder="Search" aria-label="Search" name="searchString">

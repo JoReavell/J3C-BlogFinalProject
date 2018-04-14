@@ -1,4 +1,3 @@
-<?php include_once 'carouselAndFeatured.php' ?>
 <!-- Main -->
 <div id="main">
     <div class="container">
