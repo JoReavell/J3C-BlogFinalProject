@@ -19,7 +19,7 @@
 	<!-- Google Fonts -->
 	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
 	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
-        <link rel="shortcut icon" href="images/sky.jpg"/>
+        <link rel="icon" href="images/favicon/favicon.ico">
 	
 </head>
 <body >
@@ -48,6 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?controller=blogPost&action=aboutUs">About Us/Contact</a>
                     </li> 
+
                     <!-- remove this when we have fixed the login -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Blogs</a>
@@ -56,7 +57,7 @@
                                 <a class="dropdown-item" href="?controller=blogPost&action=create">Create</a>
                                 <a class="dropdown-item" href="#">My Account</a>
                             </div>
-                    </li> 
+
                 </ul>
                             <!-- LOGIN DROP DOWN  -->                    
 <div class="btn-group pr-1">
