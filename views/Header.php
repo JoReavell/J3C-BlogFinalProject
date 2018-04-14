@@ -76,9 +76,9 @@
                     <button class="btn btn-sm btn-outline-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img style=" width: 25px;" src="views/images/magnif.png"></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <form class="form-inline m-2" method="POST" action="searchResults.php">
+                        <form class="form-inline m-2" method="POST" action="?controller=blogPost&action=searchByKeyword">
                             <input class="form-control mx-1 my-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
-                            <button type="submit" class="btn btn-primary mx-1 mt-0" style="font-size:12px; width:195px;">Search library</button> 
+                            <button type="submit" class="btn btn-primary mx-1 mt-0" style="font-size:12px; width:195px;">Search</button> 
                         </form>
                     </div>
                 </div>
