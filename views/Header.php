@@ -65,7 +65,7 @@
     <img style=" width: 25px;" src="views/images/user.png"></button>
     <div class="dropdown-menu" style="width:180px;">
         <a id="button" class="btn btn-primary center-block" style="font-size:16px; height:48px; width:125px;" href="?controller=blogUser&action=login" role="button">Login</a>
-        <a id="button" class="btn btn-secondary p-0" style="font-size:14px; height:24px; width:125px;" href="?controller=blogUser&action=register" role="button">Register</a>
+        <a id="button" class="btn btn-secondary p-0" style="font-size:14px; height:24px; width:125px;" href="?controller=blogUser&action=signUp" role="button">Register</a>
         
        
     </div>
