@@ -1,4 +1,6 @@
 <?php
+
+
 //Controller class contains all the functions we need to DO things to the products
 //Handles business logic and links VIEW to MODEL (front end to database)
 
@@ -57,26 +59,36 @@ class BlogPostController {
       }      
     }
     
-    public function update() {        
-      if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          if (!isset($_GET['id']))
-        return call('pages', 'error');
+    
+    public function update() {
+           
+     if($_SERVER['REQUEST_METHOD'] == 'GET'){
+     if (!isset($_GET['id']))
+     return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $product = Product::find($_GET['id']);
+       $blogPost = BlogPost::find($_GET['id']);
       
-        require_once('views/products/update.php');
-        }
-      else
-          { 
-            $id = $_GET['id'];
-            Product::update($id);
+        require_once('views/blogPost/updateBlogPost.php');
+    }}
+    
+    public function makeUpdate() {
+        
+     if(empty($_GET['id'])) {
+     //if (!isset($_GET['id']))
+     return call('pages', 'error');}   
+     else {
+            
+     $id = $_GET['id'];
+     
+     
+      blogPost::update($id);
                         
-            $products = Product::all();
-            require_once('views/products/viewAll.php');
-      }
+      $blogPosts = BlogPost::allMyPosts("JennyOleary");
+      require_once('views/blogPost/viewAllMyPosts.php');
+    }}
       
-    }
+ 
     public function delete() {
         //Delete a selected blog post. This will have an id in the $_GET variable
         //This could be called from the view blogs page?
