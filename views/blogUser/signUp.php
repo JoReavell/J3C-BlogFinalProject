@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="utf-8" />
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="../css/cssnew.css" rel="stylesheet" type="text/css"/>
-        <title>Sign Up</title>
-        
-    </head>
-
-
-    <body>
         <div class="wrapper-page">
 
             <div class="card">
@@ -97,5 +84,3 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
