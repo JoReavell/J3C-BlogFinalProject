@@ -61,54 +61,53 @@
 		<h4 class="heading col-lg-12 col-md-12">
                     <span>The Women in Tech Program</span>
                 </h4>
-        <div class="col-md-4">
-            <div class="featured-post">
-                <div class="featured-post-image">
-                    <img src="images/skygirl.jpg" alt="featured-post">
+                <div class="col-md-4">
+                    <div class="featured-post">
+                        <div class="featured-post-image">
+                            <img src="images/skygirl.jpg" alt="featured-post">
+                        </div>
+                        <div class="featured-post-title">
+                            <h3><a href="#">The application moment</a></h3>
+                                <time datetime="2018" class="post-date">April 20, 2018</time>
+                        </div>
+                    </div>
                 </div>
-                <div class="featured-post-title">
-                    <h3><a href="#">The application moment</a></h3>
-                        <time datetime="2018" class="post-date">April 20, 2018</time>
+                <div class="col-md-4">
+                    <div class="featured-post">
+                        <div class="featured-post-image">
+                            <img src="images/skyfaith.jpg" alt="featured-post">
+                        </div>
+                        <div class="featured-post-title">
+                            <h3><a href="#">The program</a></h3>
+                                <time datetime="2018" class="post-date">January 15, 2018</time>
+                        </div>
+                    </div>
                 </div>
-            </div>
-	</div>
-	<div class="col-md-4">
-            <div class="featured-post">
-                <div class="featured-post-image">
-                    <img src="images/skyfaith.jpg" alt="featured-post">
-                </div>
-                <div class="featured-post-title">
-                    <h3><a href="#">The program</a></h3>
-                        <time datetime="2018" class="post-date">January 15, 2018</time>
+                <div class="col-md-4">
+                    <div class="featured-post">
+                        <div class="featured-post-image">
+                            <img src="images/skycode.jpg" alt="featured-post">
+                        </div>
+                        <div class="featured-post-title">
+                            <h3><a href="#">Today</a></h3>
+                                <time datetime="2018" class="post-date">April 20, 2018</time>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="featured-post">
-                <div class="featured-post-image">
-                    <img src="images/skycode.jpg" alt="featured-post">
-                </div>
-                <div class="featured-post-title">
-                    <h3><a href="#">Today</a></h3>
-                        <time datetime="2018" class="post-date">April 20, 2018</time>
-                </div>
-            </div>
-        </div>
-            </div>
-        </div>
-            </section><!-- featured-posts-END -->
-                <div id="instagram-footer">
-                </div>
- <!--back-to-top-->
+    </section><!-- featured-posts-END -->
+    
+    <div id="instagram-footer">
+    </div>
+ 
+    <!--back-to-top-->
     <div id="back-to-top">
         <a href="#top"><i class="fa fa-arrow-up"></i></a>
     </div>
-
-   
-    
 </div><!-- End Main -->
 
-<!--        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 
