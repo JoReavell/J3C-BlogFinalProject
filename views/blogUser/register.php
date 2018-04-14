@@ -2,11 +2,11 @@
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Item</h2>
     <p>
-        <input class="w3-input" type="text" name="name" value="<?= $product->name; ?>">
+        <input class="w3-input" type="text" name="name" value="<? //$product->name; ?>">
         <label>Name</label>
     </p>
     <p>
-        <input class="w3-input" type="text" name="price" value="<?= $product->price; ?>" >
+        <input class="w3-input" type="text" name="price" value="<? //$product->price; ?>" >
         <label>Price</label>
     </p>
             
@@ -163,7 +163,7 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
     <body>-->
 
         <!-- Begin page -->
-        <div class="accountbg"></div>
+<!--        <div class="accountbg"></div>
         <div class="wrapper-page">
 
             <div class="card">
@@ -174,49 +174,49 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
                     </h3>
 
                     <div class="p-3">
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form-horizontal"  method="post">
+                        <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form-horizontal"  method="post">
 
                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($email_address_err)) ? 'has-error' : ''; ?>">
-                                    <input  class="form-control"  name="email" type="email" required="" placeholder="Email" value="<?php echo $email; ?>">
-                                    <span class="help-block"><?php echo $email_err; ?></span>
+                                <div class="col-12 <?php //echo (!empty($email_address_err)) ? 'has-error' : ''; ?>">
+                                    <input  class="form-control"  name="email" type="email" required="" placeholder="Email" value="<?php //echo $email; ?>">
+                                    <span class="help-block"><?php //echo $email_err; ?></span>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>" >
-                                    <input class="form-control" name="username" type="text" required="" placeholder="Username" value="<?php echo $username; ?>">
-                                    <span class="help-block"><?php echo $username_err; ?></span>
+                                <div class="col-12 <?php //echo (!empty($username_err)) ? 'has-error' : ''; ?>" >
+                                    <input class="form-control" name="username" type="text" required="" placeholder="Username" value="<?php //echo $username; ?>">
+                                    <span class="help-block"><?php //echo $username_err; ?></span>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-12  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="password" type="password" required="" placeholder="Password" value="<?php echo $password; ?>">
-                                    <span class="help-block"><?php echo $password_err; ?></span>
+                                <div class="col-12  <?php //echo (!empty($password_err)) ? 'has-error' : ''; ?> ">
+                                    <input class="form-control" name="password" type="password" required="" placeholder="Password" value="<?php //echo $password; ?>">
+                                    <span class="help-block"><?php //echo $password_err; ?></span>
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-12  <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="confirm_password" type="password" required="" placeholder="Confirm Password" value="<?php echo $confirm_password; ?>">
-                                    <span class="help-block"><?php echo $confirm_password_err; ?></span>
+                                <div class="col-12  <?php //echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?> ">
+                                    <input class="form-control" name="confirm_password" type="password" required="" placeholder="Confirm Password" value="<?php //echo $confirm_password; ?>">
+                                    <span class="help-block"><?php //echo $confirm_password_err; ?></span>
                                 </div>
                             </div>
                            
                             
                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($firstName_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="firstName" type="text" required="" placeholder="First Name" value="<?php echo $firstName; ?>">
-                                    <span class="help-block"><?php echo $firstName_err; ?></span>
+                                <div class="col-12 <?php //echo (!empty($firstName_err)) ? 'has-error' : ''; ?> ">
+                                    <input class="form-control" name="firstName" type="text" required="" placeholder="First Name" value="<?php //echo $firstName; ?>">
+                                    <span class="help-block"><?php //echo $firstName_err; ?></span>
 
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-12 <?php echo (!empty($lastName_err)) ? 'has-error' : ''; ?> ">
-                                    <input class="form-control" name="lastName" type="text" required="" placeholder="lastName" value="<?php echo $lastName; ?>">
-                                    <span class="help-block"><?php echo $lastName_err; ?></span>
+                                <div class="col-12 <?php //echo (!empty($lastName_err)) ? 'has-error' : ''; ?> ">
+                                    <input class="form-control" name="lastName" type="text" required="" placeholder="lastName" value="<?php //echo $lastName; ?>">
+                                    <span class="help-block"><?php //echo $lastName_err; ?></span>
 
                                 </div>
                             </div>
@@ -250,4 +250,4 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
         </div>
 
     </body>
-</html>
+</html>-->
