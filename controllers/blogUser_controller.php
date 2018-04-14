@@ -57,12 +57,31 @@ public function login() {
         //I think we should ask Victoria on monday about this and the general login stuff as it is well tricky!!!
         //require_once 'index.php';
     }      
-}
 
-public function logout()    {
-    session_destroy();
+                    
+        BlogUser::login();
+        $blogUser = BlogUser::login();
+        require_once 'views/pages/home.php';
+    }
+ //logout
+    
+//    public function logout(){
+//        if($_SERVER["REQUEST_METHOD"] == "GET"){
+//            require_once 'views/blogUser/logout.php';
+//        }else{
+//            BlogUser::logout();
+//            require_once 'views/blogUser/login';
+//        }
+//    }
+//    
 
-}
+
+
+ public function logout()    {
+     session_destroy();
+
+ }
+
 
     public function readAll() {
       // we store all the posts in a variable

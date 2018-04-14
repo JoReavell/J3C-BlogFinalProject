@@ -27,7 +27,7 @@
     <!--Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-        <a class="navbar-brand" href="#"><img class="logo" src="views/images/logo.png" alt="logo"></a>
+        <a class="navbar-brand" href="index.php"><img class="logo" src="views/images/logo.png" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,42 +39,53 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Browse By Topic</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=3">JavaScript</a>
-                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=2">MySQL</a>
-                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=1">PHP</a>
-                                <a class="dropdown-item" href="?controller=blogPost&action=searchByCategory&categoryID=4">General</a>
+                                <a class="dropdown-item" href="#">JavaScript</a>
+                                <a class="dropdown-item" href="#">MySQL</a>
+                                <a class="dropdown-item" href="#">PHP</a>
+                                <a class="dropdown-item" href="#">General</a>
                             </div>
                     </li>        
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us/Contact</a>
+                        <a class="nav-link" href="?controller=blogPost&action=aboutUs">About Us/Contact</a>
                     </li> 
+
+                    <!-- remove this when we have fixed the login -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Blogs</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="?controller=blogPost&action=readAllMyPosts">Update</a>
+                                <a class="dropdown-item" href="?controller=blogPost&action=create">Create</a>
+                                <a class="dropdown-item" href="#">My Account</a>
+                            </div>
+
                 </ul>
-            </div>
-    </div>
-<!-- LOGIN DROP DOWN  -->                    
+                            <!-- LOGIN DROP DOWN  -->                    
 <div class="btn-group pr-1">
-    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img style="height: 20px; width: 20px;" src="views/images/user.png"></button>
-    <div class="dropdown-menu">
-        <a id="button" class="btn btn-primary" href="?controller=blogUser&action=login" role="button">Login</a>
-        <br>
-        <a id="button" class="btn btn-primary p-0" style="font-size:14px; height:24px;" href="?controller=blogUser&action=signUp" role="button">Register</a>
-        <div class="dropdown-divider"></div>
-        <span class="m-2" style="font-size:12px;">Please login</span>
+    <button class="btn btn-sm btn-outline-secondary " type="button"  data-toggle="dropdown"  >
+    <img style=" width: 25px;" src="views/images/user.png"></button>
+    <div class="dropdown-menu" style="width:180px;">
+        <a id="button" class="btn btn-primary center-block" style="font-size:16px; height:48px; width:125px;" href="?controller=blogUser&action=login" role="button">Login</a>
+        <a id="button" class="btn btn-secondary p-0" style="font-size:14px; height:24px; width:125px;" href="?controller=blogUser&action=register" role="button">Register</a>
+        
+       
     </div>
 </div>
 
 <!-- SEARCH BAR DROP DOWN  -->   
 <div class="dropdown btn-group">
-    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img style="height: 20px; width: 20px;" src="views/images/magnif.png"></button>
+    <button class="btn btn-sm btn-outline-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img style=" width: 25px;" src="views/images/magnif.png"></button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <form class="form-inline m-2" method="POST" action="?controller=blogPost&action=searchByKeyword">
+        <form class="form-inline m-2" method="POST" action="searchResults.php">
             <input class="form-control mx-1 my-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
-            <button type="submit" class="btn btn-secondary mx-1 mt-0" style="font-size:12px; width:195px;">Search</button> 
+            <button type="submit" class="btn btn-primary mx-1 mt-0" style="font-size:12px; width:195px;">Search library</button> 
         </form>
 </div>
 </div>
+            </div>
+        
+    </div>
+
                     
 <!--                    
                     <ul class="navbar-nav navbar-right container-fluid menu-left">

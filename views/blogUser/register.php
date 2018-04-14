@@ -31,125 +31,125 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 </form>-->
 
 
-<?php
-// Include config file
-require_once "../../connection.php";
- 
-// Define variables and initialize with empty values
-$username="";
-$password ="";
-$confirm_password ="";
-$email="";
-$firstName= "";
-$lastName = "";
-
-$username_err = $password_err = $confirm_password_err = "";
-$firstName_err = $lastName_err = $email_err = "";
-
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Validate username: just to validate the username
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } else{
-        // Prepare a select statement from MySQL
-        $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
-        //prepare the statement
-        
-        if($stmt = $pdo->prepare($sql)){
-           // Bind variables to the prepared statement as parameters
-           //[With bindParam] the variable is bound as a reference and will only be evaluated at the time that PDOStatement::execute() is called.
+//<?php
+//// Include config file
+//require_once "../../connection.php";
+// 
+//// Define variables and initialize with empty values
+//$username="";
+//$password ="";
+//$confirm_password ="";
+//$email="";
+//$firstName= "";
+//$lastName = "";
+//
+//$username_err = $password_err = $confirm_password_err = "";
+//$firstName_err = $lastName_err = $email_err = "";
+//
+//// Processing form data when form is submitted
+//if($_SERVER["REQUEST_METHOD"] == "POST"){
+// 
+//    // Validate username: just to validate the username
+//    if(empty(trim($_POST["username"]))){
+//        $username_err = "Please enter a username.";
+//    } else{
+//        // Prepare a select statement from MySQL
+//        $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
+//        //prepare the statement
+//        
+//        if($stmt = $pdo->prepare($sql)){
+//           // Bind variables to the prepared statement as parameters
+//           //[With bindParam] the variable is bound as a reference and will only be evaluated at the time that PDOStatement::execute() is called.
+////            $param_username = $username;
+//            
+//            $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
+//            
+//            // Set parameters for username
+//            $param_username = trim($_POST["username"]);
+//            
+//            // Attempt to execute the prepared statement
+//            if($stmt->execute()){
+//                if($stmt->rowCount() == 1){
+//                    $username_err = "This username is already taken.";
+//                } else{
+//                    $username = trim($_POST["username"]);
+//                }
+//            } else{
+//                echo "Oops! Something went wrong. Please try again later.";
+//            }
+//        }
+//         
+//        // Close statement
+//        unset($stmt);
+//    }
+//    
+//    //
+//    
+//    
+//    // Validate password: just to have a validation for pass
+//    if(empty(trim($_POST['password']))){
+//        $password_err = "Please enter a password.";     
+//    } elseif(strlen(trim($_POST['password'])) < 6){
+//        $password_err = "Password must have atleast 6 characters.";
+//    } else{
+//        $password = trim($_POST['password']);
+//    }
+//    
+//    
+//    
+//    // Check input errors before inserting in database
+//    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
+////            && empty($first_name_err) && empty($surname_err) && empty($email_address_err) && empty($telephone_err) && empty($house_number_err) && empty($postcode_err) ){
+//        
+//        // Prepare an insert statement
+//        $sql = "INSERT INTO bloguser (username, password, firstName, lastName, email) VALUES (:username, :password, :firstName, :lastName, :email)";
+//        
+//       
+//        
+//        
+//        // Set parameters
 //            $param_username = $username;
-            
-            $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-            
-            // Set parameters for username
-            $param_username = trim($_POST["username"]);
-            
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                if($stmt->rowCount() == 1){
-                    $username_err = "This username is already taken.";
-                } else{
-                    $username = trim($_POST["username"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-        }
-         
-        // Close statement
-        unset($stmt);
-    }
-    
-    //
-    
-    
-    // Validate password: just to have a validation for pass
-    if(empty(trim($_POST['password']))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST['password'])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
-    } else{
-        $password = trim($_POST['password']);
-    }
-    
-    
-    
-    // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
-//            && empty($first_name_err) && empty($surname_err) && empty($email_address_err) && empty($telephone_err) && empty($house_number_err) && empty($postcode_err) ){
-        
-        // Prepare an insert statement
-        $sql = "INSERT INTO bloguser (username, password, firstName, lastName, email) VALUES (:username, :password, :firstName, :lastName, :email)";
-        
-       
-        
-        
-        // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $param_firstName = $firstName;
-            $param_lastName = $lastName;
-            $param_email = $email;
-            
-            //catch the post
-       
-            if($stmt = $pdo->prepare($sql)){
+//            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+//            $param_firstName = $firstName;
+//            $param_lastName = $lastName;
+//            $param_email = $email;
 //            
-           $param_firstName = trim($_POST["firstName"]);
-           $param_lastName = trim($_POST["lastName"]);
-           $param_email = trim($_POST["email"]);
-           
-//            
-//            Bind variables to the prepared statement as parameters
-            $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-            $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-            $stmt->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
-            $stmt->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
-            $stmt->bindParam(':email', $param_email, PDO::PARAM_STR);
-              
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Something went wrong. Please try again later.";
-            }
-        }
-         
-        // Close statement
-        unset($stmt);
-    }
-    
-    // Close connection
-    unset($pdo);
-}
-?>
+//            //catch the post
+//       
+//            if($stmt = $pdo->prepare($sql)){
+////            
+//           $param_firstName = trim($_POST["firstName"]);
+//           $param_lastName = trim($_POST["lastName"]);
+//           $param_email = trim($_POST["email"]);
+//           
+////            
+////            Bind variables to the prepared statement as parameters
+//            $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
+//            $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
+//            $stmt->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
+//            $stmt->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
+//            $stmt->bindParam(':email', $param_email, PDO::PARAM_STR);
+//              
+//            // Attempt to execute the prepared statement
+//            if($stmt->execute()){
+//                // Redirect to login page
+//                header("location: login.php");
+//            } else{
+//                echo "Something went wrong. Please try again later.";
+//            }
+//        }
+//         
+//        // Close statement
+//        unset($stmt);
+//    }
+//    
+//    // Close connection
+//    unset($pdo);
+//}
+//?>
 
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -160,7 +160,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <title>SignUp</title>
     </head>
 
-    <body>
+    <body>-->
 
         <!-- Begin page -->
         <div class="accountbg"></div>
@@ -170,7 +170,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="card-body">
 
                     <h3 class="text-center mt-0 m-b-15">
-                        <a href="index.html" class="logo logo-admin"><img src="../Images/SL@1X.png" height="40" alt="logo"></a>
+                        <a href="index.html" class="logo logo-admin"><img src="views/images/logo.png" height="40" alt="logo"/></a>
                     </h3>
 
                     <div class="p-3">

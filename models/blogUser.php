@@ -140,8 +140,9 @@
          
     public static function login(){
       //Why are we doing this SELECT here and then again on line 177? Surely it only needs to happen once.
-        $db=Db::getInstance();
-        $req=$db->prepare("SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username"); 
+    $db=Db::getInstance();
+        //here is prepared
+    $req=$db->prepare("SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username"); 
        
     
 //Include config file
@@ -154,14 +155,14 @@
 //// Processing form data when form is submitted
         
 //We've already checked this stuff in the controller. Why are we doing it again?
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty(if the username inserted in the field is empty) 
-    if(empty(trim($_POST["username"]))){
-        $username_err = 'Please enter username.';
-    } else{
-        $username = trim($_POST["username"]);
-    }
+        if(empty(trim($_POST["username"]))){
+            $username_err = 'Please enter username.';
+        } else{
+            $username = trim($_POST["username"]);
+        }
     
     // Check if password is empty(if the username inserted in the field is empty) 
     if(empty(trim($_POST['password']))){
@@ -174,51 +175,57 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err)){
        
         $instance = DB::getInstance();
+        //here as you may see I asigned the MySQL query to variable $sql (it's not a prepared statment just an assignemnt to a variable
         $sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
         //A prepared statement is a feature used to execute the same (or similar) SQL statements repeatedly with high efficiency.
-        //$instance = DB::getInstance();        //We don't need to do this twice
+        //$instance = DB::getInstance();        //We don't need to do this twice ...
+        //
+        //I tried without DB::getInstance() = this was my error for one day of code...this line missing
         if($stmt = $instance->prepare($sql)){
         // Bind variables to the prepared statement as parameters
         //[With bindParam] the variable is bound as a reference and will only be evaluated at the time that PDOStatement::execute() is called.
              // Set parameters (Strip whitespace (or other characters from the beginning and end of a string with trim))
-            $param_username = trim($_POST["username"]);
-            
-            $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-           
-            if($stmt->execute()){
-               
+        $param_username = trim($_POST["username"]);
+        $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
+           if($stmt->execute()){
                 if($stmt->rowCount() == 1){
                  
                  //Fetch results from a prepared statement into the bound variables
                  /*A bound variable is a variable that was previously free, but has been bound to a specific value or set of values 
                 called domain of discourse or universe. For example, the variable x becomes a bound variable when we write: 
                 'For all x, (x + 1)2 = x2 + 2x + 1.' or 'There exists x such that x2 = 2.' */  
+                 //( you are right check the unset)   
+                if($row = $stmt->fetch()){
+                //hashed_pass help us to have pass protected
+                $hashed_password = $row['password'];
                     
-                    if($row = $stmt->fetch()){
-                        
-                    //hashed_pass help us to have pass protected
-                    $hashed_password = $row['password'];
-                    
-                    if(password_verify($password, $hashed_password)){
+                if(password_verify($password, $hashed_password)){
                     // Password is correct, so start a new session and save the username to the session and go to index.php
 //                    session_start();
-                         if (isset($_SESSION['username'])) { echo 'logged in'; }
-                        $param_password = trim($_POST["password"]);
-                        $_SESSION['username'] = $username;
-                        $_SESSION['userID'] = $row['blogUserID'];
-                        $_SESSION['firstname'] = $row['firstName'];
+                if (isset($_SESSION['username'])) {
+                    echo 'logged in'; 
+                    
+                }
+                
+                $param_password = trim($_POST["password"]);
+                $_SESSION['username'] = $username;
+                $_SESSION['userID'] = $row['blogUserID'];
+                $_SESSION['firstname'] = $row['firstName'];
                     //I don't understand what this is doing. There is no :password in the $stmt sql. 
                     //Doesn't the password verify do the check that the password is correct?
                     //You never actually do aything with the parameter anyway so this is pointless
-                    $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-                    } else{
-                    // Display an error message if password is not valid
-                    $password_err = 'The password you entered was not valid.';
+                
+                
+                //the parameter will help me to discover my hashed password ...you can try without it and you will see that won't work
+                $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
+                } else{
+               // Display an error message if password is not valid
+                $password_err = 'The password you entered was not valid.';
                     }
                   }
                 } else{
-                    // Display an error message if username doesn't exist
-                    $username_err = 'No account found with that username.';
+                // Display an error message if username doesn't exist
+                $username_err = 'No account found with that username.';
                 }
             } else{ 
                 echo "Oops! Something went wrong. Please try again later.";
@@ -235,9 +242,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     //unset($pdo);
     }
     
-}
-    
 
+            }
+  
+            
+//    public function logout(){   
+//       $db = Db::getInstance();
+//       // Initialize the session
+//       session_start();
+//
+//       // Unset all of the session variables
+//       $_SESSION = array();
+//
+//}
+//    
+//
+//
+//       // Destroy the session.
+//       session_destroy();
+
+       // Redirect to login page
+//       header("location: login.php");
+//       exit;
+//  }
+ 
    
   
      public static function all() {

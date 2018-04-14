@@ -31,7 +31,7 @@
 </head>-->
 
 <!--<body>-->
-    
+<!--maybe : include 'view/pages/header.php'-->
 <?php include '../Header.php'; ?>
 
 <!-- Main -->

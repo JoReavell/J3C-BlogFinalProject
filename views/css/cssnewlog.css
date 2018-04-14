@@ -1098,7 +1098,7 @@ object-fit:scale-down;};
   background-clip: padding-box;
   background: #2d3b48;
   color: #ffffff;
-  text-align: center;
+  text-align: s;
   pointer-events: none;
   z-index: 1;
   -webkit-transition: opacity .2s linear;
