@@ -204,14 +204,12 @@ if(empty($username_err) && empty($password_err)){
                 //session_start();
 //
 //                if (isset($_SESSION['username'])) {
-//                    echo 'logged in';
-//
+//                    echo 'logged in';//
 //                }
-
-            $param_password = trim($_POST["password"]);
-            $_SESSION['username'] = $username;
-            $_SESSION['userID'] = $row['blogUserID'];
-            $_SESSION['firstname'] = $row['firstName'];
+                $param_password = trim($_POST["password"]);
+                $_SESSION['username'] = $username;
+                $_SESSION['userID'] = $row['blogUserID'];
+                $_SESSION['firstname'] = $row['firstName'];
                 //I don't understand what this is doing. There is no :password in the $stmt sql.
                 //Doesn't the password verify do the check that the password is correct?
                 //You never actually do aything with the parameter anyway so this is pointless
