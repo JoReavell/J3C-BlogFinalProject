@@ -27,40 +27,18 @@ class BlogUserController {
     }        
             
     
-// Jen's MVC edit for the login:
-//  
-//    public function login() {
-//        // we expect a url of form ?controller=blogUser&action=login
-//        // if it's a GET request display login form 
-//        // else it's a POST request - log user in and redirect to view all posts action
-//
-//        if($_SERVER["REQUEST_METHOD"] == "GET"){
-//            require_once('views/blogUser/login.php'); // show login page
-//        }
-//        else { 
-//            $login = BlogUser::login();
-//            echo $login;
-//            if($login == null) {
-//            require_once 'views/pages/home.php'; // redirect to home page after signup 
-//            }
-//            else    {
-//                //return call('pages','error');
-//                require_once('views/pages/home.php');
-//            }
-//        }
-//    }
 
-public function login() {
-    if($_SERVER["REQUEST_METHOD"] == "GET"){
-        require_once 'views/blogUser/login.php';
-    } 
-    else {
-        $blogUser = BlogUser::login();
-        echo "<script>alert('You are now signed in!')</script>";
-        //require_once('views/pages/home.php');
-        return call('blogPost','readAll');
+
+    public function login() {
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            require_once 'views/blogUser/login.php';
+        } 
+        else {
+            $blogUser = BlogUser::login();
+            echo "<script>alert('You are now signed in!')</script>";
+            return call('blogPost','readAll');
+        }
     }
-}
 
 
 
@@ -134,8 +112,8 @@ public function login() {
     public function logout()    {
         echo "<script>alert('You logged out!')</script>";
         session_destroy();
-        return call('blogPost','readAll');
-
+        require_once('views/pages/home.php');
+        //return call('blogPost','readAll');
     }
 
 
