@@ -217,7 +217,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       
       
       
-    $sql = "SELECT username, password FROM bloguser WHERE username = :username";
+    $sql = "SELECT username, password, firstName, blogUserID FROM bloguser WHERE username = :username";
     $instance = DB::getInstance();
         if($stmt = $instance->prepare($sql)){
             $param_username = trim($_POST["username"]);
@@ -231,15 +231,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if (isset($_SESSION['username'])) { 
                             echo 'Hello ' . $_SESSION['username']; 
                         }
+                    $param_password = trim($_POST["password"]);
+                    $_SESSION['username'] = $username;
+                    $_SESSION['userID'] = $row['blogUserID'];
+                    $_SESSION['firstname'] = $row['firstName'];
                     
-                        $param_password = trim($_POST["password"]);
-                        $_SESSION['username'] = $username; 
+                    $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
+                    } else{
+                    // Display an error message if password is not valid
+                    $password_err = 'The password you entered was not valid.';
 
-                        $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-                        } else {
-                        // Display an error message if password is not valid
-                        $password_err = 'The password you entered was not valid.';
-                        }
                     }
                 } else {
                     // Display an error message if username doesn't exist

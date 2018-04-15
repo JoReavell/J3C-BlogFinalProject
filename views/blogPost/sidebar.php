@@ -1,4 +1,4 @@
-                <div class="col-md-4">
+    <div class="col-md-4">
                     <div class="sidebar" id="sidebar">
                         <!-- About -->
                         <section class="blurb">
@@ -102,4 +102,4 @@
                     </section> <!-- End inta -->
 
                 </div> <!-- End Sidebar -->
-            </div><!-- End-col-md-4 -->
+                </div>

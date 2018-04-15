@@ -2,8 +2,9 @@
 <div id="main" class="top-margin">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8" style="width: 100%;">
                 <!-- Post -->
+                <div>
                 <article class="post">
                     <header>
                         <div class="title">
@@ -18,22 +19,27 @@
                     <div class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></div>
                     <p><?php echo $blogPost->mainContent; ?></p>
                             <ul class="actions">
-                            <li><a <a href="?controller=blogPost&action=readAllMyPosts&id=<?php echo $blogPost->id ; ?>" class="button big">BACK</a></li> 
-                            </ul>
-            
-            </div>
-           <?php include_once 'sidebar.php'; ?> 
-<!-- Pagination -->
+                            <li><a href="?controller=blogPost&action=readAllMyPosts&id=<?php echo $blogPost->id ; ?>" class="button big">BACK</a></li> 
+                            </ul> 
+                </article>
+                </div>
+            <!-- Pagination -->
+            <div>
                 <ul class="actions pagination">
                     <li><a href="" class="disabled button big previous">Previous Post</a></li>
                     <li><a href="#" class="button big next">Next Post</a></li>
                 </ul>
-                
-            </div> <!-- End col-8 -->
-            
-        </div> <!-- End row -->
-        
-    </div> <!-- End Container -->
+            </div>            
+            <div>
+                <?php require_once 'comments.php'; ?>  
+            </div>
+            </div>
+            <!-- sidebar has div class = col-md-4 in it -->
+            <?php include_once 'sidebar.php'; ?>
+            </div> <!-- End row -->            
+        </div> <!-- End container -->   
+    </div> <!-- End -->
+    
     
 
 
