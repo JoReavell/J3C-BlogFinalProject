@@ -151,7 +151,19 @@ $req->execute();
 BlogPost::uploadFile($_FILES['image']['name']);
 }
 
-
+public static function addComment($blogPostID, $userID, $comment) {
+    $db = Db::getInstance();
+    $req = $db->prepare("Insert into blogComments(blogPostID, blogUserID, blogComment) "
+                         . "VALUES (:blogPostID, :blogUserID, :blogComment);");
+    $req->bindParam(':blogPostID', $blogPostID);
+    $req->bindParam(':blogUserID', $userID);
+    $req->bindParam(':blogComment', $comment);
+    
+    $req->execute();
+    
+    return $comment;
+    
+}
     
 public static function add() {
     $db = Db::getInstance();
@@ -174,9 +186,7 @@ public static function add() {
     $image = $_FILES['image']['name'];
     $date = date('Y-m-d H:i');
     $category = $_POST['category'];
-
-//The author needs to be got from the session after login UPDATE!!!!!
-$author = 1;
+    $author = $_SESSION['userID'];
 
 
     $req->bindParam(':title', $title);

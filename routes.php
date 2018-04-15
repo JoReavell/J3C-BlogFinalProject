@@ -27,7 +27,7 @@
 
 
 $controllers = array('pages' => ['home', 'error', 'aboutUs'],
-                    'blogPost' => ['readAll','read','create','update','delete', 'readAllMyPosts', 'searchByCategory', 'searchByKeyword', 'makeUpdate'],
+                    'blogPost' => ['readAll','read','create','update','delete', 'readAllMyPosts', 'searchByCategory', 'searchByKeyword', 'makeUpdate', 'addComment'],
                     'blogUser' => ['readAll','read','create','update','delete','login','logout', 'signUp','logout'],
     
                     

@@ -18,7 +18,7 @@
 	<!-- Google Fonts -->
 	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
 	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
-        <link rel="icon" href="images/favicon/favicon.ico">
+        <link rel="icon" href="views/images/favicon/favicon.ico">
         
         <!-- Main Style -->
         <link href="views/css/style.css" rel="stylesheet" type="text/css"/>
@@ -62,7 +62,8 @@
                     </li> 
                     <li class="nav-item">
                     <?php    
-                            echo "<h6 style='margin-left: 160%; margin-top:5%;'> Hello, " . $_SESSION["username"] . "!" . "</h6>";
+                            echo "<h6 style='margin-left: 160%; margin-top:5%;'> Hello " . $_SESSION["firstname"] . "." . "</h6>";
+
                     } 
                     ?>
                     </li>
