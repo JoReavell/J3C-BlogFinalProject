@@ -74,7 +74,7 @@
                             
                             <div class="m-t-10 mb-0 row">
                                 <div class="col-6 m-t-20 text-center">
-                                    <a href="login.php" class="text-muted">Already have an account?</a>
+                                    <a href="?controller=blogUser&action=login" class="text-muted">Already have an account?</a>
                                 </div>
                             </div>
                             

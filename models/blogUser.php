@@ -92,10 +92,10 @@
         
         if($req->rowCount() == 1){
                 $username_err = "This username is already taken.";
-            } 
-            else {
-                $username = trim($_POST["username"]);
-            }
+        } 
+        else {
+            $username = trim($_POST["username"]);
+        }
             
         // Validate password
         if(!empty(trim($_POST['password']))){
@@ -111,8 +111,6 @@
             }
             else {
                 $password = trim($_POST['password']);
-                
-//                $password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             }
         }    
         
@@ -122,20 +120,12 @@
         $param_lastName = $lastName;
         $param_email = $email;
         
-//        jen
-//        $req->bindParam(':username', $username);
-//        $req->bindParam(':firsName', $firstName);
-//        $req->bindParam(':lastName', $lastName);
-//        $req->bindParam(':email', $email);
-//        $req->bindParam(':password', $password);
-//        $req->bindParam(':confirm_password', $confirm_password);
 
-//        Bind variables to the prepared statement as parameters
-            $req->bindParam(':username', $param_username, PDO::PARAM_STR);
-            $req->bindParam(':password', $param_password, PDO::PARAM_STR);
-            $req->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
-            $req->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
-            $req->bindParam(':email', $param_email, PDO::PARAM_STR);
+        $req->bindParam(':username', $param_username, PDO::PARAM_STR);
+        $req->bindParam(':password', $param_password, PDO::PARAM_STR);
+        $req->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
+        $req->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
+        $req->bindParam(':email', $param_email, PDO::PARAM_STR);
               
 
         if ($req->execute()){
@@ -144,170 +134,81 @@
                 echo "Something went wrong. Please try again later.";
             }
     }
-//                array(
-//            'username' => $username,
-//            'firstName' => $firstName,
-//            'lastName' => $lastName,
-//            'email' => $email,
-//            'password' => $password = password_hash($password, PASSWORD_DEFAULT) // Creates a password hash
-//            )
-//        );
-        //all went OK, return true
-//    }        
-
-  
 
     
-public static function login(){
-  $db=Db::getInstance();
-  $req=$db->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
- 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username is empty(if the username inserted in the field is empty) 
-    if(empty(trim($_POST["username"]))){
-        $username_err = 'Please enter username.';
-    } else{
-        $username = trim($_POST["username"]);
-    }
     
-    // Check if password is empty(if the username inserted in the field is empty) 
-    if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
-    } else{
-        $password = trim($_POST['password']);
-    }
-    
-    // Validate credentials with MySQL (check if what the user is posting is the same with the user from mysql
-    if(empty($username_err) && empty($password_err)){
-       
-//    $instance = DB::getInstance();
+    public static function login(){
+      $db=Db::getInstance();
+      $req=$db->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
 
-      
-  $sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
-    $instance = DB::getInstance();        //We don't need to do this twice ...
-   
-  if($stmt = $instance->prepare($sql)){
-     $param_username = trim($_POST["username"]);
-        $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-        if($stmt->execute()){
-           if($stmt->rowCount() == 1){
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-            if($row = $stmt->fetch()){
-              $hashed_password = $row['password'];
-
-               if(password_verify($password, $hashed_password)){
-//                session_start();
-                if (isset($_SESSION['username'])) {
-                    echo 'logged in ' . $_SESSION['username'];
-                   }
-                   $param_password = trim($_POST["password"]);
-                    $_SESSION['username'] = $username;
-                    $_SESSION['userID'] = $row['blogUserID'];
-                    $_SESSION['firstname'] = $row['firstName'];
-               
-
-               $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-               } else{
-                $password_err = 'The password you entered was not valid.';
-
-      }
-                } else {
-//                    // Display an error message if username doesn't exist
-                    $username_err = 'No account found with that username.';
-//
-                }
-            } else { 
-                echo "Oops! Something went wrong. Please try again later.";
+            // Check if username is empty(if the username inserted in the field is empty) 
+            if(empty(trim($_POST["username"]))){
+                $username_err = 'Please enter username.';
+            } else{
+                $username = trim($_POST["username"]);
             }
-        }
-//        
-        // Close the prepared statement
-        
-        unset($stmt);
+
+            // Check if password is empty(if the username inserted in the field is empty) 
+            if(empty(trim($_POST['password']))){
+                $password_err = 'Please enter your password.';
+            } else{
+                $password = trim($_POST['password']);
+            }
+
+            // Validate credentials with MySQL (check if what the user is posting is the same with the user from mysql
+            if(empty($username_err) && empty($password_err)){
+                $sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
+                $instance = DB::getInstance();        //We don't need to do this twice ...
+
+                if($stmt = $instance->prepare($sql)){
+                    $param_username = trim($_POST["username"]);
+                    $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
+                    if($stmt->execute()){
+                        if($stmt->rowCount() == 1){
+
+                            if($row = $stmt->fetch()){
+                                $hashed_password = $row['password'];
+
+                                if(password_verify($password, $hashed_password)){
+                                    // session_start();
+                                    if (isset($_SESSION['username'])) {
+                                        echo 'logged in ' . $_SESSION['username'];
+                                       }
+                                       $param_password = trim($_POST["password"]);
+                                        $_SESSION['username'] = $username;
+                                        $_SESSION['userID'] = $row['blogUserID'];
+                                        $_SESSION['firstname'] = $row['firstName'];
+
+                                        $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
+                                } 
+                                else {
+                                    $password_err = 'The password you entered was not valid.';
+                                }
+                            } 
+                            else {
+                                // Display an error message if username doesn't exist
+                                $username_err = 'No account found with that username.';
+                            }
+                        } 
+                        else { 
+                            echo "Oops! Something went wrong. Please try again later.";
+                        }
+                    }
+
+                    // Close the prepared statement
+                    unset($stmt);
+                }
+
+            // Close connection
+            unset($pdo);
+            }
+        } 
     }
-    
-    // Close connection
-    //unset() will destroy the variable inside this function???when we close the statement??
-    unset($pdo);
-    }
-      
-      
-//    $sql = "SELECT username, password, firstName, blogUserID FROM bloguser WHERE username = :username";
-//    $instance = DB::getInstance();
-//        if($stmt = $instance->prepare($sql)){
-//            $param_username = trim($_POST["username"]);
-//            $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
-//            if($stmt->execute()){
-//                if($stmt->rowCount() == 1){
-//                    if($row = $stmt->fetch()){
-//                    $hashed_password = $row['password'];
-//                    
-//                    if(password_verify($password, $hashed_password)){
-//                        if (isset($_SESSION['username'])) { 
-//                            echo 'Hello ' . $_SESSION['username']; 
-//                        }
-//                    $param_password = trim($_POST["password"]);
-//                    $_SESSION['username'] = $username;
-//                    $_SESSION['userID'] = $row['blogUserID'];
-//                    $_SESSION['firstname'] = $row['firstName'];
-//                    
-//                    $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-//                    } else{
-//                    // Display an error message if password is not valid
-//                    $password_err = 'The password you entered was not valid.';
-//
-//                    }
-//                } else {
-//                    // Display an error message if username doesn't exist
-//                    $username_err = 'No account found with that username.';
-//
-//                }
-//            } else { 
-//                echo "Oops! Something went wrong. Please try again later.";
-//            }
-//        }
-//        
-        // Close the prepared statement
-        
-//        unset($stmt);
-//    }
-    
-    // Close connection
-    //unset() will destroy the variable inside this function???when we close the statement??
-//    unset($pdo);
-//    }
-
-            
-    
-
-//    }
-} 
-
   
-            
-//    public function logout(){   
-//       $db = Db::getInstance();
-//       // Initialize the session
-//       session_start();
-//
-//       // Unset all of the session variables
-//       $_SESSION = array();
-//
-//}
-//    
-//
-//
-//       // Destroy the session.
-//       session_destroy();
 
-       // Redirect to login page
-//       header("location: login.php");
-//       exit;
-//  }
- 
-}
-  
+
      public static function all() {
       $list = [];
       $db = Db::getInstance();
@@ -341,63 +242,65 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     
     
-public static function update($id) {
-    $db = Db::getInstance();
-    $req = $db->prepare("Update product set name=:name, price=:price where id=:id");
-    $req->bindParam(':id', $id);
-    $req->bindParam(':name', $name);
-    $req->bindParam(':price', $price);
+    public static function update($id) {
+        $db = Db::getInstance();
+        $req = $db->prepare("Update product set name=:name, price=:price where id=:id");
+        $req->bindParam(':id', $id);
+        $req->bindParam(':name', $name);
+        $req->bindParam(':price', $price);
 
-// set name and price parameters and execute
-    if(isset($_POST['name'])&& $_POST['name']!=""){
-        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-    if(isset($_POST['price'])&& $_POST['price']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-$name = $filteredName;
-$price = $filteredPrice;
-$req->execute();
+        // set name and price parameters and execute
+        if(isset($_POST['name'])&& $_POST['name']!=""){
+            $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if(isset($_POST['price'])&& $_POST['price']!=""){
+            $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        $name = $filteredName;
+        $price = $filteredPrice;
+        $req->execute();
 
-//upload product image if it exists
+        //upload product image if it exists
         if (!empty($_FILES[self::InputKey]['name'])) {
-		Product::uploadFile($name);
-	}
+                Product::uploadFile($name);
+        }
 
     }
     
     
     
     public static function add() {
-    $db = Db::getInstance();
-    $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
-    $req->bindParam(':name', $name);
-    $req->bindParam(':price', $price);
+        $db = Db::getInstance();
+        $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
+        $req->bindParam(':name', $name);
+        $req->bindParam(':price', $price);
 
-// set parameters and execute
-    if(isset($_POST['name'])&& $_POST['name']!=""){
-        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        // set parameters and execute
+        if(isset($_POST['name'])&& $_POST['name']!=""){
+            $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if(isset($_POST['price'])&& $_POST['price']!=""){
+            $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        $name = $filteredName;
+        $price = $filteredPrice;
+        $req->execute();
+
+        //upload product image
+        Product::uploadFile($name);
     }
-    if(isset($_POST['price'])&& $_POST['price']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-$name = $filteredName;
-$price = $filteredPrice;
-$req->execute();
 
-//upload product image
-Product::uploadFile($name);
-    }
+    const AllowedTypes = ['image/jpeg', 'image/jpg'];
+    const InputKey = 'myUploader';
 
-const AllowedTypes = ['image/jpeg', 'image/jpg'];
-const InputKey = 'myUploader';
 
-      
-//die() function calls replaced with trigger_error() calls
-//replace with structured exception handling
+    //die() function calls replaced with trigger_error() calls
+    //replace with structured exception handling
+
+
     
     
-public static function uploadFile(string $name) {
+    public static function uploadFile(string $name) {
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
@@ -425,18 +328,18 @@ public static function uploadFile(string $name) {
 	if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
-}
+    }
     
     
     
-public static function remove($id) {
-      $db = Db::getInstance();
-      //make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('delete FROM product WHERE id = :id');
-      // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
-  }
+    public static function remove($id) {
+          $db = Db::getInstance();
+          //make sure $id is an integer
+          $id = intval($id);
+          $req = $db->prepare('delete FROM product WHERE id = :id');
+          // the query was prepared, now replace :id with the actual $id value
+          $req->execute(array('id' => $id));
+    }
   
 }
 ?>
