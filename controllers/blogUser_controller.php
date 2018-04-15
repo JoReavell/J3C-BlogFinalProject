@@ -15,7 +15,7 @@ class BlogUserController {
         } 
         else { 
             $signup = BlogUser::signUp();
-            echo $signup;
+            echo "<script>alert('" . $signup . "')</script>";
             if($signup == null) {
                 require_once('views/blogUser/login.php'); // redirect to login after signup 
             }

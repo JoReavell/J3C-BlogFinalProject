@@ -18,7 +18,7 @@ class BlogPostController {
 //    if (!isset($_GET['UserID']))
 //      return call('pages', 'error');    
     try{
-    $blogPosts = BlogPost::allMyPosts("JennyOleary");
+    $blogPosts = BlogPost::allMyPosts("JenPatchett");
     //$blogPost = BlogPost::allMyPosts($_GET['username']);
     require_once('views/blogPost/viewAllMyPosts.php');
     }
@@ -84,7 +84,7 @@ class BlogPostController {
      
       blogPost::update($id);
                         
-      $blogPosts = BlogPost::allMyPosts("JennyOleary");
+      $blogPosts = BlogPost::allMyPosts("JenPatchett");
       require_once('views/blogPost/viewAllMyPosts.php');
     }}
       
