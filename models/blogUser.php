@@ -228,24 +228,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $hashed_password = $row['password'];
                     
                     if(password_verify($password, $hashed_password)){
-                    if (isset($_SESSION['username'])) 
-                    { echo 'Hello ' . $_SESSION['username']; }
+                        if (isset($_SESSION['username'])) { 
+                            echo 'Hello ' . $_SESSION['username']; 
+                        }
                     
-                    $param_password = trim($_POST["password"]);
-                    $_SESSION['username'] = $username; 
-                    
-                    $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-                    } else{
-                    // Display an error message if password is not valid
-                    $password_err = 'The password you entered was not valid.';
+                        $param_password = trim($_POST["password"]);
+                        $_SESSION['username'] = $username; 
+
+                        $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
+                        } else {
+                        // Display an error message if password is not valid
+                        $password_err = 'The password you entered was not valid.';
+                        }
                     }
-                  }
-                } else{
+                } else {
                     // Display an error message if username doesn't exist
                     $username_err = 'No account found with that username.';
 
                 }
-            } else{ 
+            } else { 
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
