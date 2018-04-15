@@ -62,6 +62,17 @@ public function login() {
     }
 }
 
+//public function login() {
+//    if($_SERVER["REQUEST_METHOD"] == "GET"){
+//        require_once 'views/blogUser/login.php';
+//    } 
+//    else {
+//        $blogUser = BlogUser::login();
+//        echo "<script>alert('You are now signed in!')</script>";
+//        //require_once('views/pages/home.php');
+//        return call('blogPost','readAll');
+//    }
+//}}
 
 
 
