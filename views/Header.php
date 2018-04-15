@@ -62,7 +62,7 @@
                     </li> 
                     <li class="nav-item">
                     <?php    
-                            echo "<h6 style='margin-left: 160%; margin-top:5%;'> Hello " . $_SESSION["username"] . "." . "</h6>";
+                            echo "<h6 style='margin-left: 160%; margin-top:5%;'> Hello, " . $_SESSION["username"] . "!" . "</h6>";
                     } 
                     ?>
                     </li>
@@ -97,6 +97,15 @@
             }
             ?>
             
+            
+        <!-- Jen testing JS buttons show hide -->    
+<!--            <div class="test-btn">
+                <a id="login-btn" class="btn btn-success center-block" style="font-size:16px; height:48px; width:125px;" href="?controller=blogUser&action=login" role="button">Login</a>
+                <a id="logout-btn" class="btn btn-warning center-block" style="font-size:16px; height:48px; width:125px;" href="?controller=blogUser&action=logout" role="button">Log Out</a>
+            </div>      -->
+            
+            
+        
             <!-- SEARCH BAR DROP DOWN  -->   
             <div class="dropdown btn-group">
                 <button class="btn btn-sm btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

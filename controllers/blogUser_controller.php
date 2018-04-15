@@ -52,17 +52,28 @@ class BlogUserController {
 
 public function login() {
     if($_SERVER["REQUEST_METHOD"] == "GET"){
-        
-        require_once('views/blogUser/login.php');
-    }else{
-//       
-        BlogUser::login();
+        //$blogUser = BlogUser::login();
+        require_once 'views/blogUser/login.php';
+    } 
+    else {
         $blogUser = BlogUser::login();
-        require_once 'views/pages/home.php';
+        require_once('index.php');
+        //return call('pages','error');
+    }
 }
-    
-}
-    
+
+
+
+
+//if($_SERVER["REQUEST_METHOD"] == "GET"){
+//        
+//        require_once('views/blogUser/login.php');
+//    }else{
+////       
+//        BlogUser::login();
+//        $blogUser = BlogUser::login();
+//        require_once 'views/pages/home.php';
+//}
     
 // Claudia's login - need to make this MVC (use/edit Jen's code above?):
     
