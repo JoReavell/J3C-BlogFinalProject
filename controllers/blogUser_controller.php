@@ -15,7 +15,7 @@ class BlogUserController {
         } 
         else { 
             $signup = BlogUser::signUp();
-            echo "<script>alert('" . $signup . "')</script>";
+            echo "<script>alert('Success! You may now sign in" . $signup . "')</script>";
             if($signup == null) {
                 require_once('views/blogUser/login.php'); // redirect to login after signup 
             }
@@ -52,13 +52,13 @@ class BlogUserController {
 
 public function login() {
     if($_SERVER["REQUEST_METHOD"] == "GET"){
-        //$blogUser = BlogUser::login();
         require_once 'views/blogUser/login.php';
     } 
     else {
         $blogUser = BlogUser::login();
-        require_once('views/pages/home.php');
-        //return call('pages','error');
+        echo "<script>alert('You are now signed in!')</script>";
+        //require_once('views/pages/home.php');
+        return call('blogPost','readAll');
     }
 }
 
