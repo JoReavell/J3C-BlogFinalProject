@@ -62,7 +62,7 @@
                     </li> 
                     <li class="nav-item">
                     <?php    
-                            echo "<h6 style='margin-left: 280%; margin-top:5%;'> Hello " . $_SESSION['firstname'] . "." . "</h6>";
+                            echo "<h6 style='margin-left: 160%; margin-top:5%;'> Hello " . $_SESSION["username"] . "." . "</h6>";
                     } 
                     ?>
                     </li>
