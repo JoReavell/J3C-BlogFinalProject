@@ -151,7 +151,19 @@ $req->execute();
 BlogPost::uploadFile($_FILES['image']['name']);
 }
 
-
+public static function addComment($blogPostID, $userID, $comment) {
+    $db = Db::getInstance();
+    $req = $db->prepare("Insert into blogComments(blogPostID, blogUserID, blogComment) "
+                         . "VALUES (:blogPostID, :blogUserID, :blogComment);");
+    $req->bindParam(':blogPostID', $blogPostID);
+    $req->bindParam(':blogUserID', $userID);
+    $req->bindParam(':blogComment', $comment);
+    
+    $req->execute();
+    
+    return $comment;
+    
+}
     
 public static function add() {
     $db = Db::getInstance();

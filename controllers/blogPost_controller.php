@@ -59,6 +59,21 @@ class BlogPostController {
       }      
     }
     
+    //Insert a blog post
+    public function addComment() {
+
+     if($_SERVER['REQUEST_METHOD'] == 'GET'){
+//     if (!isset($_GET['blogPostID']) || !isset($_GET['userID']))
+//        return call('pages', 'error');
+//     }
+       $blogPostID = $_GET['blogPostID'];
+       $userID = $_GET['userID'];
+       $comment = $_GET['comment'];
+        // we use the given id to get the correct product
+        $commentText = BlogPost::addComment($blogPostID, $userID, $comment);
+        echo $commentText;      
+        }
+    }
     
     public function update() {
            
