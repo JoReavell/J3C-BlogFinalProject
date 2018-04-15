@@ -261,9 +261,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     //unset() will destroy the variable inside this function???when we close the statement??
     unset($pdo);
     }
+
+            
     
+
     }
 } 
+
   
             
 //    public function logout(){   
