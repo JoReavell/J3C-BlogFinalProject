@@ -57,7 +57,8 @@
 
                             <div class="text-center row m-t-20">
                                 <div class="col-6">
-                                    <button class="btn btn-danger btn-block waves-effect waves-light" type="submit" value="Login">Log In</button>                                    
+                                    <button class="btn btn-danger btn-block waves-effect waves-light" type="submit" value="login">Log In</button>  
+                                    
                                 </div>
                             </div>
 
@@ -66,7 +67,7 @@
                                     <a href="../ForgotPass/ForgotPass.php"><small>Forgot your password ?</small></a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a href="register.php"><small>Create an account ?</small></a>
+                                    <a href="views/blogUser/signUp.php"><small>Create an account ?</small></a>
                                 </div>
                                 
                             </div>
