@@ -8,7 +8,7 @@
                 <article class="post">
                     <header>
                         <div class="title">
-                            <h2><a href="index.php?controller=blogPost&action=read&username=<?php echo $blogPost->id; ?>"><?php echo $blogPost->title; ?></a></h2>
+                            <h2><a href="index.php?controller=blogPost&action=read&id=<?php echo $blogPost->id; ?>"><?php echo $blogPost->title; ?></a></h2>
                             <p><?php echo $blogPost->summary; ?></p>
                         </div>
                         <div class="meta">
