@@ -138,7 +138,7 @@
   
 
     
-    public static function login(){
+public static function login(){
   $db=Db::getInstance();
 //        $req=$db->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
  
@@ -262,9 +262,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     unset($pdo);
     }
     
-            }
-    
-    
+    }
+} 
   
             
 //    public function logout(){   
