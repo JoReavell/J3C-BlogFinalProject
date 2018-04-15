@@ -132,7 +132,9 @@ public function login() {
 
 
     public function logout()    {
+        echo "<script>alert('You logged out!')</script>";
         session_destroy();
+        return call('blogPost','readAll');
 
     }
 
