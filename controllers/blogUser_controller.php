@@ -57,7 +57,7 @@ public function login() {
     } 
     else {
         $blogUser = BlogUser::login();
-        require_once('index.php');
+        require_once('views/pages/home.php');
         //return call('pages','error');
     }
 }
