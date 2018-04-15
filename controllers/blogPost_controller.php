@@ -18,7 +18,7 @@ class BlogPostController {
 //    if (!isset($_GET['UserID']))
 //      return call('pages', 'error');    
     try{
-    $blogPosts = BlogPost::allMyPosts("JenPatchett");
+    $blogPosts = BlogPost::allMyPosts($_SESSION['username']);
     //$blogPost = BlogPost::allMyPosts($_GET['username']);
     require_once('views/blogPost/viewAllMyPosts.php');
     }
@@ -99,7 +99,7 @@ class BlogPostController {
      
       blogPost::update($id);
                         
-      $blogPosts = BlogPost::allMyPosts("JenPatchett");
+      $blogPosts = BlogPost::allMyPosts($_SESSION['username']);
       require_once('views/blogPost/viewAllMyPosts.php');
     }}
       
@@ -109,7 +109,7 @@ class BlogPostController {
         //This could be called from the view blogs page?
             blogPost::remove($_GET['id']);
             
-          $blogPosts = BlogPost::allMyPosts("JennyOleary"); //$blogPost get all the posts again and redirect to main page
+          $blogPosts = BlogPost::allMyPosts($_SESSION['username']); //$blogPost get all the posts again and redirect to main page
           
           require_once('views/blogPost/viewAllMyPosts.php');
       }

@@ -186,9 +186,7 @@ public static function add() {
     $image = $_FILES['image']['name'];
     $date = date('Y-m-d H:i');
     $category = $_POST['category'];
-
-//The author needs to be got from the session after login UPDATE!!!!!
-$author = 1;
+    $author = $_SESSION['userID'];
 
 
     $req->bindParam(':title', $title);

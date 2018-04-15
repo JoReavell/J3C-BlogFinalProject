@@ -217,7 +217,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       
       
       
-    $sql = "SELECT username, password FROM bloguser WHERE username = :username";
+    $sql = "SELECT username, password, firstName, blogUserID FROM bloguser WHERE username = :username";
     $instance = DB::getInstance();
         if($stmt = $instance->prepare($sql)){
             $param_username = trim($_POST["username"]);
@@ -232,7 +232,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     { echo 'Hello ' . $_SESSION['username']; }
                     
                     $param_password = trim($_POST["password"]);
-                    $_SESSION['username'] = $username; 
+                    $_SESSION['username'] = $username;
+                    $_SESSION['userID'] = $row['blogUserID'];
+                    $_SESSION['firstname'] = $row['firstName'];
                     
                     $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
                     } else{

@@ -12,7 +12,7 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
         <?php
         } else { 
         ?>
-        Please <a href="login.php">login</a> to add comments
+        Please <a href="?controller=blogUser&action=login">login</a> to add comments
         <?php
         }
         ?>
@@ -23,7 +23,8 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
         $db = Db::getInstance();
         $sql = "SELECT CONCAT(firstname, ' ', lastname) AS username, profilePic, blogComment "
                 . "FROM blogcomments JOIN bloguser "
-                . "ON blogcomments.blogUserID = bloguser.blogUserID";
+                . "ON blogcomments.blogUserID = bloguser.blogUserID "
+                . "WHERE blogPostID = $blogPost->id;";
         $req = $db->query($sql);
         // we create a list of Product objects from the database results
         foreach($req->fetchAll() as $blogComment) {
@@ -54,6 +55,7 @@ function addComment(blogPostID, userID){
         if (this.readyState === 4 && this.status === 200) { 
             //Split the response text into the different variables we need.
             //populate the different elements.
+            //alert(this.responseText);
             document.getElementById("newComment").innerHTML = this.responseText;
         }
     };
