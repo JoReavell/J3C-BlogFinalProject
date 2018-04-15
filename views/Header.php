@@ -84,6 +84,7 @@
             </div>
             <?php 
             } else  {
+                
                 //display login button if we are not logged in
                 ?>
             <div class="btn-group pr-1">

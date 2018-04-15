@@ -113,7 +113,6 @@ class BlogUserController {
         echo "<script>alert('You logged out!')</script>";
         session_destroy();
         require_once('views/pages/home.php');
-        //return call('blogPost','readAll');
     }
 
 
