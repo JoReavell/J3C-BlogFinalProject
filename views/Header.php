@@ -57,7 +57,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="?controller=blogPost&action=readAllMyPosts">Update</a>
                                 <a class="dropdown-item" href="?controller=blogPost&action=create">Create</a>
-                                <a class="dropdown-item" href="??controller=blogUser&action=viewMyAccount">My Account</a>
+                                <a class="dropdown-item" href="?controller=blogUser&action=viewMyAccount">My Account</a>
                             </div>
                     </li> 
                     <li class="nav-item">
