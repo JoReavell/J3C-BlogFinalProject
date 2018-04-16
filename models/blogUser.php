@@ -209,25 +209,28 @@
   
 
     // NOT FINISHED YET!
-    public static function viewMyAccount($username) {
+    public static function viewMyAccount() {
+
         $list = [];
         $db = Db::getInstance();
-        $req = $db->query("SELECT firstName, lastName, email" 
-                . " FROM blogUser"
-                . " WHERE id = :blogUserID");
+        //$sql = "SELECT username "
+            //. "FROM blogUser";
+        $req = $db->query('SELECT username, firstName, lastName, email"
+            . " FROM blogUser');
+        
         foreach($req->fetchAll() as $blogUser) {
-            $list[] = new BlogUser($blogUser['firstName'], $blogUser['lastName'], $blogUser['email']);
+          $list[] = new BlogUser($blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email']);
         }
-        return $list;    
-    } 
+        return $list;
+    }
     
     
 
      public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM product');
-      // we create a list of Product objects from the database results
+      $req = $db->query('SELECT * FROM product');      
+      // we create a list of product objects from the database results
       foreach($req->fetchAll() as $product) {
         $list[] = new Product($product['id'], $product['name'], $product['price']);
       }

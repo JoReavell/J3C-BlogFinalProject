@@ -9,9 +9,8 @@
   </p>-->
 <?php // } ?>
 
-<?php
 
-?>  
+
 
   <!-- Main -->
 <div id="main">
@@ -21,8 +20,7 @@
 		<div class="sidebar" id="sidebar">
 		<!-- About -->
                     <section class="blurb">
-                        <!-- <h2 class="title">Claudia Danciu</h2> -->
-                        <input type="text" name="firstName lastName" value="<?= $blogUser->firstName, $blogUser->lastName; ?>"/>
+                        <h2 class="title"><?php echo $blogUser->firstName, $blogUser->lastName; ?></h2>
                             <a href="single-post.html" class="image"><img class="img-responsive" src="images/Dia.jpg" alt="about us" /></a>
                                 <div class="author-widget">
 				</div>
@@ -50,24 +48,24 @@
 			</div>
                     </header>
                         <div> 
-                        <table class="table table-user-information" action= "?controller=blogUser&action=viewMyAccount&id=<?php echo $blogUser->id ;?>">
+                        <table class="table table-user-information">
                             <tbody>
                                 <tr>
                                     <td>First Name:</td>
-                                    <td><input type="text" name="firstName" value="<?= $blogUser->firstName; ?>"/></td>
+                                    <td><?php echo $blogUser->firstName; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Last Name:</td>
-                                    <td><input type="text" name="lastName" value="<?= $blogUser->lastName; ?>"/></td>
+                                    <td><?php echo $blogUser->lastName; ?></td>
                                 </tr>
                                 <tr>
                                     <td>E-mail</td>
-                                    <td><input type="text" name="email" value="<?= $blogUser->email; ?>"/></td>
+                                    <td><?php echo $blogUser->email; ?></td>
                                 </tr>
                                 <tr>
                                 <tr>
                                     <td>Username</td>
-                                    <td><input type="text" name="username" value="<?= $blogUser->username; ?>"/></td>
+                                    <td><?php echo $blogUser->username; ?></td>
                                 </tr>
                       
                             </tbody>
@@ -94,4 +92,6 @@
 
 		
 	</div><!-- End Main -->
-        
+<?php
+//}
+?>
