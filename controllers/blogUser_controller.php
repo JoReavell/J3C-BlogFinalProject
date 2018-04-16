@@ -55,26 +55,33 @@ class BlogUserController {
         } 
         else {
             $blogUser = BlogUser::login();
-            
             return call('blogPost','readAll');
         }
     }
 
+    
 
-        public function logout(){
-            if($_SERVER["REQUEST_METHOD"] == "GET"){
-              session_destroy(); 
-                require_once 'views/blogUser/login.php';
-            }
+    public function logout(){
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            //echo "<script>alert('You logged out!')</script>";
+            session_destroy(); 
+            require_once 'views/blogUser/login.php';
+            //require_once('views/pages/home.php');
         }
+    }
       
 
-
-//    public function logout()    {
-//        echo "<script>alert('You logged out!')</script>";
-//        session_destroy();
-//        require_once('views/pages/home.php');
-//    }
+    
+    public function viewMyAccount() {
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            $myAccount = BlogUser::viewMyAccount($_SESSION['username']);
+            require_once('views/blogUser/viewmyAccount.php');
+            
+        } 
+        else {
+            return call('pages','error');
+        }    
+    }
 
     
 

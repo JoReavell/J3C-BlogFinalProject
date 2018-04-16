@@ -73,6 +73,7 @@
             if(!empty($_SESSION)){
                 //display log out button if we are logged in
                 ?>
+
             
             <div class=" btn-group pr-1">
                 <button class="btn btn-sm btn-outline-secondary" type="button"  data-toggle="dropdown">
