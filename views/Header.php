@@ -63,20 +63,18 @@
                     </li> 
                     <?php } ?>
                 </ul>
-          </div> 
+          
        
             <!-- LOGIN DROP DOWN  --> 
-            
+                       <div class=" navbar-nav navbar-right container-fluid menu-left">
+
             <?php 
-            if(!empty($_SESSION))   {
+            if(!empty($_SESSION)){
                 //display log out button if we are logged in
-                
-            
-                    
-                    ?>
+                ?>
             <?php    
             echo "<h6 style='margin-left: 100px; margin-top: 5px'> Hello " . $_SESSION["firstname"] . "." . "</h6>";?>
-            <div class="btn-group pr-1">
+            <div class=" btn-group pr-1">
                 <button class="btn btn-sm btn-outline-secondary" type="button"  data-toggle="dropdown">
                 <img style="width: 25px;" src="views/images/user.png"></button>
                 <div class="dropdown-menu" style="width:180px;">
@@ -91,7 +89,6 @@
                 
                 //display login button if we are not logged in
                 ?> 
-           
             <div class="btn-group pr-1 right"> 
                 <button class="btn btn-sm btn-outline-secondary " type="button"  data-toggle="dropdown"  >
                 <img style=" width: 25px;" src="views/images/user.png"></button>
@@ -114,6 +111,7 @@
                     </form>
                 </div>
             </div>
+                       </div>     
 </div>
          
       

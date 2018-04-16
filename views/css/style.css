@@ -1,3 +1,10 @@
+
+@media screen and (max-width:736px) {
+.btn-group { margin-left: 30%;
+}
+    
+}
+
 body {
     background: #f4f4f4;
     font-family: Raleway, Helvetica, sans-serif;
