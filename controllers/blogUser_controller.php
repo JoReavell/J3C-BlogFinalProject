@@ -74,9 +74,8 @@ class BlogUserController {
     
     public function viewMyAccount() {
         if($_SERVER["REQUEST_METHOD"] == "GET"){
-            $myAccount = BlogUser::viewMyAccount($_SESSION['username']);
-            require_once('views/blogUser/viewmyAccount.php');
-            
+            $blogUser = BlogUser::viewMyAccount($_SESSION['username']);
+            require_once('views/blogUser/viewmyAccount.php');  
         } 
         else {
             return call('pages','error');
