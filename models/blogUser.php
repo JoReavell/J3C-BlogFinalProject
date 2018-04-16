@@ -172,7 +172,7 @@
                                 $hashed_password = $row['password'];
 
                                 if(password_verify($password, $hashed_password)){
-                                    // session_start();
+//                                     session_start();
                                     if (isset($_SESSION['username'])) {
                                         echo 'logged in ' . $_SESSION['username'];
                                        }
