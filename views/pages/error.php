@@ -54,7 +54,7 @@
         </div> <!-- End row -->
     </div> <!-- End Container -->
 
-    <!-- Featured Posts -->
+<!--     Featured Posts 
     <section class="featured-posts">
 	<div class="container">
             <div class="row">
@@ -96,7 +96,7 @@
                 </div>
             </div>
         </div>
-    </section><!-- featured-posts-END -->
+    </section> featured-posts-END -->
     
     <div id="instagram-footer">
     </div>
