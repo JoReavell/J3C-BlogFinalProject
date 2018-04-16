@@ -208,6 +208,20 @@
     }
   
 
+    // NOT FINISHED YET!
+    public static function viewMyAccount($username) {
+        $list = [];
+        $db = Db::getInstance();
+        $req = $db->query("SELECT firstName, lastName, email" 
+                . " FROM blogUser"
+                . " WHERE id = :blogUserID");
+        foreach($req->fetchAll() as $blogUser) {
+            $list[] = new BlogUser($blogUser['firstName'], $blogUser['lastName'], $blogUser['email']);
+        }
+        return $list;    
+    } 
+    
+    
 
      public static function all() {
       $list = [];

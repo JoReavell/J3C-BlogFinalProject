@@ -71,10 +71,9 @@
                 //display log out button if we are logged in
                 ?>
             <?php    
-                            echo "<h6 style='margin-left: 100px; margin-top: 5px'> Hello " . $_SESSION["firstname"] . "." . "</h6>";
-
-                    } 
-                    ?>
+                echo "<h6 style='margin-left: 100px; margin-top: 5px'> Hello " . $_SESSION["firstname"] . "." . "</h6>";
+            } 
+            ?>
             <div class="btn-group pr-1">
                 <button class="btn btn-sm btn-outline-secondary" type="button"  data-toggle="dropdown">
                     
