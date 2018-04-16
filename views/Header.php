@@ -60,7 +60,8 @@
                                 <a class="dropdown-item" href="?controller=blogPost&action=create">Create</a>
                                 <a class="dropdown-item" href="?controller=blogUser&action=viewMyAccount">My Account</a>
                             </div>
-                    </li> 
+                    </li>
+                    
                     <?php } ?>
                 </ul>
           
@@ -72,12 +73,13 @@
             if(!empty($_SESSION)){
                 //display log out button if we are logged in
                 ?>
-            <?php    
-            echo "<h6 style='margin-left: 100px; margin-top: 5px'> Hello " . $_SESSION["firstname"] . "." . "</h6>";?>
+            
             <div class=" btn-group pr-1">
                 <button class="btn btn-sm btn-outline-secondary" type="button"  data-toggle="dropdown">
                 <img style="width: 25px;" src="views/images/user.png"></button>
                 <div class="dropdown-menu" style="width:180px;">
+                    <?php    
+            echo "<h6 style='margin-left: 22%'> Hello " . $_SESSION["firstname"] . "." . "</h6>";?>
                     <a id="button" class="btn btn-primary center-block" style="font-size:16px; height:48px; width:125px;" href="?controller=blogUser&action=logout" role="button">Logout</a>
                 </div>
             </div>
