@@ -285,23 +285,34 @@
     
     public static function add() {
         $db = Db::getInstance();
-        $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
+        $req = $db->prepare("Insert into contactUs (name, email, subject, message) values (:name, :email, :subject, :message)");
         $req->bindParam(':name', $name);
-        $req->bindParam(':price', $price);
-
+        $req->bindParam(':email', $email);
+        $req->bindParam(':subject', $subject);
+        $req->bindParam(':message', $message);
+        
         // set parameters and execute
         if(isset($_POST['name'])&& $_POST['name']!=""){
-            $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        if(isset($_POST['price'])&& $_POST['price']!=""){
-            $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
+        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);}
+        
+        if(isset($_POST['email'])&& $_POST['email']!=""){
+        $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);}
+        
+        if(isset($_POST['subject'])&& $_POST['subject']!=""){
+        $filteredSubject = filter_input(INPUT_POST,'subject', FILTER_SANITIZE_SPECIAL_CHARS);}
+        
+        if(isset($_POST['message'])&& $_POST['message']!=""){
+        $filteredMessage = filter_input(INPUT_POST,'message', FILTER_SANITIZE_SPECIAL_CHARS);}
+       
         $name = $filteredName;
-        $price = $filteredPrice;
+        $email = $filteredEmail;
+        $subject = $filteredSubject;
+        $message = $filteredMessage;
+        
         $req->execute();
 
         //upload product image
-        Product::uploadFile($name);
+        //Product::uploadFile($name);
     }
 
     const AllowedTypes = ['image/jpeg', 'image/jpg'];
