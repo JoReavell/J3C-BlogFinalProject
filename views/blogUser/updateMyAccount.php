@@ -3,6 +3,29 @@
 <div id="main">
     <div class="container">
 	<div class="row">
+            <div class="col-md-4 ">
+		<div class="sidebar" id="sidebar">
+		<!-- About -->
+                    <section class="blurb">
+                        <h2 class="title"><?php echo $blogUser->firstName;?></h2>
+                            <a href="#" class="image"><img class="img-responsive" src="views/images/<?php echo $blogUser->profilePic ?>" alt="<?php echo $blogUser->profilePic; ?>" /></a>
+                                <div class="author-widget">
+				</div>
+                                    <div class="social">
+					<ul class="icons">
+                                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
+						<li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
+						<li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
+						<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
+						<li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
+						<li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
+
+					</ul>
+                                    </div>
+                    </section>
+                </div> <!-- End Sidebar -->
+            </div><!-- End-col-md-4 -->
             <div class="col-md-8">
                 <article class="post">
                     <header>
