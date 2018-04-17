@@ -1,5 +1,5 @@
 <!-- Main -->
-<div id="main">
+<div id="main" class='top-margin'>
     <div class="container">
         <div class="row">
             <div class="col-md-8">

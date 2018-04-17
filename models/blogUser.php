@@ -16,25 +16,32 @@
     public $firstName_err = "";
     public $lastName_err = "";
     public $email_err = "";
-
+    public $blogUserID = "";
+    public $name = "";
+    public $subject = "";
+    public $message= "message";
+    
+    
       
-      
-    public function __construct($userID, $username, $password, $confirm_password, $email, $firstName, $lastName, 
-            $username_err, $password_err, $confirm_password_err, $firstName_err, $lastName_err, $email_err) {
+    public function __construct($userID, $username, $firstName, $lastName, $email, $password) {
         $this->userID    = $userID;
         $this->username  = $username;
         $this->password = $password;
-        $this->confirm_password = $confirm_password;
+        //$this->confirm_password = $confirm_password;
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         
-        $this->username_err = $username_err;
-        $this->password_err = $password_err;
-        $this->confirm_password_err = $confirm_password_err;
-        $this->firstName_err = $firstName_err;
-        $this->lastName_err = $lastName_err;
-        $this->$email_err = $email_err;
+        //$this->username_err = $username_err;
+        //$this->password_err = $password_err;
+        //$this->confirm_password_err = $confirm_password_err;
+        //$this->firstName_err = $firstName_err;
+        //$this->lastName_err = $lastName_err;
+        //$this->email_err = $email_err;
+        //$this->blogUserID = $blogUserID;
+        //$this->name = $name;
+        //$this->subject =$subject;
+        //$this->message =$message;
     }
 
 
@@ -138,8 +145,8 @@
     
     
     public static function login(){
-      $db=Db::getInstance();
-      $req=$db->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
+      $instance=Db::getInstance();
+      $req=$instance->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -160,8 +167,6 @@
             // Validate credentials with MySQL (check if what the user is posting is the same with the user from mysql
             if(empty($username_err) && empty($password_err)){
                 $sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
-                $instance = DB::getInstance();        //We don't need to do this twice ...
-
                 if($stmt = $instance->prepare($sql)){
                     $param_username = trim($_POST["username"]);
                     $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
@@ -172,28 +177,31 @@
                                 $hashed_password = $row['password'];
 
                                 if(password_verify($password, $hashed_password)){
-//                                     session_start();
-                                    if (isset($_SESSION['username'])) {
-                                        echo 'logged in ' . $_SESSION['username'];
-                                       }
+//                                     
+//                                    if (isset($_SESSION['username'])) {
+//                                        echo 'logged in ' . $_SESSION['username'];
+//                                       }
+//                                    session_start();
+                                    
                                        $param_password = trim($_POST["password"]);
-                                        $_SESSION['username'] = $username;
-                                        $_SESSION['userID'] = $row['blogUserID'];
-                                        $_SESSION['firstname'] = $row['firstName'];
+                                       $_SESSION['username'] = $username;
+                                       $_SESSION['userID'] = $row['blogUserID'];
+                                       $_SESSION['firstname'] = $row['firstName'];
 
-                                        $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
-                                } 
-                                else {
-                                    $password_err = 'The password you entered was not valid.';
+//                                        $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
+                                }else {
+                                    echo "<script>alert('The username/password you entered was not valid.')</script>";
+//                                    $password_err = 'The password you entered was not valid.';
                                 }
                             } 
-                            else {
-                                // Display an error message if username doesn't exist
-                                $username_err = 'No account found with that username.';
-                            }
+//                            else {
+//                                // Display an error message if username doesn't exist
+//                                $username_err = 'No account found with that username.';
+//                            }
                         } 
                         else { 
-                            echo "Oops! Something went wrong. Please try again later.";
+                            "<script>alert('Oops! Something went wrong. Please try again later.')</script>";
+//                            echo "Oops! Something went wrong. Please try again later.";
                         }
                     }
 
@@ -209,31 +217,99 @@
   
 
     // NOT FINISHED YET!
-    public static function viewMyAccount($username) {
-        $list = [];
-        $db = Db::getInstance();
-        $req = $db->query("SELECT firstName, lastName, email" 
-                . " FROM blogUser"
-                . " WHERE id = :blogUserID");
-        foreach($req->fetchAll() as $blogUser) {
-            $list[] = new BlogUser($blogUser['firstName'], $blogUser['lastName'], $blogUser['email']);
-        }
-        return $list;    
-    } 
+//    public static function viewMyAccount() {
+//        $db = Db::getInstance();
+//        
+//        if($_SERVER["REQUEST_METHOD"] == "GET"){
+//        if (!empty($_SESSION['username'])){
+//         try {$sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
+//
+//                $rows = $db->query( $sql );
+//                foreach( $rows as $row ) {
+//                    echo "<li> " .$row["firstName"] . " " . $row["lastName"] . " " . $row["email"] . "</li>";
+//                    
+//                }
+//            }   catch( PDOException $e ) {
+//                echo "Query failed: " .$e->getMessage();
+//            }   
+//        }
+//    }}    
     
-    
+  
+public static function viewMyAccount($blogUserID) {
+      $instance = Db::getInstance();
+      //use intval to make sure $id is an integer
+      $id = intval($blogUserID);
+      $req = $instance->prepare('SELECT blogUserID, firstName, lastName, username, email, password FROM bloguser WHERE blogUserID = :blogUserID');
+      //the query was prepared, now replace :id with the actual $id value
+      $req->execute(array('blogUserID' => $id));
+      $blogUser = $req->fetch();
+    if($blogUser){
+        return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
+      }
+      else
+      {         
+          echo "Query failed: " .$e->getMessage();
+      }
+}
 
-     public static function all() {
+public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username) {
+    //This is a bit quick and dirty in that it doesn't check the username is unique but it works enough for demo and I'm really tired now!
+      $instance = Db::getInstance();
+      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email WHERE blogUserID = :blogUserID');
+      //the query was prepared, now replace :id with the actual $id value
+      //$req->execute(array('blogUserID' => $blogUserID));
+      $req->bindParam(':username', $username, PDO::PARAM_STR);
+      $req->bindParam(':firstname', $firstName, PDO::PARAM_STR);
+      $req->bindParam(':lastname', $lastName, PDO::PARAM_STR);
+      $req->bindParam(':email', $email, PDO::PARAM_STR);
+      $req->bindParam(':blogUserID', $blogUserID, PDO::PARAM_STR);
+      
+      $blogUser = $req->execute();
+      //We've now done the update. If successful this returns true
+      //Now get the details to display on the page.
+      if($blogUser){
+        //return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
+        $blogUser = BlogUser::viewMyAccount($blogUserID);
+        return $blogUser;
+      }
+      else
+      {         
+          echo "Query failed: " .$e->getMessage();
+      }
+}        
+      
+      
+
+//<!--        $list = [];
+//        $db = Db::getInstance();
+//        //$sql = "SELECT username "
+//            //. "FROM blogUser";
+//        $req = $db->query('SELECT username, firstName, lastName, email"
+//            . " FROM blogUser');
+//        
+//        foreach($req->fetchAll() as $blogUser) {
+//          $list[] = new BlogUser($blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email']);
+//        }
+//        return $list;
+//    }-->
+    
+        
+     
+    
+    public static function contactUs() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM product');
+      $sql = "SELECT name, email, subject, message"
+          . "FROM contactUs;";
+      $req = $db->query($sql);
       // we create a list of Product objects from the database results
-      foreach($req->fetchAll() as $product) {
-        $list[] = new Product($product['id'], $product['name'], $product['price']);
+      foreach($req->fetchAll() as $blogUser) {
+        $list[] = new BlogUser($name['name'], $email['email'], $subject['subject'], $message['message']);
       }
       return $list;
     }
-
+     
     
     
     public static function find($id) {
