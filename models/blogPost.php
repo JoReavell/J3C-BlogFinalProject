@@ -151,6 +151,12 @@ $req->execute();
 BlogPost::uploadFile($_FILES['image']['name']);
 }
 
+public static function updateNumberOfViews($id, $numberOfViews)    {
+    //add 1 to the currrent number of views
+    $numberOfViews++;
+    $db = Db::getInstance();
+    $req = $db->prepare("Update blogPost set noOfViews = $numberOfViews WHERE blogPostID=:id");
+}
 public static function addComment($blogPostID, $userID, $comment) {
     $db = Db::getInstance();
     $req = $db->prepare("Insert into blogComments(blogPostID, blogUserID, blogComment) "

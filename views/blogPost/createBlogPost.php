@@ -7,23 +7,23 @@
     <form method="post" enctype="multipart/form-data">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
             <div class="form-group">
-                <input type="text" name="title" placeholder="Title" />
+                <input type="text" name="title" placeholder="Title" required/>
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-right">
             <div class="form-group">
-                <input type="text" name="summary" placeholder="Summary" />
+                <input type="text" name="summary" placeholder="Summary" required/>
             </div>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
             <div class="form-group">
-                <textarea name="mainContent" placeholder="Main Content"></textarea>
+                <textarea name="mainContent" placeholder="Main Content" required></textarea>
             </div>
         </div>
         <div>
         <label class="control-label col-sm-4" for="itemtype">Category:  </label>
         <div class="col-sm-4">
-        <select name="category">
+        <select name="category" required>
            <option value="0">  </option>
             <option value="1">PHP</option>
            <option value="2">JavaScript</option>

@@ -12,5 +12,11 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
     $action     = 'home';
 }
 
-            require_once('views/layout.php');
+if(($controller =='blogPost')&&($action=='addComment')){
+    require_once('routes.php');
+}
+else{       
+    require_once('views/layout.php');
+}
+
 ?>   
