@@ -7,7 +7,7 @@
                             <a href="#" class="image"><img class="img-responsive" src="views/images/aboutus.jpg" alt="about us" /></a>
                             <div class="author-widget">
                                 <h4 class="author-name">J3C Team</h4>
-                                <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                                <p>Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where is hard work and commitment is J3C.</p>
                             </div>
                         </section>
                         <!-- Mini Posts -->
