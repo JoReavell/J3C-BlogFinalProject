@@ -45,7 +45,7 @@
 
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                                             <div class="form-group contactus-btn">
-                                                <button type="submit" class="cntct-btn"> Send Message </button>
+                                                <button type="submit" class="cntct-btn" value="contactUs"> Send Message </button>
                                             </div>
                                         </div>
                                     </form>

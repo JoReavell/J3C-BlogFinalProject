@@ -5,7 +5,7 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
     <div class="container">
         <?php        
         if(!empty($_SESSION)) {   ?>
-            <div class="form-group"style="width:100%">
+            <div class="form-group" style="width:100%">
                 <textarea name="comment" id='comment' placeholder="Please enter your comment here"></textarea>
             </div>
         <button type="button" onclick="addComment(<?php echo $blogPost->id; ?>, <?php echo $_SESSION['userID']; ?>)">Add Comment</button>
