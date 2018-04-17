@@ -7,7 +7,7 @@
 		<!-- About -->
                     <section class="blurb">
                         <h2 class="title"><?php echo $blogUser->firstName;?></h2>
-                            <a href="single-post.html" class="image"><img class="img-responsive" src="views/images/<?php echo $blogUser->profilePic ?>" alt="Profile" /></a>
+                            <a href="#" class="image"><img class="img-responsive" src="views/images/<?php echo $blogUser->profilePic ?>" alt="Profile" /></a>
                                 <div class="author-widget">
 				</div>
                                     <div class="social">

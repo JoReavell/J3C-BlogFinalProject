@@ -102,8 +102,8 @@ class BlogUserController {
             $lastName = $_POST['lastname'];
             $email = $_POST['email'];
             $username = $_POST['username'];
-            $profilePic = $_GET['profilePic'];
-            $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email, $username, $profilePic);
+//            $profilePic = $_POST['profilePic'];
+            $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email, $username);
             require_once('views/blogUser/viewMyAccount.php'); 
         }    
     }

@@ -236,17 +236,17 @@ public static function viewMyAccount($blogUserID) {
       }
 }
 
-public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username, $profilePic) {
+public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username) {
     //This is a bit quick and dirty in that it doesn't check the username is unique but it works enough for demo and I'm really tired now!
       $instance = Db::getInstance();
-      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email, profilePic =:profilePic WHERE blogUserID = :blogUserID');
+      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
       //$req->execute(array('blogUserID' => $blogUserID));
       $req->bindParam(':username', $username, PDO::PARAM_STR);
       $req->bindParam(':firstname', $firstName, PDO::PARAM_STR);
       $req->bindParam(':lastname', $lastName, PDO::PARAM_STR);
       $req->bindParam(':email', $email, PDO::PARAM_STR);
-      $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
+//      $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
       $req->bindParam(':blogUserID', $blogUserID, PDO::PARAM_STR);
       
       $blogUser = $req->execute();
