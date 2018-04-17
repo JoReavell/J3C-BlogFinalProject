@@ -37,6 +37,7 @@ class BlogPostController {
         try{
         // we use the given id to get the correct post
         $blogPost = BlogPost::find($_GET['id']);
+        BlogPost::updateNumberOfViews($_GET['id'], $blogPost->noOfViews);
         require_once('views/blogPost/viewSinglePost.php');
         }
         catch (Exception $ex){
@@ -71,7 +72,7 @@ class BlogPostController {
        $comment = $_GET['comment'];
         // we use the given id to get the correct product
         $commentText = BlogPost::addComment($blogPostID, $userID, $comment);
-        echo $commentText;      
+        echo "Your comment: <br>" . $commentText . " has been added to this post!";
         }
     }
     

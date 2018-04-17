@@ -28,7 +28,7 @@
 
 $controllers = array('pages' => ['home', 'error', 'aboutUs'],
                     'blogPost' => ['readAll','read','create','update','delete', 'readAllMyPosts', 'searchByCategory', 'searchByKeyword', 'makeUpdate', 'addComment'],
-                    'blogUser' => ['readAll','read','create','update','delete','login','logout', 'signUp', 'viewMyAccount', 'contactUs'],
+                    'blogUser' => ['readAll','read','create','update','delete','login','logout', 'signUp', 'viewMyAccount', 'contactUs', 'updateMyAccount'],
                     );
 
   // check that the requested controller and action are both allowed

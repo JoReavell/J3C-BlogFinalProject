@@ -23,26 +23,25 @@
     
     
       
-    public function __construct($userID, $username, $password, $confirm_password, $email, $firstName, $lastName, 
-            $username_err, $password_err, $confirm_password_err, $firstName_err, $lastName_err, $email_err, $blogUserID, $name, $subject, $message) {
+    public function __construct($userID, $username, $firstName, $lastName, $email, $password) {
         $this->userID    = $userID;
         $this->username  = $username;
         $this->password = $password;
-        $this->confirm_password = $confirm_password;
+        //$this->confirm_password = $confirm_password;
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         
-        $this->username_err = $username_err;
-        $this->password_err = $password_err;
-        $this->confirm_password_err = $confirm_password_err;
-        $this->firstName_err = $firstName_err;
-        $this->lastName_err = $lastName_err;
-        $this->email_err = $email_err;
-        $this->blogUserID = $blogUserID;
-        $this->name = $name;
-        $this->subject =$subject;
-        $this->message =$message;
+        //$this->username_err = $username_err;
+        //$this->password_err = $password_err;
+        //$this->confirm_password_err = $confirm_password_err;
+        //$this->firstName_err = $firstName_err;
+        //$this->lastName_err = $lastName_err;
+        //$this->email_err = $email_err;
+        //$this->blogUserID = $blogUserID;
+        //$this->name = $name;
+        //$this->subject =$subject;
+        //$this->message =$message;
     }
 
 
@@ -237,24 +236,48 @@
 //    }}    
     
   
-      public static function viewMyAccount($blogUserID, $firstName,$lastName,$username, $email) {
+public static function viewMyAccount($blogUserID) {
       $instance = Db::getInstance();
       //use intval to make sure $id is an integer
-//      $id = intval($blogUserID);
-      $req = $instance->prepare('SELECT blogUserID, firstName, lastName, username, email FROM bloguser WHERE username = :username');
+      $id = intval($blogUserID);
+      $req = $instance->prepare('SELECT blogUserID, firstName, lastName, username, email, password FROM bloguser WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('blogUserID' => $blogUserID));
+      $req->execute(array('blogUserID' => $id));
       $blogUser = $req->fetch();
     if($blogUser){
-          return new BlogUser ($blogUserID['blogUserID'], $firstName['firstName'], $lastName['lastName'], $username['username'], $email['email']);
-        }
-        else
-        {
-         
-            echo "Query failed: " .$e->getMessage();
-        }
-        }
-        
+        return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
+      }
+      else
+      {         
+          echo "Query failed: " .$e->getMessage();
+      }
+}
+
+public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username) {
+    //This is a bit quick and dirty in that it doesn't check the username is unique but it works enough for demo and I'm really tired now!
+      $instance = Db::getInstance();
+      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email WHERE blogUserID = :blogUserID');
+      //the query was prepared, now replace :id with the actual $id value
+      //$req->execute(array('blogUserID' => $blogUserID));
+      $req->bindParam(':username', $username, PDO::PARAM_STR);
+      $req->bindParam(':firstname', $firstName, PDO::PARAM_STR);
+      $req->bindParam(':lastname', $lastName, PDO::PARAM_STR);
+      $req->bindParam(':email', $email, PDO::PARAM_STR);
+      $req->bindParam(':blogUserID', $blogUserID, PDO::PARAM_STR);
+      
+      $blogUser = $req->execute();
+      //We've now done the update. If successful this returns true
+      //Now get the details to display on the page.
+      if($blogUser){
+        //return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
+        $blogUser = BlogUser::viewMyAccount($blogUserID);
+        return $blogUser;
+      }
+      else
+      {         
+          echo "Query failed: " .$e->getMessage();
+      }
+}        
       
       
 
