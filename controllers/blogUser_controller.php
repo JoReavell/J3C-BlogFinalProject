@@ -73,17 +73,50 @@ class BlogUserController {
 
     
     public function viewMyAccount() {
-        if($_SERVER["REQUEST_METHOD"] == "GET"){
-            $blogUser = BlogUser::viewMyAccount($_SESSION['username']);
-            require_once('views/blogUser/viewmyAccount.php');  
+    if($_SERVER["REQUEST_METHOD"] == "GET") {
+           require_once('views/blogUser/viewmyAccount.php');  
         } 
         else {
+             $blogUser = BlogUser::viewMyAccount($_SESSION['userID']);
             return call('pages','error');
         }    
     }
 
     
+//    public function viewMyAccount() {
+//      // we expect a url of form ?controller=posts&action=show&id=x
+//      // without an id we just redirect to the error page as we need the post id to find it in the database
+//      if (!isset($_GET['username']))
+//        return call('pages', 'error');
+//
+//      try{
+//      // we use the given id to get the correct post
+//      $product = Product::find($_GET['id']);
+//      require_once('views/products/read.php');
+//      }
+// catch (Exception $ex){
+//     return call('pages','error');
+// }
+//    }
+//    
+    //to check again the code
+    
+   public function contactUs() {
+      // we expect a url of form ?controller=products&action=create
+      // if it's a GET request display a blank form for creating a new product
+      // else it's a POST so add to the database and redirect to readAll action
+      if($_SERVER['REQUEST_METHOD'] == 'GET'){
+          require_once('views/pages/aboutUs.php');
+      }
+      else { 
+            BlogUser::add();       
+            $blogPosts = BlogUser::all(); //$blogPost get all the posts again and redirect to main page
+            require_once('views/blogPost/viewAll.php');
+      }      
+    }
 
+    //////////
+    
     public function readAll() {
         // we store all the posts in a variable
         //Get all the products from the database using the all() function in product.php MODEL
@@ -113,7 +146,7 @@ class BlogUserController {
     
     
     
-    public function create() {
+    public function createwq() {
         // we expect a url of form ?controller=products&action=create
         // if it's a GET request display a blank form for creating a new product
         // else it's a POST so add to the database and redirect to readAll action
