@@ -97,7 +97,7 @@
       return $list;
     } 
 
-    public static function find($id) {
+public static function find($id) {
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
       $id = intval($id);
@@ -108,13 +108,13 @@
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogPostID' => $id));
       $blogPost = $req->fetch();
-if($blogPost){
+    if($blogPost){
       return new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews'], $blogPost['profilePic']);
     }
     else
     {
         //replace with a more meaningful exception
-        throw new Exception('A real exception should go here');
+        throw new Exception("Cannot find blog post details.");
     }
 }
 
