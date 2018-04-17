@@ -19,11 +19,12 @@
     public $blogUserID = "";
     public $name = "";
     public $subject = "";
-    public $message= "message";
+    public $message= "";
+    public $profilePic= "";
     
     
       
-    public function __construct($userID, $username, $firstName, $lastName, $email, $password) {
+    public function __construct($userID, $username, $firstName, $lastName, $email, $password, $profilePic) {
         $this->userID    = $userID;
         $this->username  = $username;
         $this->password = $password;
@@ -31,7 +32,7 @@
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        
+        $this->profilePic = $profilePic;
         //$this->username_err = $username_err;
         //$this->password_err = $password_err;
         //$this->confirm_password_err = $confirm_password_err;
@@ -215,37 +216,19 @@
         } 
     }
   
-
-    // NOT FINISHED YET!
-//    public static function viewMyAccount() {
-//        $db = Db::getInstance();
-//        
-//        if($_SERVER["REQUEST_METHOD"] == "GET"){
-//        if (!empty($_SESSION['username'])){
-//         try {$sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
-//
-//                $rows = $db->query( $sql );
-//                foreach( $rows as $row ) {
-//                    echo "<li> " .$row["firstName"] . " " . $row["lastName"] . " " . $row["email"] . "</li>";
-//                    
-//                }
-//            }   catch( PDOException $e ) {
-//                echo "Query failed: " .$e->getMessage();
-//            }   
-//        }
-//    }}    
-    
-  
+ 
 public static function viewMyAccount($blogUserID) {
       $instance = Db::getInstance();
       //use intval to make sure $id is an integer
       $id = intval($blogUserID);
-      $req = $instance->prepare('SELECT blogUserID, firstName, lastName, username, email, password FROM bloguser WHERE blogUserID = :blogUserID');
+      $req = $instance->prepare('SELECT * FROM bloguser WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogUserID' => $id));
+      
       $blogUser = $req->fetch();
+//      var_dump($blogUser);
     if($blogUser){
-        return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
+        return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password'], $blogUser['profilePic']);
       }
       else
       {         
@@ -253,16 +236,17 @@ public static function viewMyAccount($blogUserID) {
       }
 }
 
-public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username) {
+public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username, $profilePic) {
     //This is a bit quick and dirty in that it doesn't check the username is unique but it works enough for demo and I'm really tired now!
       $instance = Db::getInstance();
-      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email WHERE blogUserID = :blogUserID');
+      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email, profilePic =:profilePic WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
       //$req->execute(array('blogUserID' => $blogUserID));
       $req->bindParam(':username', $username, PDO::PARAM_STR);
       $req->bindParam(':firstname', $firstName, PDO::PARAM_STR);
       $req->bindParam(':lastname', $lastName, PDO::PARAM_STR);
       $req->bindParam(':email', $email, PDO::PARAM_STR);
+      $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
       $req->bindParam(':blogUserID', $blogUserID, PDO::PARAM_STR);
       
       $blogUser = $req->execute();
@@ -279,23 +263,7 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
       }
 }        
       
-      
-
-//<!--        $list = [];
-//        $db = Db::getInstance();
-//        //$sql = "SELECT username "
-//            //. "FROM blogUser";
-//        $req = $db->query('SELECT username, firstName, lastName, email"
-//            . " FROM blogUser');
-//        
-//        foreach($req->fetchAll() as $blogUser) {
-//          $list[] = new BlogUser($blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email']);
-//        }
-//        return $list;
-//    }-->
-    
-        
-     
+   
     
     public static function contactUs() {
       $list = [];
