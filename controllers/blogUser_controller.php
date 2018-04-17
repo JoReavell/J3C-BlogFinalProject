@@ -84,6 +84,25 @@ class BlogUserController {
             return call('pages','error');
         }    
     }
+    
+    public function updateMyAccount() {
+    if($_SERVER["REQUEST_METHOD"] == "GET") {
+            //We came here from a get (i.e. clicking on the update my account link
+            //so populate the page with the user details and redirect to update my account page
+            $blogUser = BlogUser::viewMyAccount($_SESSION['userID']);
+            require_once('views/blogUser/updateMyAccount.php'); 
+        } 
+        else {
+//           //It's a POST so update the details
+            $userID = $_SESSION['userID'];
+            $firstName = $_POST['firstname'];
+            $lastName = $_POST['lastname'];
+            $email = $_POST['email'];
+            $username = $_POST['username'];
+            $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email, $username);
+            require_once('views/blogUser/viewMyAccount.php'); 
+        }    
+    }
 
     
 //    public function viewMyAccount() {
