@@ -119,7 +119,7 @@
                     </div>
                     <div class="featured-post-title">
                         <h3><a href="#">Today</a></h3>
-                        <time datetime="2018" class="post-date">April 20, 2018</time>
+                        <time datetime="2018" class="post-date">April 25, 2018</time>
                     </div>
                 </div>
             </div>
