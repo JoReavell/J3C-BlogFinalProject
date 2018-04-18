@@ -16,28 +16,28 @@
                             <div class="row wrap-box"><!--Start Box-->
                                 <h2 class="text-center col-md-12">We look forward to hearing from you!</h2>
                                 <div class="contact-form ">
-                                    <form name='sentMessage' id='contactForm' method='post'><input type='hidden' name='form-name' value='sentMessage' />
+                                    <form name='sentMessage' id='contactForm' method='post' action= "?controller=blogUser&action=create"  enctype="multipart/form-data"><input type='hidden' name='form-name' value='sentMessage'/>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
                                             <div class="form-group">
-                                                <input id="name" type="text" placeholder="Name" required="required"/>
+                                                <input id="name" type="text" placeholder="Name" required="required" name="name"/>
 
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-right">
                                             <div class="form-group">
-                                                <input id="email" type="email" placeholder="Email"  required="required"/>
+                                                <input id="email" type="email" placeholder="Email" name="email"  required="required"/>
 
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad-right">
                                             <div class="form-group">
-                                                <input id="subject" type="text" placeholder="Subject" required="required"/>
+                                                <input id="subject" type="text" placeholder="Subject" required="required" name="subject"/>
 
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                                             <div class="form-group">
-                                                <textarea name="message" id="message" placeholder="Message" required></textarea>
+                                                <textarea name="message" id="message" placeholder="Message" name="message" required></textarea>
 
                                             </div>
                                             <div id="success"></div>
@@ -45,10 +45,17 @@
 
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                                             <div class="form-group contactus-btn">
-                                                <button type="submit" class="cntct-btn" value="contactUs"> Send Message </button>
+                                                <button type="submit" class="cntct-btn" onclick="myFunction()"> Send Message </button>
                                             </div>
                                         </div>
                                     </form>
+                                    
+                                    <script>
+                                    function myFunction() {
+                                    alert("Thanks for your message! We'll respond within the next 48 hours :)");
+                                    }
+                                    </script>
+                                    
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
 
                                     </div>
