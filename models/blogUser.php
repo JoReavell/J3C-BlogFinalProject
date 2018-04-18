@@ -19,11 +19,12 @@
     public $blogUserID = "";
     public $name = "";
     public $subject = "";
-    public $message= "message";
+    public $message= "";
+    public $profilePic= "";
     
     
       
-    public function __construct($userID, $username, $firstName, $lastName, $email, $password) {
+    public function __construct($userID, $username, $firstName, $lastName, $email, $password, $profilePic) {
         $this->userID    = $userID;
         $this->username  = $username;
         $this->password = $password;
@@ -31,7 +32,7 @@
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        
+        $this->profilePic = $profilePic;
         //$this->username_err = $username_err;
         //$this->password_err = $password_err;
         //$this->confirm_password_err = $confirm_password_err;
@@ -215,37 +216,19 @@
         } 
     }
   
-
-    // NOT FINISHED YET!
-//    public static function viewMyAccount() {
-//        $db = Db::getInstance();
-//        
-//        if($_SERVER["REQUEST_METHOD"] == "GET"){
-//        if (!empty($_SESSION['username'])){
-//         try {$sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
-//
-//                $rows = $db->query( $sql );
-//                foreach( $rows as $row ) {
-//                    echo "<li> " .$row["firstName"] . " " . $row["lastName"] . " " . $row["email"] . "</li>";
-//                    
-//                }
-//            }   catch( PDOException $e ) {
-//                echo "Query failed: " .$e->getMessage();
-//            }   
-//        }
-//    }}    
-    
-  
+ 
 public static function viewMyAccount($blogUserID) {
       $instance = Db::getInstance();
       //use intval to make sure $id is an integer
       $id = intval($blogUserID);
-      $req = $instance->prepare('SELECT blogUserID, firstName, lastName, username, email, password FROM bloguser WHERE blogUserID = :blogUserID');
+      $req = $instance->prepare('SELECT * FROM bloguser WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogUserID' => $id));
+      
       $blogUser = $req->fetch();
+//      var_dump($blogUser);
     if($blogUser){
-        return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
+        return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password'], $blogUser['profilePic']);
       }
       else
       {         
@@ -256,8 +239,10 @@ public static function viewMyAccount($blogUserID) {
 public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username) {
     //This is a bit quick and dirty in that it doesn't check the username is unique but it works enough for demo and I'm really tired now!
       $instance = Db::getInstance();
-      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email WHERE blogUserID = :blogUserID');
+      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname,'
+              . ' email = :email WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
+      
       //$req->execute(array('blogUserID' => $blogUserID));
       $req->bindParam(':username', $username, PDO::PARAM_STR);
       $req->bindParam(':firstname', $firstName, PDO::PARAM_STR);
@@ -268,35 +253,38 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
       $blogUser = $req->execute();
       //We've now done the update. If successful this returns true
       //Now get the details to display on the page.
+//      $instance = Db::getInstance();
+//      $req = $instance->prepare("Insert into bloguser(profilePic) "
+//                        . "values (:profilePic)");
+      
+      $profilePic = $_FILES['image']['name'];
+//      var_dump($profilePic);
+//      var_dump($blogUserID);
+      $req = $instance->prepare("UPDATE bloguser set profilePic = :profilePic WHERE blogUserID = :blogUserID");
+            
+      $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
+      $req->bindParam(':blogUserID', $blogUserID);
+      $blogUser = $req->execute();
+
       if($blogUser){
         //return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
         $blogUser = BlogUser::viewMyAccount($blogUserID);
+        BlogUser::uploadFile($_FILES['image']['name']);
         return $blogUser;
       }
       else
       {         
           echo "Query failed: " .$e->getMessage();
       }
-}        
-      
-      
+      //upload product image
+  }
 
-//<!--        $list = [];
-//        $db = Db::getInstance();
-//        //$sql = "SELECT username "
-//            //. "FROM blogUser";
-//        $req = $db->query('SELECT username, firstName, lastName, email"
-//            . " FROM blogUser');
-//        
-//        foreach($req->fetchAll() as $blogUser) {
-//          $list[] = new BlogUser($blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email']);
-//        }
-//        return $list;
-//    }-->
-    
-        
-     
-    
+const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'gif/svg'];
+const InputKey = 'image';
+
+//die() function calls replaced with trigger_error() calls
+//replace with structured exception handling
+  
     public static function contactUs() {
       $list = [];
       $db = Db::getInstance();
@@ -357,7 +345,7 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
 
     }
     
-    
+
     
     public static function add() {
         $db = Db::getInstance();
@@ -399,28 +387,24 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
     //replace with structured exception handling
 
 
-    
-    
-    public static function uploadFile(string $name) {
+ public static function uploadFile(string $name) {
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
                 trigger_error("File Missing!");
 	}
-
 	if ($_FILES[self::InputKey]['error'] > 0) {
 		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
 	}
-
-
 	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
 		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
-	$destinationFile = $path . $name . '.jpeg';
-
+        //$path = "C:/xampp/htdocs/blogFinalProject/views/images/";
+        $path = dirname(__DIR__) . "/views/images/";
+	$destinationFile = $path . $_FILES[self::InputKey]['name'];
+        
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
 	}
@@ -429,7 +413,16 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
 	if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
-    }
+}
+    
+    
+    //die() function calls replaced with trigger_error() calls
+    //replace with structured exception handling
+
+
+    
+    
+    
     
     
     

@@ -66,7 +66,8 @@ class BlogUserController {
             //echo "<script>alert('You logged out!')</script>";
             session_destroy(); 
             require_once 'views/blogUser/login.php';
-            //require_once('views/pages/home.php');
+           
+            
         }
     }
       
@@ -98,10 +99,13 @@ class BlogUserController {
         }      
 
     public function updateMyAccount() {
+      
     if($_SERVER["REQUEST_METHOD"] == "GET") {
+        
             //We came here from a get (i.e. clicking on the update my account link
             //so populate the page with the user details and redirect to update my account page
             $blogUser = BlogUser::viewMyAccount($_SESSION['userID']);
+            
             require_once('views/blogUser/updateMyAccount.php'); 
         } 
         else {
@@ -111,9 +115,14 @@ class BlogUserController {
             $lastName = $_POST['lastname'];
             $email = $_POST['email'];
             $username = $_POST['username'];
+//            $profilePic = $_GET['profilePic'];
+//            var_dump($profilePic);
+            
+//            blogUser::uploadFile();
             $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email, $username);
+//            BlogUser::uploadFile($profilePic);;
             require_once('views/blogUser/viewMyAccount.php'); 
-        }    
+        } 
     }
     
 //    public function viewMyAccount() {
