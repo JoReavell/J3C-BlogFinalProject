@@ -86,6 +86,18 @@ class BlogUserController {
         }    
     }
     
+   
+        public function create() {
+      // we expect a url of form ?controller=products&action=create
+      // if it's a GET request display a blank form for creating a new product
+      // else it's a POST so add to the database and redirect to readAll action
+      //if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            BlogUser::add();             
+            return call('blogPost','readAll');
+            
+            
+        }      
+
     public function updateMyAccount() {
       
     if($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -112,7 +124,6 @@ class BlogUserController {
             require_once('views/blogUser/viewMyAccount.php'); 
         } 
     }
-
     
 //    public function viewMyAccount() {
 //      // we expect a url of form ?controller=posts&action=show&id=x
@@ -174,26 +185,6 @@ class BlogUserController {
             return call('pages','error');
         }
     }
-    
-    
-    
-    public function createwq() {
-        // we expect a url of form ?controller=products&action=create
-        // if it's a GET request display a blank form for creating a new product
-        // else it's a POST so add to the database and redirect to readAll action
-        if($_SERVER['REQUEST_METHOD'] == 'GET'){
-            require_once('views/products/create.php');
-        }
-        else { 
-              Product::add();
-
-              $products = Product::all(); //$products is used within the view
-              require_once('views/products/readAll.php');
-        }
-      
-    }
-    
-    
     
     public function update() {
         
