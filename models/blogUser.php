@@ -379,10 +379,9 @@ const InputKey = 'image';
         //Product::uploadFile($name);
     }
 
-    const AllowedTypes = ['image/jpeg', 'image/jpg'];
-    const InputKey = 'myUploader';
+   
 
-
+ 
     //die() function calls replaced with trigger_error() calls
     //replace with structured exception handling
 
