@@ -13,12 +13,12 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<!-- Font Awesome -->
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="views/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Google Fonts -->
-	<link href='css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
-	<link href='css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
+	<link href='views/css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
+	<link href='views/css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
         <link rel="icon" href="views/images/favicon/favicon.ico">
         
         <!-- Main Style -->
