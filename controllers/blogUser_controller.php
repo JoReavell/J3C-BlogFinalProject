@@ -66,7 +66,8 @@ class BlogUserController {
             //echo "<script>alert('You logged out!')</script>";
             session_destroy(); 
             require_once 'views/blogUser/login.php';
-            //require_once('views/pages/home.php');
+           
+            
         }
     }
       
@@ -102,10 +103,14 @@ class BlogUserController {
             $lastName = $_POST['lastname'];
             $email = $_POST['email'];
             $username = $_POST['username'];
-//            $profilePic = $_POST['profilePic'];
+//            $profilePic = $_GET['profilePic'];
+//            var_dump($profilePic);
+            
+//            blogUser::uploadFile();
             $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email, $username);
+//            BlogUser::uploadFile($profilePic);;
             require_once('views/blogUser/viewMyAccount.php'); 
-        }    
+        } 
     }
 
     
