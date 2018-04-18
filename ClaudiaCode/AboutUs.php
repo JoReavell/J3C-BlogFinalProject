@@ -52,20 +52,14 @@
                         <a href="#" class="image"><img class="img-responsive" style="height: 200px;"  src="images/Dia.jpg" alt="about us" /></a>
                         <div class="author-widget">
                             <h4 class="author-name" style='letter-spacing:1px'>PHP/JS/HTML/CSS</h4>
-                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
                         </div>
                         <div class="social">
                             <ul class="icons">
                                 <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
+                                
                             </ul>
                         </div>
                     </section>
@@ -80,20 +74,14 @@
                         <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="images/Jo.png" alt="about us" /></a>
                         <div class="author-widget">
                             <h4 class="author-name" style='letter-spacing:1px'>PHP/MySQL/JS</h4>
-                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
                         </div>
                         <div class="social">
                             <ul class="icons">
                                 <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
+                                
                             </ul>
                         </div>
                     </section>
@@ -108,20 +96,14 @@
                         <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="images/JenPat.png" alt="about us" /></a>
                         <div class="author-widget">
                             <h6 class="author-name" style='letter-spacing:1px'>PHP/Scrum Master</h6>
-                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
                         </div>
                         <div class="social">
                             <ul class="icons">
                                 <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
+                                
                             </ul>
                         </div>
                     </section>
@@ -136,20 +118,14 @@
                         <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="images/Jenny.png" alt="about us" /></a>
                         <div class="author-widget">
                             <h4 class="author-name" style='letter-spacing:1px'>Ajax/PHP/MySQL</h4>
-                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
                         </div>
                         <div class="social">
                             <ul class="icons">
                                 <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
+                                
                             </ul>
                         </div>
                     </section>
