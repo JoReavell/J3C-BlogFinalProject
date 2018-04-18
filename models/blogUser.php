@@ -239,32 +239,48 @@ public static function viewMyAccount($blogUserID) {
 public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username) {
     //This is a bit quick and dirty in that it doesn't check the username is unique but it works enough for demo and I'm really tired now!
       $instance = Db::getInstance();
-      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname, email = :email WHERE blogUserID = :blogUserID');
+      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname,'
+              . ' email = :email WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
+      
       //$req->execute(array('blogUserID' => $blogUserID));
       $req->bindParam(':username', $username, PDO::PARAM_STR);
       $req->bindParam(':firstname', $firstName, PDO::PARAM_STR);
       $req->bindParam(':lastname', $lastName, PDO::PARAM_STR);
       $req->bindParam(':email', $email, PDO::PARAM_STR);
-//      $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
       $req->bindParam(':blogUserID', $blogUserID, PDO::PARAM_STR);
       
       $blogUser = $req->execute();
       //We've now done the update. If successful this returns true
       //Now get the details to display on the page.
+      $req = $instance->prepare("Insert into bloguser(profilePic) "
+                        . "values (:profilePic)");
+      
+      $profilePic = $_FILES['image']['name'];       
+      $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
+      var_dump($profilePic);
       if($blogUser){
         //return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
         $blogUser = BlogUser::viewMyAccount($blogUserID);
+        BlogUser::uploadFile($_FILES['image']['name']);
         return $blogUser;
       }
       else
       {         
           echo "Query failed: " .$e->getMessage();
       }
-}        
+      //upload product image
       
-   
-    
+      
+
+}
+
+const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'gif/svg'];
+const InputKey = 'image';
+
+//die() function calls replaced with trigger_error() calls
+//replace with structured exception handling
+  
     public static function contactUs() {
       $list = [];
       $db = Db::getInstance();
@@ -325,59 +341,24 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
 
     }
     
-    
-    
-    public static function add() {
-        $db = Db::getInstance();
-        $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
-        $req->bindParam(':name', $name);
-        $req->bindParam(':price', $price);
-
-        // set parameters and execute
-        if(isset($_POST['name'])&& $_POST['name']!=""){
-            $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        if(isset($_POST['price'])&& $_POST['price']!=""){
-            $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        $name = $filteredName;
-        $price = $filteredPrice;
-        $req->execute();
-
-        //upload product image
-        Product::uploadFile($name);
-    }
-
-    const AllowedTypes = ['image/jpeg', 'image/jpg'];
-    const InputKey = 'myUploader';
-
-
-    //die() function calls replaced with trigger_error() calls
-    //replace with structured exception handling
-
-
-    
-    
     public static function uploadFile(string $name) {
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
                 trigger_error("File Missing!");
 	}
-
 	if ($_FILES[self::InputKey]['error'] > 0) {
 		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
 	}
-
-
 	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
 		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
-	$destinationFile = $path . $name . '.jpeg';
-
+        //$path = "C:/xampp/htdocs/blogFinalProject/views/images/";
+        $path = dirname(__DIR__) . "/views/images/";
+	$destinationFile = $path . $_FILES[self::InputKey]['name'];
+        
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
 	}
@@ -386,7 +367,16 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
 	if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
-    }
+}
+    
+    
+    //die() function calls replaced with trigger_error() calls
+    //replace with structured exception handling
+
+
+    
+    
+    
     
     
     

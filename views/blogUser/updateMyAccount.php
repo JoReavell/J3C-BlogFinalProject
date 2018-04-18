@@ -23,6 +23,16 @@
 
 					</ul>
                                     </div>
+                            <div>
+            <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+            <input type="file" name="image" class="btn" required />
+        </div>
+        <br>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+            <div class="form-group contactus-btn">
+                <input type="submit" class="cntct-btn" value="Upload Picture"> 
+            </div>
+        </div>
                     </section>
                 </div> <!-- End Sidebar -->
             </div><!-- End-col-md-4 -->
