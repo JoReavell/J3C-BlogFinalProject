@@ -156,6 +156,8 @@ public static function updateNumberOfViews($id, $numberOfViews)    {
     $numberOfViews++;
     $db = Db::getInstance();
     $req = $db->prepare("Update blogPost set noOfViews = $numberOfViews WHERE blogPostID=:id");
+    $req->bindParam(':id', $id);
+    $req->execute();
 }
 public static function addComment($blogPostID, $userID, $comment) {
     $db = Db::getInstance();
