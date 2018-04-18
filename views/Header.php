@@ -49,9 +49,11 @@
                             </div>
                     </li>        
                     <li class="nav-item">
-                        <a class="nav-link" href="?controller=pages&action=aboutUs">About Us/Contact</a>
+                        <a class="nav-link" href="?controller=pages&action=aboutUs">About Us</a>
                     </li> 
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="?controller=pages&action=contactUs">Contact</a>
+                    </li>
                     <?php 
                     //If we are logged in display the links to my posts and logged in message.
                     if(!empty($_SESSION)) { ?>

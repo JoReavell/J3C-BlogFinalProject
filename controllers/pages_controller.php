@@ -22,5 +22,11 @@ class PagesController {
             require_once('views/pages/aboutUs.php'); // show about us / contact page
         
     }
+    public function contactUs() {
+        // we expect a url of form ?controller=pages&action=aboutUs
+        
+            require_once('views/pages/contactUs.php'); // show about us / contact page
+        
+    }
 }
 ?>

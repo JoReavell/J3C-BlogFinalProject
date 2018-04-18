@@ -1,65 +1,108 @@
-
-
 <!-- Main -->
 <div id="main" class="top-margin">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center pad-top-big pad-bottom-big error-page">
-            <h2>Contact us</h2>
+            <h2>About US</h2>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <!--Container-->
                 <div id="container">
                     <div class="wrap-container">
                         <!-- Content-Box -->
                         <section class="content-box contact-form">
                             <div class="row wrap-box"><!--Start Box-->
-                                <h2 class="text-center col-md-12">We look forward to hearing from you!</h2>
-                                <div class="contact-form ">
-                                    <form name='sentMessage' id='contactForm' method='post' action= "?controller=blogUser&action=create"  enctype="multipart/form-data"><input type='hidden' name='form-name' value='sentMessage'/>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
-                                            <div class="form-group">
-                                                <input id="name" type="text" placeholder="Name" required="required" name="name"/>
+                                <!--<h3 class="text-center col-md-12">Short description</h3>-->
+                                <a href="#" class="image col-md-12" style="margin-left: 41%; margin-bottom: 5%"><img class="img-responsive" style="height: 100px;"  src="views/images/j3C1.png" alt="about us" /></a>
 
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-right">
-                                            <div class="form-group">
-                                                <input id="email" type="email" placeholder="Email" name="email"  required="required"/>
+                                <div class="col-md-3">
+                <div class="sidebar" id="sidebar">
+                    <!-- About -->
+                    <section class="blurb">
+                        <h2 class="title">Jenny O'Leary</h2>
 
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad-right">
-                                            <div class="form-group">
-                                                <input id="subject" type="text" placeholder="Subject" required="required" name="subject"/>
+                        <a href="#" class="image"><img class="img-responsive" style="height: 200px;"  src="views/images/Jenny.png" alt="about us" /></a>
+                        <div class="author-widget">
+                            <h4 class="author-name" style='letter-spacing:1px'>Ajax/PHP/MySQL</h4>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
+                        </div>
+                        <div class="social">
+                            <ul class="icons">
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
+                                
+                            </ul>
+                        </div>
+                    </section>
+                </div> <!-- End Sidebar -->
+            </div><!-- End-col-md-4 -->
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar">
+                    <!-- About -->
+                    <section class="blurb">
+                        <h2 class="title">Jo Reavell</h2>
 
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
-                                            <div class="form-group">
-                                                <textarea name="message" id="message" placeholder="Message" name="message" required></textarea>
+                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Jo.png" alt="about us" /></a>
+                        <div class="author-widget">
+                            <h4 class="author-name" style='letter-spacing:1px'>PHP/MySQL/JS</h4>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
+                        </div>
+                        <div class="social">
+                            <ul class="icons">
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
+                                
+                            </ul>
+                        </div>
+                    </section>
+                </div> <!-- End Sidebar -->
+            </div><!-- End-col-md-4 -->
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar">
+                    <!-- About -->
+                    <section class="blurb">
+                        <h2 class="title">Jen Patchet</h2>
 
-                                            </div>
-                                            <div id="success"></div>
-                                        </div>
+                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/JenPat.png" alt="about us" /></a>
+                        <div class="author-widget">
+                            <h6 class="author-name" style='letter-spacing:1px'>PHP/Scrum Master</h6>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
+                        </div>
+                        <div class="social">
+                            <ul class="icons">
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
+                                
+                            </ul>
+                        </div>
+                    </section>
+                </div> <!-- End Sidebar -->
+            </div><!-- End-col-md-4 -->
+            <div class="col-md-3">
+                <div class="sidebar" id="sidebar">
+                    <!-- About -->
+                    <section class="blurb">
+                        <h2 class="title">Claudia Danciu</h2>
 
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
-                                            <div class="form-group contactus-btn">
-                                                <button type="submit" class="cntct-btn" onclick="myFunction()"> Send Message </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    
-                                    <script>
-                                    function myFunction() {
-                                    alert("Thanks for your message! We'll respond within the next 48 hours :)");
-                                    }
-                                    </script>
-                                    
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
-
-                                    </div>
-                                </div>
+                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Dia.jpg" alt="about us" /></a>
+                        <div class="author-widget">
+                            <h4 class="author-name" style='letter-spacing:1px'>PHP/JS/HTML/CSS</h4>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
+                        </div>
+                        <div class="social">
+                            <ul class="icons">
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
+                                
+                            </ul>
+                        </div>
+                    </section>
+                </div> <!-- End Sidebar -->
+            </div><!-- End-col-md-4 -->
                             </div>
                         </section>
 
@@ -67,75 +110,48 @@
                 </div>
             </div> <!-- End col-8 -->
 
-            <div class="col-md-4">
-                <div class="sidebar" id="sidebar">
-                    <!-- About -->
-                    <section class="blurb">
-                        <h2 class="title">ABOUT US</h2>
-
-                        <a href="single-post.html" class="image"><img class="img-responsive" src="views/images/aboutus.jpg" alt="about us" /></a>
-                        <div class="author-widget">
-                            <h4 class="author-name">J3C</h4>
-                            <p>Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where is hard work and commitment is J3C.</p>
-                        </div>
-                        <div class="social">
-                            <ul class="icons">
-                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-youtube-play"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i> </a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i> </a></li>
-
-                            </ul>
-                        </div>
-                    </section>
-                </div> <!-- End Sidebar -->
-            </div><!-- End-col-md-4 -->
-        </div> <!-- End row -->
+            
+        </div><!-- End-col-md-4 -->
+    </div> <!-- End row -->
     
-    <!-- Google maps (centre set to Sky Leeds Dock)-->
-    <div class="container" id="map" style="height:400px;width:100%;"></div>   
-    </div> <!-- End container for map -->
-    
-</div> <!-- end container main -->
+</div> <!-- End Container -->
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Post -->
+                <article class="post">
+                    
+                    
+                    <p>Mauris neque quam, fermentpor ut nisl vitae, convallis maximus nisl.
+                        Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim,
+                        ac accporsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper.
+                        Praesent tincidunt sed tellus ut rutrpor. Sed vitae justo condimentpor, porta lectus vitae,
+                        ultricies congue gravida diam non fringilla.</p>
+                    <div class="excerpt"><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborpor exercitation ullamco laboris nisi ut aliquip.</p></div>
+                    <p>Leo impor dolor sit amet, consetetur sadipscing elitr, sed diam nonpory eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebpor. Consetetur sadipscing elitr, sed diam nonpory eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebpor.</p>
+                    <blockquote><p>Stet clita kasd gubergren, no sea takimata sanctus est Leo impor dolor sit amet vultatup duista.</p></blockquote>
+                    <p>Duis autem vel epor iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illpor dolore eu feugiat nulla facilisis at vero eros et accporsan et iusto odio dignissim qui blandit praesent luptatpor zzril.</p>
+                    <h2>Heading 1</h2>
+                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel epor iriure dolor in hendrerit in vulputate velit esse lorem impor dolor sit amet.</p>
+                    <h2>Heading 2</h2>
+                    <p>Duis autem vel epor iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illpor dolore eu feugiat nulla facilisis. At vero eos et accusam et justo.</p>
+                    <h2>Heading 3</h2>
+                    <p>Consetetur sadipscing elitr, sed diam nonpory eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebpor hendrerit in vulputate velit esse molestie.</p>
+                    <p>Leo impor dolor sit amet, consetetur sadipscing elitr, sed diam nonpory eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebpor.</p>
+                    <p><code>Stet clita kasd gubergren, no sea takimata sanctus est Leo impor dolor sit amet.</code></p>
+                    <p>Leo impor dolor sit amet, consetetur sadipscing elitr, sed diam nonpory eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebpor. Stet clita kasd gubergren, no sea takimata sanctus est Leo impor dolor sit amet.</p>
+                    <div class="note">
+                        <ol>
+                            <li>Leo impor</li>
+                            <li>Sit amet vultatup nonpory</li>
+                            <li>Duista sed diam</li>
+                        </ol>
+                        <div class="clear"></div>
+                    </div>
 
+                    <p>Consetetur sadipscing elitr, sed diam nonpory eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
+
+                    
+                </article>
 <div id="instagram-footer">
 </div>
-
-<!-- Featured Posts -->
-
-<!-- featured-posts-END -->
-
-
-<!--back-to-top-->
-<div id="back-to-top">
-    <a href="#top"><i class="fa fa-arrow-up"></i></a>
-</div>
-
-<script>
-    function initMap() {
-          
-      var myLatLng = {lat: 53.789591, lng: -1.5333};
-          
-      var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 53.789591, lng: -1.5333},
-          zoom: 16
-          
-        });
-        
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'Sky Leeds'
-        });
-      }
-    </script>
-   
-    <!-- map variable defines properties for map. var map = .... creates new map inside <div> element --> 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrsthx6SjytN7X5hfwab5sINCwjwIATLg&callback=initMap"
-    async defer></script>
-    <!-- script loads once page loaded -->  
