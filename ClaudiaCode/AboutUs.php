@@ -42,16 +42,18 @@
                         <!-- Content-Box -->
                         <section class="content-box contact-form">
                             <div class="row wrap-box"><!--Start Box-->
-                                <h3 class="text-center col-md-12">Short description</h3>
+                                <!--<h3 class="text-center col-md-12">Short description</h3>-->
+                                <a href="#" class="image col-md-12" style="margin-left: 41%; margin-bottom: 5%"><img class="img-responsive" style="height: 100px;"  src="images/j3C1.png" alt="about us" /></a>
+
                                 <div class="col-md-3">
                 <div class="sidebar" id="sidebar">
                     <!-- About -->
                     <section class="blurb">
-                        <h2 class="title">Claudia Danciu</h2>
+                        <h2 class="title">Jenny O'Leary</h2>
 
-                        <a href="#" class="image"><img class="img-responsive" style="height: 200px;"  src="images/Dia.jpg" alt="about us" /></a>
+                        <a href="#" class="image"><img class="img-responsive" style="height: 200px;"  src="images/Jenny.png" alt="about us" /></a>
                         <div class="author-widget">
-                            <h4 class="author-name" style='letter-spacing:1px'>PHP/JS/HTML/CSS</h4>
+                            <h4 class="author-name" style='letter-spacing:1px'>Ajax/PHP/MySQL</h4>
                             <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
                         </div>
                         <div class="social">
@@ -113,11 +115,11 @@
                 <div class="sidebar" id="sidebar">
                     <!-- About -->
                     <section class="blurb">
-                        <h2 class="title">Jenny O'Leary</h2>
+                        <h2 class="title">Claudia Danciu</h2>
 
-                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="images/Jenny.png" alt="about us" /></a>
+                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="images/Dia.jpg" alt="about us" /></a>
                         <div class="author-widget">
-                            <h4 class="author-name" style='letter-spacing:1px'>Ajax/PHP/MySQL</h4>
+                            <h4 class="author-name" style='letter-spacing:1px'>PHP/JS/HTML/CSS</h4>
                             <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
                         </div>
                         <div class="social">
