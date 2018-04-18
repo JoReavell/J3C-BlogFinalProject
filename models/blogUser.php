@@ -253,12 +253,19 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
       $blogUser = $req->execute();
       //We've now done the update. If successful this returns true
       //Now get the details to display on the page.
-      $req = $instance->prepare("Insert into bloguser(profilePic) "
-                        . "values (:profilePic)");
+//      $instance = Db::getInstance();
+//      $req = $instance->prepare("Insert into bloguser(profilePic) "
+//                        . "values (:profilePic)");
       
-      $profilePic = $_FILES['image']['name'];       
+      $profilePic = $_FILES['image']['name'];
+//      var_dump($profilePic);
+//      var_dump($blogUserID);
+      $req = $instance->prepare("UPDATE bloguser set profilePic = :profilePic WHERE blogUserID = :blogUserID");
+            
       $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
-      var_dump($profilePic);
+      $req->bindParam(':blogUserID', $blogUserID);
+      $blogUser = $req->execute();
+
       if($blogUser){
         //return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
         $blogUser = BlogUser::viewMyAccount($blogUserID);
@@ -270,10 +277,7 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
           echo "Query failed: " .$e->getMessage();
       }
       //upload product image
-      
-      
-
-}
+  }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'gif/svg'];
 const InputKey = 'image';

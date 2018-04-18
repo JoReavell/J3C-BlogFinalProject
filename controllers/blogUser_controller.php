@@ -108,6 +108,7 @@ class BlogUserController {
             
 //            blogUser::uploadFile();
             $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email, $username);
+//            BlogUser::uploadFile($profilePic);;
             require_once('views/blogUser/viewMyAccount.php'); 
         } 
     }
