@@ -26,29 +26,7 @@ class BlogUserController {
         }      
     }        
      
-//    //
-//    protected function init()
-//    {
-//        //Check for logged in user and set the page state
-//        if (SessionManager::getParameter('username') == null)
-//            $this->_stState = self::STATE_NOT_LOGGED_IN;
-//        else
-//            $this->_stState = self::STATE_LOGGED_IN;
-//    }
-////
-//    
-//    public function draw()
-//    {
-//        $this->setPlaceholder('TITLE', 'index.php');
-//
-//        //Tell the page what its state is
-//        $boLogin = $this->_stState == self::STATE_NOT_LOGGED_IN;
-//        $this->setPlaceholder('boLogin', $boLogin);
-//
-//        parent::draw();
-//    }
-//    
-    
+
     public function login() {
         if($_SERVER["REQUEST_METHOD"] == "GET"){
             require_once 'views/blogUser/login.php';
