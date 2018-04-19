@@ -6,8 +6,8 @@ class PagesController {
     public function home() {
       //example data to use in the home page
         //We could set this as guest and then get it from SESSION once a user has logged in
-      $first_name = 'Lisa';
-      $last_name  = 'Simpson';
+//      $first_name = 'Lisa';
+//      $last_name  = 'Simpson';
       require_once('views/pages/home.php');
     }
 

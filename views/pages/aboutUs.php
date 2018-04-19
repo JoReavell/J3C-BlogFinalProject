@@ -24,7 +24,7 @@
                         <a href="#" class="image"><img class="img-responsive" style="height: 200px;"  src="views/images/Jenny.png" alt="about us" /></a>
                         <div class="author-widget">
                             <h4 class="author-name" style='letter-spacing:1px'>Ajax/PHP/MySQL</h4>
-                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat.</p>
+                            <p>A recent University of Leeds graduate in International Development with Religious Studies (2:1) with extensive living and working experience within the field. Past experience ranges from teaching, of both refugees and unprivileged youth within the UK and Ghana, to the on-site analysis of trade patterns and infrastructural development in Miri, Borneo. Currently completing an internship at People's Dialogue on Human Settlements (PD), Accra.</p>
                         </div>
                         <div class="social">
                             <ul class="icons">
