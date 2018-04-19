@@ -122,7 +122,7 @@
 
 
                     <h2>HOW DO WE DO IT?</h2>
-<p>By relying on the most talented women in tech. Over 16 great women work in our development and 4 of them are J3C.As a Great Place to Work, we share the same values and honour them every day.
+<p>By relying on the most talented women in tech. We have in our group over 16 great women and 4 of them are in J3C team. We share the same values and honour them every day.
 </p>
 <h2>VALUES</h2>
 <p>Our team is based on innovation, creativity and knowledge. We are satisfied with what we do and proud to integrate an organisation that respects values such as:
@@ -139,9 +139,11 @@
 <h2>MISSION</h2>
 <p>Our mission combines work and talent. We seek to achieve extraordinary results trough this program and to improve our skills.</p>
 
+
+<p><code>“I'm not a great programmer; I'm just a good programmer with great habits.” Kent Beck</code></p>                   
+
 <h2>VISION</h2>
 <p>Our passion for what we do led us here. Our vision guides us every day.</p>
-<p><code>“I'm not a great programmer; I'm just a good programmer with great habits.” Kent Beck</code></p>                   
 
                 </article>
 <div id="instagram-footer">
