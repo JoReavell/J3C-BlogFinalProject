@@ -1,4 +1,5 @@
 <!-- Carousel-->
+
 <section class="slide"> 
  <div class="container">
      <div id="carouselExampleIndicators" class="carousel slide carouseltop" data-ride="carousel">
@@ -62,7 +63,8 @@
      </div>
 
  </div>
-</section> 
+</section>
+    
 <!-- JavaScript for the carousel -->
 <script type="text/javascript">
             $(document).ready(function(){
