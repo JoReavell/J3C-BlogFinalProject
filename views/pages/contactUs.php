@@ -4,7 +4,7 @@
 <div id="main" class="top-margin">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center pad-top-big pad-bottom-big error-page">
+            <div class="col-md-12 text-center error-page">
             <h2>Contact us</h2>
             </div>
             <div class="col-md-8">
@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                                             <div class="form-group">
-                                                <textarea name="message" id="message" placeholder="Message" name="message" required></textarea>
+                                                <textarea name="message" id="message" placeholder="Message"  required></textarea>
 
                                             </div>
                                             <div id="success"></div>
@@ -103,8 +103,8 @@
     
 </div> <!-- end container main -->
 
-<div id="instagram-footer">
-</div>
+<!--<div id="instagram-footer">
+</div>-->
 
 <!-- Featured Posts -->
 
@@ -112,9 +112,7 @@
 
 
 <!--back-to-top-->
-<div id="back-to-top">
-    <a href="#top"><i class="fa fa-arrow-up"></i></a>
-</div>
+
 
 <script>
     function initMap() {
