@@ -168,6 +168,12 @@ public static function addComment($blogPostID, $userID, $comment) {
     $req->bindParam(':blogComment', $comment);
     
     $req->execute();
+//    $req = $db->prepare("SELECT profilePic, firstName, lastName FROM bloguser");
+//    $req->bindParam(':profilePic', $profilePic);
+//    $req->bindParam(':firstName', $firstName); 
+//    $req->bindParam(':lastName', $lastName);
+//    
+//    $req->execute();
     
     return $comment;
     

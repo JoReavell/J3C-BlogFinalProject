@@ -70,10 +70,32 @@ class BlogPostController {
        $blogPostID = $_GET['blogPostID'];
        $userID = $_GET['userID'];
        $comment = $_GET['comment'];
+//       $profilePic=$_GET['profilePic'];
+//       $firstName=$_GET['firstName'];
+//       $lastName=$_GET['lastName'];
+
+       
         // we use the given id to get the correct product
         $commentText = BlogPost::addComment($blogPostID, $userID, $comment);
-        echo "Your comment: <br>" . $commentText . " has been added to this post!";
-        }
+//        echo "Your comment: <br>" . $commentText . " has been added to this post!";
+//        
+            
+   echo '<div class="row">' .              
+        '<div class="blog-comments">'.
+            '<div class="blog-comment-main">'.
+                '<div class="blog-comment">' .
+                    '<a class="comment-avtar">' .
+                        '<img src="views/images/'. 'alt="image">' . '</a>' .
+                    '<div class="comment-text">' .
+                        '<h3>'.$userID.  '</h3>' .
+                        '<p>'. $comment . '</p> '  .                     
+                    '</div>'  .                       
+                '</div>' .                        
+            '</div>' .
+        '</div>' .
+        '</div>';              
+//          
+    }
     }
     
     public function update() {

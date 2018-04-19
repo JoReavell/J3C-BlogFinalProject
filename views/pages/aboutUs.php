@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center pad-top-big pad-bottom-big error-page">
-            <h2>About US</h2>
+            <h2></h2>
             </div>
             <div class="col-md-12">
                 <!--Container-->
