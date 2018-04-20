@@ -59,7 +59,7 @@
                 <div class="sidebar" id="sidebar">
                     <!-- About -->
                     <section class="blurb">
-                        <h2 class="title">Jen Patchet</h2>
+                        <h2 class="title">Jen Patchett</h2>
 
                         <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/JenPat.png" alt="about us" /></a>
                         <div class="author-widget">
@@ -67,9 +67,8 @@
                              </div>
                         <div class="social">
                             <ul class="icons">
-                                <li><a href="https://www.facebook.com/JenPatchettDeveloper" target="_blank"><i class="fa fa-facebook"></i> </a></li>
                                 <li><a href="https://twitter.com/JenPatchett" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/jenpatchett/" target="_blank"><i class="fa fa-instagram"></i> </a></li>
+                                <li><a href="https://www.linkedin.com/in/jenpatchett/" target="_blank"><i class="fa fa-linkedin"></i> </a></li>
                                 
                             </ul>
                         </div>
