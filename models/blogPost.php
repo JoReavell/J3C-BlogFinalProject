@@ -217,7 +217,7 @@ $req->execute();
 BlogPost::uploadFile($_FILES['image']['name']);
 }
 
-const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 const InputKey = 'image';
 
 //die() function calls replaced with trigger_error() calls
