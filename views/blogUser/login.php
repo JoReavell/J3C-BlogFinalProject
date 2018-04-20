@@ -64,7 +64,7 @@
 
                             <div class=" m-t-10 mb-0 row">
                                 <div class="col-sm-4 m-t-20">
-                                    <a href="../ForgotPass/ForgotPass.php"><small>Forgot your password ?</small></a>
+                                    <a href="#"><small>Forgot your password ?</small></a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
                                     <a href="?controller=blogUser&action=signUp"><small>Create an account ?</small></a>
