@@ -17,7 +17,7 @@
                         </div>
                     </header>
                     <div class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></div>
-                    <p><?php echo $blogPost->mainContent; ?></p>
+                    <p><?php echo str_replace(array("\r\n", "\r", "\n", "&#13;&#10;"), "<br />", $blogPost->mainContent); ?></p>
                             <ul class="actions">
                             <li><a href="?controller=blogPost&action=readAllMyPosts&id=<?php echo $blogPost->id ; ?>" class="button big">BACK</a></li> 
                             </ul> 
