@@ -1,5 +1,5 @@
  <!-- Main -->
- <form id="updateAccount" method="post" enctype="multipart/form-data" action= "?controller=blogUser&action=updateMyAccount">>
+ <form id="updateAccount" method="post" enctype="multipart/form-data" action= "?controller=blogUser&action=updateMyAccount">
 <div id="main">
     <div class="container">
 	<div class="row">
