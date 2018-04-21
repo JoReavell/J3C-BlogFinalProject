@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<!--
-<html>
-    <head>
-        <meta charset="utf-8" />
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="../css/cssnewlog.css" rel="stylesheet" type="text/css"/>
-        <link href="views/css/style.css" rel="stylesheet" type="text/css"/>
-        <title>Login</title>
-      
-    </head>
-
-
-    <body>-->
-
-        <!-- Begin page -->
-        <div class="accountbg"></div>
+<!-- Begin page -->
+    <div class="accountbg"></div>
         <div class="wrapper-page">
 
             <div class="card">
@@ -44,17 +27,6 @@
                                 </div>
                             </div>
                             
-                            
-
-                            <div class=" row">
-                                <div class="col-6">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Remember me</label>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="text-center row m-t-20">
                                 <div class="col-6">
                                     <button class="btn btn-danger btn-block waves-effect waves-light" type="submit" value="login">Log In</button>  
@@ -63,10 +35,7 @@
                             </div>
 
                             <div class=" m-t-10 mb-0 row">
-                                <div class="col-sm-4 m-t-20">
-                                    <a href="#"><small>Forgot your password ?</small></a>
-                                </div>
-                                <div class="col-sm-5 m-t-20">
+                                <div class="col-sm-5 m-t-20" style="text-align: center; margin-left: 4%">
                                     <a href="?controller=blogUser&action=signUp"><small>Create an account ?</small></a>
                                 </div>
                                 
