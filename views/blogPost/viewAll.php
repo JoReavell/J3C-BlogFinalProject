@@ -23,9 +23,9 @@
                                     <li><a href="?controller=blogPost&action=read&id=<?php echo $blogPost->id ; ?>" class="button big">Read more</a></li>
                             </ul>
                             <ul class="stats">
-                                    <li><a href="#"><?php echo $blogPost->category; ?></a></li>
-                                    <li><a href="#" class="icon fa fa-eye"><?php echo $blogPost->noOfViews ?></a></li>
-                                    <li><a href="#" class="icon fa fa-comment">128</a></li>
+                                    <li><a href="#" style="font-size: 10px"><?php echo $blogPost->category; ?></a></li>
+                                    <li><a href="#" class="fa fa-eye" style="font-size: 12px"><?php echo $blogPost->noOfViews ?></a></li>
+                                    <li><a href="#" class="fa fa-comment" style="font-size: 12px">128</a></li>
                             </ul>
                         </footer>
                 </article>
