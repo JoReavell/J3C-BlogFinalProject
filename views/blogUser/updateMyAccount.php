@@ -24,7 +24,7 @@
 					</ul>
                                     </div>
                             <div>
-            <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
             <input type="file" name="image" class="btn" required />
         </div>
         <br>

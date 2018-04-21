@@ -116,10 +116,10 @@
               
         if ($req->execute()){
 
-             echo '<p style="text-align: center">' . "You successfully signed up!" ."</p>";
+           return "You successfully signed up!";
         } else{
-                echo '<p style="text-align: center">' ."Something went wrong. Please try again later." . '</p>';
-            }
+           return "Something went wrong. Please try again later.";
+        }
     }
 
     
@@ -145,7 +145,7 @@
 
             // Validate credentials with MySQL (check if what the user is posting is the same with the user from mysql
             if(empty($username_err) && empty($password_err)){
-                $sql = "SELECT username, password, blogUserID, firstName FROM bloguser WHERE username = :username";
+                $sql = "SELECT username, password, blogUserID, firstName, lastName, profilePic FROM bloguser WHERE username = :username";
                 if($stmt = $instance->prepare($sql)){
                     $param_username = trim($_POST["username"]);
                     $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
@@ -161,6 +161,8 @@
                                        $_SESSION['username'] = $username;
                                        $_SESSION['userID'] = $row['blogUserID'];
                                        $_SESSION['firstname'] = $row['firstName'];
+                                       $_SESSION['lastname'] = $row['lastName'];
+                                       $_SESSION['profilepic'] = $row['profilePic'];
                                 }else {
                                     $password_err = 'The password you entered was not valid.';
                                 }
@@ -241,9 +243,6 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
       //upload product image
   }
 
-const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'gif/svg'];
-const InputKey = 'image';
-
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
   
@@ -278,7 +277,7 @@ const InputKey = 'image';
             //replace with a more meaningful exception
             throw new Exception('A real exception should go here');
         }
-        }
+    }
 
     
     
@@ -347,6 +346,8 @@ const InputKey = 'image';
     //die() function calls replaced with trigger_error() calls
     //replace with structured exception handling
 
+const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'gif/svg'];
+const InputKey = 'image';
 
  public static function uploadFile(string $name) {
 

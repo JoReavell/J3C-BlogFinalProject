@@ -24,11 +24,10 @@
         <label class="control-label col-sm-4" for="itemtype">Category:  </label>
         <div class="col-sm-4">
         <select name="category" required>
-           <option value="0">  </option>
-            <option value="1">PHP</option>
-           <option value="2">JavaScript</option>
-           <option value="3">MySQL</option>
            <option value="4">General</option>
+           <option value="1">PHP</option>
+           <option value="3">JavaScript</option>
+           <option value="2">MySQL</option>           
         </select>
         </div>
         </div>
