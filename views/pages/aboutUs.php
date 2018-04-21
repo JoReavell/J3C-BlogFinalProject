@@ -23,7 +23,7 @@
 
                         <a href="#" class="image"><img class="img-responsive" style="height: 200px;"  src="views/images/Jenny.png" alt="about us" /></a>
                         <div class="author-widget">
-                            <h4 class="author-name" style='letter-spacing:1px'>Ajax/PHP/MySQL</h4>
+                            <h4 class="author-name" style='letter-spacing:1px'></h4>
                             </div>
                         <div class="social">
                             <ul class="icons">
@@ -42,7 +42,7 @@
 
                         <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Jo.png" alt="about us" /></a>
                         <div class="author-widget">
-                            <h4 class="author-name" style='letter-spacing:1px'>PHP/MySQL/JS</h4>
+                            <h4 class="author-name" style='letter-spacing:1px'></h4>
                         </div>
                         <div class="social">
                             <ul class="icons">
@@ -63,7 +63,7 @@
 
                         <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/JenPat.png" alt="about us" /></a>
                         <div class="author-widget">
-                            <h6 class="author-name" style='letter-spacing:1px'>PHP/Scrum Master</h6>
+                            <h6 class="author-name" style='letter-spacing:-1.2px'></h6>
                              </div>
                         <div class="social">
                             <ul class="icons">
@@ -82,8 +82,8 @@
                         <h2 class="title">Claudia Danciu</h2>
 
                         <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Dia.jpg" alt="about us" /></a>
-                        <div class="author-widget">
-                            <h4 class="author-name" style='letter-spacing:1px'>PHP/JS/HTML/CSS</h4>
+                        <div class="author-widget ">
+                            <h6 class="author-name" style='letter-spacing:-1.0px'></h6>
                         </div>
                         <div class="social">
                             <ul class="icons">
