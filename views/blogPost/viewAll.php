@@ -25,7 +25,6 @@
                             <ul class="stats">
                                     <li><a href="#"><?php echo $blogPost->category; ?></a></li>
                                     <li><a href="#" class="icon fa fa-eye"><?php echo $blogPost->noOfViews ?></a></li>
-                                    <li><a href="#" class="icon fa fa-comment">128</a></li>
                             </ul>
                         </footer>
                 </article>
