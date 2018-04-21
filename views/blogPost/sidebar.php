@@ -4,14 +4,14 @@
                         <section class="blurb">
                             <h2 class="title"><a  href="?controller=pages&action=aboutUs">ABOUT US</a></h2>
 
-                            <a href="?controller=pages&action=aboutUs"" class="image"><img class="img-responsive" src="views/images/aboutus.jpg" alt="about us" /></a>
+                            <a href="?controller=pages&action=aboutUs" class="image"><img class="img-responsive" src="views/images/aboutus.jpg" alt="about us" /></a>
                             <div class="author-widget">
                                 <h4 class="author-name">J3C Team</h4>
-                                <p>Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where is hard work and commitment is J3C.</p>
+                                <p style="margin-bottom: 10%;">Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where is hard work and commitment is J3C.</p>
                             </div>
                         </section>
                         <!-- Mini Posts -->
-                        <section>
+                        <section class="blurb" style="margin-top: 5%;">
                             <h2 class="title">POPULAR POSTS</h2>
                             <div class="mini-posts">
                         <!-- connect to database here to retrieve the 4 most popular posts -->
@@ -40,8 +40,8 @@
                         </div>
                     </section>
                     <!-- Posts List -->
-                    <section>
-                        <h2 class="title">LATEST POSTS</h2>
+                    <section class="blurb">
+                        <h2 class="title" style="margin-top: 20%">LATEST POSTS</h2>
                         <ul class="posts">
                             <!-- connect to database here to retrieve the 4 most popular posts -->
                         <?php
@@ -72,18 +72,19 @@
 
                     <section>
                             <div class="widget">
-                                    <h2 class="title">INSTAGRAM</h2>
+                                    <h2 class="title" style="margin-top: 20%">Gallery</h2>
                                     <div class="widget-content">
-                                            <div class="row instagram-feeds row-gallery">
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/teamwork.jpg"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/skyfaith.jpg" alt="Instagram Image"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3 "><img src="views/images/slider/sky2.jpg" alt="Instagram Image"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/slider/sky3.jpg" alt="Instagram Image"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/slider/victoria.png" alt="Instagram Image"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/learnedMoreThan.jpg" alt="Instagram Image"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/skyfaith.jpg" alt="Instagram Image"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/skycode.jpg" alt="Instagram Image"></a>
-                                                <a href="#" class="col-sm-4 col-xs-3"><img src="views/images/skyfaith.jpg" alt="Instagram Image"></a>
+                                            <div class="row">
+                                               
+                                                <a target="_blank" href="views/images/slider/tod.jpg" class="col-sm-4 col-xs-3 galleryPic" style="margin-bottom: 2%"><img src="views/images/slider/tod.jpg"></a>
+                                                <a target="_blank" href="views/images/slider/jan.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/slider/jan.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/slider/january.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/slider/january.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/class.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/class.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/abus.jpg" class="col-sm-4 col-xs-3 " style="margin-bottom: 2%"><img src="views/images/abus.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/wote.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/wote.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/joje.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/joje.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/clajen.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/clajen.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/skyfaith.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/skyfaith.jpg" alt="Instagram Image"></a>
                                             </div>
                                     </div>
                             </div>
