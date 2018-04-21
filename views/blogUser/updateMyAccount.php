@@ -29,9 +29,6 @@
         </div>
         <br>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
-            <div class="form-group contactus-btn">
-                <input type="submit" class="cntct-btn" value="Upload Picture"> 
-            </div>
         </div>
                     </section>
                 </div> <!-- End Sidebar -->
@@ -62,7 +59,7 @@
                                 <tr>
                                 <tr>
                                     <td>Username</td>
-                                    <td><input type="text" name="username" placeholder="Username" value="<?= $blogUser->username; ?>"/></td>
+                                    <td><?= $blogUser->username; ?></td>
                                 </tr>
                             </tbody>
                         </table>
