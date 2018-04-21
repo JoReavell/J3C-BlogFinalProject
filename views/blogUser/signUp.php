@@ -57,15 +57,6 @@
                                 </div>
                             </div>
                             
-                            
-                           <div class="row">
-                                <div class="col-6">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label font-weight-normal" for="customCheck1">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="text-center row m-t-20">
                                 <div class="col-6">
                                     <button class="btn btn-danger btn-block waves-effect waves-light" type="submit" value="submit">Register</button>
