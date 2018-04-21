@@ -67,9 +67,10 @@
       $list = [];
       $db = Db::getInstance();
       $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
-              . ", dateCreated, category, noOfViews, profilePic, blogUserID" 
+              . ", dateCreated, category.category, noOfViews, profilePic, blogUserID" 
               . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
-              . " WHERE category = :category"
+              . " INNER JOIN category ON blogPost.category = category.categoryID"
+              . " WHERE blogPost.category = :category"
               . " ORDER BY dateCreated DESC LIMIT 10";
       $req = $db->prepare($sql);
       $req->execute(['category' => $category]);
@@ -84,8 +85,9 @@
       $list = [];
       $db = Db::getInstance();
       $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
-              . ", dateCreated, category, noOfViews, profilePic, blogUserID" 
+              . ", dateCreated, category.category, noOfViews, profilePic, blogUserID" 
               . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
+              . " INNER JOIN category ON blogPost.category = category.categoryID"
               . " WHERE title LIKE $keyword"
               . " OR summary LIKE $keyword"
               . " OR mainContent LIKE $keyword"

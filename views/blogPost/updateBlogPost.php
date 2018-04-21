@@ -21,32 +21,32 @@
                 <textarea name="mainContent" placeholder="Main Content"> <?php echo$blogPost->mainContent;?></textarea>
             </div>
         </div>
-        
-        <?php 
-        if ($blogPost->category == 4){
-        $category='General';}
-        elseif ($blogPost->category == 1) {
-        $category='PHP';
-        }
-        elseif ($blogPost->category == 2) {
-        $category='JavaScript';
-        }
-        elseif ($blogPost->category == 3) {
-        $category='MySQL';
-        }
-        else {$category='MySQL';}
-        
-        ?>
-        
         <div>
         <label class="control-label col-sm-4" for="itemtype">Category:  </label>
         <div class="col-sm-4">
         <select name="category">
-           <option value="0"> <?php echo$category;?> </option>
-            <option value="1">PHP</option>
-           <option value="2">JavaScript</option>
-           <option value="3">MySQL</option>
-           <option value="4">General</option>
+           <?php
+           $PHPSelected = '';
+           $JSSelected = '';
+           $SQLSelected = '';
+           $GeneralSelected = '';
+           if ($blogPost->category == 1)    {
+               $PHPSelected = 'selected';
+           }
+           if ($blogPost->category == 3)    {
+               $JSSelected = 'selected';
+           }
+           if ($blogPost->category == 2)    {
+               $SQLSelected = 'selected';
+           }
+           if ($blogPost->category == 4)    {
+               $GeneralSelected = 'selected';
+           }
+           ?>
+            <option value="1" <?php echo $PHPSelected ?>>PHP</option>
+           <option value="3" <?php echo $JSSelected ?>>JavaScript</option>
+           <option value="2" <?php echo $SQLSelected ?>>MySQL</option>
+           <option value="4" <?php echo $GeneralSelected ?>>General</option>
         </select>
         </div>
         </div>

@@ -8,8 +8,7 @@
 class BlogPostController {
     
     public function readAll() {
-      //This function will need to return ALL the blog post items to display on main page
-        
+      //This function will need to return ALL the blog post items to display on main page        
       $blogPosts = BlogPost::all();
       require_once('views/blogPost/viewAll.php');
     }
@@ -18,9 +17,16 @@ class BlogPostController {
 //    if (!isset($_GET['UserID']))
 //      return call('pages', 'error');    
     try{
-    $blogPosts = BlogPost::allMyPosts($_SESSION['username']);
-    //$blogPost = BlogPost::allMyPosts($_GET['username']);
-    require_once('views/blogPost/viewAllMyPosts.php');
+    if (empty($_SESSION))   {
+        $blogPosts = BlogPost::all();
+        require_once('views/blogPost/viewAll.php');
+    }
+    else {
+        $blogPosts = BlogPost::allMyPosts($_SESSION['username']);
+        //$blogPost = BlogPost::allMyPosts($_GET['username']);
+        require_once('views/blogPost/viewAllMyPosts.php');
+    }
+    
     }
     catch (Exception $ex){
             return call('pages','error');
@@ -85,9 +91,9 @@ class BlogPostController {
             '<div class="blog-comment-main">'.
                 '<div class="blog-comment">' .
                     '<a class="comment-avtar">' .
-                        '<img src="views/images/'. 'alt="image">' . '</a>' .
+                        '<img src="views/images/' . $_SESSION['profilepic'] . '" alt="image">' . '</a>' .
                     '<div class="comment-text">' .
-                        '<h3>'. $_SESSION['username'].  '</h3>' .
+                        '<h3>'. $_SESSION['firstname']. " " . $_SESSION['lastname'] .  '</h3>' .
                         '<p>'. $comment . '</p> '  .                     
                     '</div>'  .                       
                 '</div>' .                        
