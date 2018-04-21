@@ -30,9 +30,11 @@
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author, dateCreated, category, noOfViews, profilePic "
-          . "FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID "
-              . "ORDER BY dateCreated DESC LIMIT 10;";
+      $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author,"
+          . " dateCreated, category.category, noOfViews, profilePic "
+          . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID "
+          . " INNER JOIN category ON blogPost.category = category.categoryID"
+          . " ORDER BY dateCreated DESC LIMIT 10;";
       $req = $db->query($sql);
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blogPost) {
@@ -47,9 +49,10 @@
       $list = [];
       $db = Db::getInstance();
       $sql = "SELECT blogPostID, title, summary, mainContent, image, CONCAT(firstName, ' ', lastName) AS author" 
-              . ", dateCreated, category, noOfViews, profilePic, blogUserID" 
+              . ", dateCreated, category.category, noOfViews, profilePic, blogUserID" 
               . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
-              . " WHERE username = :username" //will this be available following login?
+              . " INNER JOIN category ON blogPost.category = category.categoryID"
+              . " WHERE username = :username"
               . " ORDER BY dateCreated DESC LIMIT 10";
       $req = $db->prepare($sql);
       $req->execute(['username' => $username]);

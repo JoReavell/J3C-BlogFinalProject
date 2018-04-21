@@ -31,27 +31,27 @@
                             </ul>
                             </li>
                             </ul>
-                            
+                           
                             <?php 
-                           if ($blogPost->category == 4){
-                           $category='General';}
-                           elseif ($blogPost->category == 1) {
-                           $category='PHP';
-                           }
-                           elseif ($blogPost->category == 2) {
-                           $category='JavaScript';
-                           }
-                           elseif ($blogPost->category == 3) {
-                           $category='MySQL';
-                           }
-                           else {$category='MySQL';}
+//                           if ($blogPost->category == 4){
+//                           $category='General';}
+//                           elseif ($blogPost->category == 1) {
+//                           $category='PHP';
+//                           }
+//                           elseif ($blogPost->category == 2) {
+//                           $category='JavaScript';
+//                           }
+//                           elseif ($blogPost->category == 3) {
+//                           $category='MySQL';
+//                           }
+//                           else {$category='MySQL';}
         
                            ?>
-                            
+
                             
                         <ul class="stats">
-                                    <li><a href="#" ><?php echo $category; ?></a></li>
-                                    <li><a href="#" class="icon fa fa-heart">28</a></li>
+                                    <li><a href="#" ><?php echo $blogPost->category; ?></a></li>
+                                    <li><a href="#" class="icon fa fa-eye"><?php echo $blogPost->noOfViews ?></a></li>
                                     <li><a href="#" class="icon fa fa-comment">128</a></li>
                             </ul>
                         </footer>
