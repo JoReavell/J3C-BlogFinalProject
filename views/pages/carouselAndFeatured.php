@@ -95,7 +95,8 @@
             <div class="col-md-4">
                 <div class="featured-post">
                     <div class="featured-post-image">
-                        <img src="views/images/skygirl.jpg" alt="featured-post">
+                        <img src="views/images/slider/AppDay.jpg" style="max-height: 200px"
+                            alt="featured-post">
                     </div>
                     <div class="featured-post-title">
                         <h3><a href="#">The application moment</a></h3>
@@ -106,7 +107,7 @@
             <div class="col-md-4">
                 <div class="featured-post">
                     <div class="featured-post-image">
-                        <img src="views/images/skyfaith.jpg" alt="featured-post">
+                        <img src="views/images/slider/TheProgram.jpg" style="max-height: 200px" alt="featured-post">
                     </div>
                     <div class="featured-post-title">
                         <h3><a href="#">The program</a></h3>
@@ -117,7 +118,7 @@
             <div class="col-md-4">
                 <div class="featured-post">
                     <div class="featured-post-image">
-                        <img src="views/images/skycode.jpg" alt="featured-post">
+                        <img src="views/images/slider/tod.jpg"  style="max-height: 200px" alt="featured-post" >
                     </div>
                     <div class="featured-post-title">
                         <h3><a href="#">Today</a></h3>
