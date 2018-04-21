@@ -34,9 +34,9 @@
                                 </div>
                             </div>
 
-                            <div class=" m-t-10 mb-0 row">
-                                <div class="col-sm-5 m-t-20" style="text-align: center; margin-left: 4%">
-                                    <a href="?controller=blogUser&action=signUp"><small>Create an account ?</small></a>
+                            <div class="m-t-10 mb-0 row">
+                                <div class="col-6 m-t-20 text-center">
+                                    <a href="?controller=blogUser&action=signUp" class="text-muted">Create an account ?</a>
                                 </div>
                                 
                             </div>
