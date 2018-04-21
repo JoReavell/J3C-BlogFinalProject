@@ -32,7 +32,7 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
         ?>
         <div class="row">               
         <!-- Blog Comments Begins -->
-        <div class="blog-comments">
+        <div class="blog-comments" style="width: 100%">
             <div class="blog-comment-main">
                 <div class="blog-comment">
                     <a class="comment-avtar"><img src="views/images/<?php echo $blogComment['profilePic'] ?>" alt="image"></a>
