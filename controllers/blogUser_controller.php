@@ -15,8 +15,9 @@ class BlogUserController {
         } 
         else { 
             $signup = BlogUser::signUp();
-            echo "<script>alert('Success! You may now sign in" . $signup . "')</script>";
-            if($signup == null) {
+            echo "<script>alert('" . $signup . "')</script>";
+            
+            if($signup == "You successfully signed up!") {
                 require_once('views/blogUser/login.php'); // redirect to login after signup 
             }
             else    {
@@ -97,34 +98,12 @@ class BlogUserController {
             $firstName = $_POST['firstname'];
             $lastName = $_POST['lastname'];
             $email = $_POST['email'];
-            $username = $_POST['username'];
-//            $profilePic = $_GET['profilePic'];
-//            var_dump($profilePic);
             
-//            blogUser::uploadFile();
-            $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email, $username);
-//            BlogUser::uploadFile($profilePic);;
-            require_once('views/blogUser/viewMyAccount.php'); 
+            $blogUser = BlogUser::updateMyAccount($userID, $firstName, $lastName, $email);
+            require_once('views/blogUser/viewMyAccount.php');
         } 
     }
-    
-//    public function viewMyAccount() {
-//      // we expect a url of form ?controller=posts&action=show&id=x
-//      // without an id we just redirect to the error page as we need the post id to find it in the database
-//      if (!isset($_GET['username']))
-//        return call('pages', 'error');
-//
-//      try{
-//      // we use the given id to get the correct post
-//      $product = Product::find($_GET['id']);
-//      require_once('views/products/read.php');
-//      }
-// catch (Exception $ex){
-//     return call('pages','error');
-// }
-//    }
-//    
-    //to check again the code
+
     
    public function contactUs() {
       // we expect a url of form ?controller=products&action=create

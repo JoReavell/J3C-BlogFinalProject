@@ -145,7 +145,7 @@ public static function update($id) {
     $req->bindParam(':image', $image);
     $req->bindParam(':category', $category);
     $req->bindParam(':id', $id);
-$req->execute();
+    $req->execute();
 
 //upload product image
 BlogPost::uploadFile($_FILES['image']['name']);
