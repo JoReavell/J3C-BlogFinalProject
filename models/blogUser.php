@@ -137,9 +137,9 @@
               
 
         if ($req->execute()){
-             echo "You successfully signed up!";
+             echo '<p style="text-align: center">' . "You successfully signed up!" ."</p>";
         } else{
-                echo "Something went wrong. Please try again later.";
+                echo '<p style="text-align: center">' ."Something went wrong. Please try again later." . '</p>';
             }
     }
 
