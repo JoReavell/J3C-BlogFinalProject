@@ -115,11 +115,13 @@
         $req->bindParam(':defaultPic', $defaultPic, PDO::PARAM_STR);
               
         if ($req->execute()){
-             return "You successfully signed up!";
+
+             echo '<p style="text-align: center">' . "You successfully signed up!" ."</p>";
         } else{
-            return "Something went wrong. Please try again later.";
-        }
-    }    
+                echo '<p style="text-align: center">' ."Something went wrong. Please try again later." . '</p>';
+            }
+    }
+
     
     public static function login(){
       $instance=Db::getInstance();
@@ -154,38 +156,24 @@
                                 $hashed_password = $row['password'];
 
                                 if(password_verify($password, $hashed_password)){
-//                                     
-//                                    if (isset($_SESSION['username'])) {
-//                                        echo 'logged in ' . $_SESSION['username'];
-//                                       }
-//                                    session_start();
                                     
                                        $param_password = trim($_POST["password"]);
                                        $_SESSION['username'] = $username;
                                        $_SESSION['userID'] = $row['blogUserID'];
                                        $_SESSION['firstname'] = $row['firstName'];
-
-//                                        $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
                                 }else {
-                                    echo "<script>alert('The username/password you entered was not valid.')</script>";
-//                                    $password_err = 'The password you entered was not valid.';
+                                    $password_err = 'The password you entered was not valid.';
                                 }
                             } 
-//                            else {
-//                                // Display an error message if username doesn't exist
-//                                $username_err = 'No account found with that username.';
-//                            }
+
                         } 
                         else { 
-                            "<script>alert('Oops! Something went wrong. Please try again later.')</script>";
-//                            echo "Oops! Something went wrong. Please try again later.";
+                            $password_err = "Oops! Something went wrong. Please try again later.";
                         }
                     }
-
                     // Close the prepared statement
                     unset($stmt);
                 }
-
             // Close connection
             unset($pdo);
             }
@@ -388,16 +376,7 @@ const InputKey = 'image';
 	}
 }
     
-    
-    //die() function calls replaced with trigger_error() calls
-    //replace with structured exception handling
 
-
-    
-    
-    
-    
-    
     
     public static function remove($id) {
           $db = Db::getInstance();

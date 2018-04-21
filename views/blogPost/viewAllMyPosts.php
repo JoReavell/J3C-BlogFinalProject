@@ -19,14 +19,14 @@
                     <a href="#" class="image featured"><img src="views/images/<?php echo $blogPost->image; ?>" alt="" /></a>
                         <footer>
                             <ul class="actions">
-                            <li><a <a href="?controller=blogPost&action=read&id=<?php echo $blogPost->id ; ?>" class="button big">READ MORE..</a></li>
+                            <li><a href="?controller=blogPost&action=read&id=<?php echo $blogPost->id ; ?>" class="button big">READ MORE..</a></li>
                             
                             <li class="dropup">
                             <button type="button" data-toggle="dropdown" class="button big">Update Post
                             <span class="caret"></span></button> 
 
                             <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="?controller=blogPost&action=update&id=<?php echo $blogPost->id ;?>">Edit</a></li><br/>
+                            <li><a class="dropdown-item" href="?controller=blogPost&action=update&id=<?php echo $blogPost->id ;?>">Edit</a></li>
                             <li><a class="dropdown-item" href="?controller=blogPost&action=delete&id=<?php echo $blogPost->id ;?>">Delete</a></li>
                             </ul>
                             </li>
