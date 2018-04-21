@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav navbar-left container-fluid">
                     <li class="nav-item active">
-                        <a class="nav-link" href="?controller=blogPost&action=readAll">View All<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="?controller=blogPost&action=readAll">Recent Posts<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Browse By Topic</a>
@@ -58,7 +58,7 @@
                     //If we are logged in display the links to my posts and logged in message.
                     if(!empty($_SESSION)) { ?>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Blogs</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Posts</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="?controller=blogPost&action=readAllMyPosts">Update</a>
                                 <a class="dropdown-item" href="?controller=blogPost&action=create">Create</a>
