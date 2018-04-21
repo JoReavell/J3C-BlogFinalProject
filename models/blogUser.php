@@ -28,30 +28,17 @@
         $this->userID    = $userID;
         $this->username  = $username;
         $this->password = $password;
-        //$this->confirm_password = $confirm_password;
         $this->email = $email;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->profilePic = $profilePic;
-        //$this->username_err = $username_err;
-        //$this->password_err = $password_err;
-        //$this->confirm_password_err = $confirm_password_err;
-        //$this->firstName_err = $firstName_err;
-        //$this->lastName_err = $lastName_err;
-        //$this->email_err = $email_err;
-        //$this->blogUserID = $blogUserID;
-        //$this->name = $name;
-        //$this->subject =$subject;
-        //$this->message =$message;
     }
 
 
     public static function signUp() {
         $db = Db::getInstance();
-        $req = $db->prepare("INSERT INTO bloguser (username, firstName, lastName, email, password) "
-                . "VALUES (:username, :firstName, :lastName, :email, :password)");
-
-        
+        $req = $db->prepare("INSERT INTO bloguser (username, firstName, lastName, email, password, profilePic) "
+                . "VALUES (:username, :firstName, :lastName, :email, :password, :defaultPic)");        
         // set parameters and execute
         //Filter the text part of the input.
         if(!empty(trim($_POST["username"]))){
@@ -92,23 +79,14 @@
         if(!empty(trim($_POST["lastName"]))){
             $filteredLastName = filter_input(INPUT_POST,'lastName', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        
-        $username = $filteredUsername;
-        $email = $filteredEmail;
+
         $firstName = $filteredFirstName;
         $lastName = $filteredLastName;
-        
-        if($req->rowCount() == 1){
-                $username_err = "This username is already taken.";
-        } 
-        else {
-            $username = trim($_POST["username"]);
-        }
-            
+         
         // Validate password
         if(!empty(trim($_POST['password']))){
             if(strlen(trim($_POST['password'])) < 6){
-                $password_err = "Password must have atleast 6 characters.";
+                $password_err = "Password must have at least 6 characters.";
                 //return out of the function. We don't want to do the insert.
                 return $password_err;
             } 
@@ -127,23 +105,23 @@
         $param_firstName = $firstName;
         $param_lastName = $lastName;
         $param_email = $email;
-        
+        $defaultPic = 'default.jpg';
 
         $req->bindParam(':username', $param_username, PDO::PARAM_STR);
         $req->bindParam(':password', $param_password, PDO::PARAM_STR);
         $req->bindParam(':firstName', $param_firstName, PDO::PARAM_STR);
         $req->bindParam(':lastName', $param_lastName, PDO::PARAM_STR);
         $req->bindParam(':email', $param_email, PDO::PARAM_STR);
+        $req->bindParam(':defaultPic', $defaultPic, PDO::PARAM_STR);
               
-
         if ($req->execute()){
+
              echo '<p style="text-align: center">' . "You successfully signed up!" ."</p>";
         } else{
                 echo '<p style="text-align: center">' ."Something went wrong. Please try again later." . '</p>';
             }
     }
 
-    
     
     public static function login(){
       $instance=Db::getInstance();
@@ -178,38 +156,24 @@
                                 $hashed_password = $row['password'];
 
                                 if(password_verify($password, $hashed_password)){
-//                                     
-//                                    if (isset($_SESSION['username'])) {
-//                                        echo 'logged in ' . $_SESSION['username'];
-//                                       }
-//                                    session_start();
                                     
                                        $param_password = trim($_POST["password"]);
                                        $_SESSION['username'] = $username;
                                        $_SESSION['userID'] = $row['blogUserID'];
                                        $_SESSION['firstname'] = $row['firstName'];
-
-//                                        $stmt->bindParam(':password', $param_password, PDO::PARAM_STR);
                                 }else {
-                                    echo "<script>alert('The username/password you entered was not valid.')</script>";
-//                                    $password_err = 'The password you entered was not valid.';
+                                    $password_err = 'The password you entered was not valid.';
                                 }
                             } 
-//                            else {
-//                                // Display an error message if username doesn't exist
-//                                $username_err = 'No account found with that username.';
-//                            }
+
                         } 
                         else { 
-                            "<script>alert('Oops! Something went wrong. Please try again later.')</script>";
-//                            echo "Oops! Something went wrong. Please try again later.";
+                            $password_err = "Oops! Something went wrong. Please try again later.";
                         }
                     }
-
                     // Close the prepared statement
                     unset($stmt);
                 }
-
             // Close connection
             unset($pdo);
             }
@@ -236,15 +200,13 @@ public static function viewMyAccount($blogUserID) {
       }
 }
 
-public static function updateMyAccount($blogUserID, $firstName, $lastName, $email, $username) {
-    //This is a bit quick and dirty in that it doesn't check the username is unique but it works enough for demo and I'm really tired now!
+public static function updateMyAccount($blogUserID, $firstName, $lastName, $email) {
+   
       $instance = Db::getInstance();
-      $req = $instance->prepare('UPDATE blogUser SET username = :username, firstname = :firstname, lastname = :lastname,'
+      $req = $instance->prepare('UPDATE blogUser SET firstname = :firstname, lastname = :lastname,'
               . ' email = :email WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
-      
-      //$req->execute(array('blogUserID' => $blogUserID));
-      $req->bindParam(':username', $username, PDO::PARAM_STR);
+     
       $req->bindParam(':firstname', $firstName, PDO::PARAM_STR);
       $req->bindParam(':lastname', $lastName, PDO::PARAM_STR);
       $req->bindParam(':email', $email, PDO::PARAM_STR);
@@ -256,20 +218,20 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
 //      $instance = Db::getInstance();
 //      $req = $instance->prepare("Insert into bloguser(profilePic) "
 //                        . "values (:profilePic)");
-      
-      $profilePic = $_FILES['image']['name'];
-//      var_dump($profilePic);
-//      var_dump($blogUserID);
-      $req = $instance->prepare("UPDATE bloguser set profilePic = :profilePic WHERE blogUserID = :blogUserID");
-            
-      $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
-      $req->bindParam(':blogUserID', $blogUserID);
-      $blogUser = $req->execute();
+      $blogProfileSuccess = TRUE;
+      if ($_FILES['image']['name'] != "") {
+        BlogUser::uploadFile($_FILES['image']['name']);
+        //If there is a file to upload then update the database. Otherwise don't.
+        $profilePic = $_FILES['image']['name'];
+        $req = $instance->prepare("UPDATE bloguser set profilePic = :profilePic WHERE blogUserID = :blogUserID");
+        $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
+        $req->bindParam(':blogUserID', $blogUserID);
+        $blogProfileSuccess = $req->execute();
+      }
 
-      if($blogUser){
+      if($blogUser && $blogProfileSuccess){
         //return new BlogUser($blogUser['blogUserID'], $blogUser['username'], $blogUser['firstName'], $blogUser['lastName'], $blogUser['email'], $blogUser['password']);
         $blogUser = BlogUser::viewMyAccount($blogUserID);
-        BlogUser::uploadFile($_FILES['image']['name']);
         return $blogUser;
       }
       else
@@ -393,7 +355,7 @@ const InputKey = 'image';
                 trigger_error("File Missing!");
 	}
 	if ($_FILES[self::InputKey]['error'] > 0) {
-		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+		trigger_error("Handle the error! " . $_FILES[self::InputKey]['error']);
 	}
 	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
 		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
@@ -414,16 +376,7 @@ const InputKey = 'image';
 	}
 }
     
-    
-    //die() function calls replaced with trigger_error() calls
-    //replace with structured exception handling
 
-
-    
-    
-    
-    
-    
     
     public static function remove($id) {
           $db = Db::getInstance();
