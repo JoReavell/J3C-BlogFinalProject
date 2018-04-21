@@ -8,7 +8,7 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
             <div class="form-group">
                 <textarea class="form-control" name="comment" required id="comment" placeholder="Please enter your comment here"></textarea>
             </div>
-        <button type="button" onclick="addComment(<?php echo $blogPost->id; ?>, <?php echo $_SESSION['userID']; ?>)">Add Comment</button>
+        <button type="button" onclick="addComment(<?php echo $blogPost->id; ?>, <?php echo $_SESSION['userID']; ?>)">Add Comment</button><br/>
         <?php
         } else { 
         ?>
@@ -16,7 +16,7 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
         <?php
         }
         ?>
-        <br>
+        <br/>
         <span id="newComment"></span>
         <br>
         <?php
@@ -32,7 +32,7 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
         ?>
         <div class="row">               
         <!-- Blog Comments Begins -->
-        <div class="blog-comments">
+        <div class="blog-comments" style="width: 100%">
             <div class="blog-comment-main">
                 <div class="blog-comment">
                     <a class="comment-avtar"><img src="views/images/<?php echo $blogComment['profilePic'] ?>" alt="image"></a>

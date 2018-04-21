@@ -26,7 +26,7 @@
       $this->noOfViews = $noOfViews;
       $this->profilePic = $profilePic;
     }
-
+    
     public static function all() {
       $list = [];
       $db = Db::getInstance();

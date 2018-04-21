@@ -33,7 +33,11 @@ class BlogUserController {
         } 
         else {
             $blogUser = BlogUser::login();
-            return call('blogPost','readAll');
+            ?>
+            <script>
+            window.location.replace("index.php?controller=blogPost&action=readAll");
+            </script>
+        <?php
         }
     }
 
@@ -41,11 +45,12 @@ class BlogUserController {
 
     public function logout(){
         if($_SERVER["REQUEST_METHOD"] == "GET"){
-            //echo "<script>alert('You logged out!')</script>";
             session_destroy(); 
-            require_once 'views/blogUser/login.php';
-           
-            
+            ?>
+            <script>
+            window.location.replace("index.php?controller=blogUser&action=login");
+            </script>
+        <?php  
         }
     }
       

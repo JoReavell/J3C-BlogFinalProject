@@ -81,13 +81,13 @@ class BlogPostController {
 //        
             
    echo '<div class="row">' .              
-        '<div class="blog-comments">'.
+        '<div class="blog-comments" style="width: 100%">'.
             '<div class="blog-comment-main">'.
                 '<div class="blog-comment">' .
                     '<a class="comment-avtar">' .
                         '<img src="views/images/'. 'alt="image">' . '</a>' .
                     '<div class="comment-text">' .
-                        '<h3>'.$userID.  '</h3>' .
+                        '<h3>'. $_SESSION['username'].  '</h3>' .
                         '<p>'. $comment . '</p> '  .                     
                     '</div>'  .                       
                 '</div>' .                        
