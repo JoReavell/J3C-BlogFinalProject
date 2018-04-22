@@ -89,7 +89,7 @@
     <div class="container">
         <div class="row">
                         <h4 class="heading col-lg-12 col-md-12">
-                       <span>The Women in Tech Program</span>
+                       <span>The Women in Tech Programme</span>
                     </h4>
 
             <div class="col-md-4">
@@ -99,8 +99,8 @@
                             alt="featured-post">
                     </div>
                     <div class="featured-post-title">
-                        <h3><a href="#">The application moment</a></h3>
-                        <time datetime="2017" class="post-date">October 30, 2017</time>
+                        <h3><a href="#">Insight Day</a></h3>
+                        <time datetime="2017" class="post-date">December 6, 2017</time>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                         <img src="views/images/slider/TheProgram.jpg" style="max-height: 200px" alt="featured-post">
                     </div>
                     <div class="featured-post-title">
-                        <h3><a href="#">The program</a></h3>
+                        <h3><a href="#">The programme</a></h3>
                         <time datetime="2018" class="post-date">January 15, 2018</time>
                     </div>
                 </div>
