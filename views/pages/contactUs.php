@@ -73,10 +73,10 @@
                     <section class="blurb">
                         <h2 class="title">ABOUT US</h2>
 
-                        <a href="single-post.html" class="image"><img class="img-responsive" src="views/images/aboutus.jpg" alt="about us" /></a>
+                        <a href="index.php?controller=pages&action=aboutUs" class="image"><img class="img-responsive" src="views/images/aboutus.jpg" alt="about us" /></a>
                         <div class="author-widget">
                             <h4 class="author-name">J3C</h4>
-                            <p>Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where is hard work and commitment is J3C.</p>
+                            <p>Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where there is hard work and commitment is J3C.</p>
                         </div>
                         <div class="social">
                             <ul class="icons">

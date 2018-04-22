@@ -40,7 +40,7 @@
                     <section class="blurb">
                         <h2 class="title">Jo Reavell</h2>
 
-                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Jo.png" alt="about us" /></a>
+                        <a href="#" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Jo.png" alt="about us" /></a>
                         <div class="author-widget">
                             <h4 class="author-name" style='letter-spacing:1px'></h4>
                         </div>
@@ -61,7 +61,7 @@
                     <section class="blurb">
                         <h2 class="title">Jen Patchett</h2>
 
-                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/JenPat.png" alt="about us" /></a>
+                        <a href="#" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/JenPat.png" alt="about us" /></a>
                         <div class="author-widget">
                             <h6 class="author-name" style='letter-spacing:-1.2px'></h6>
                              </div>
@@ -81,7 +81,7 @@
                     <section class="blurb">
                         <h2 class="title">Claudia Danciu</h2>
 
-                        <a href="single-post.html" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Dia.jpg" alt="about us" /></a>
+                        <a href="#" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Dia.jpg" alt="about us" /></a>
                         <div class="author-widget ">
                             <h6 class="author-name" style='letter-spacing:-1.0px'></h6>
                         </div>
