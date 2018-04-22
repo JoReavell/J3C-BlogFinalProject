@@ -32,13 +32,17 @@ class BlogUserController {
         if($_SERVER["REQUEST_METHOD"] == "GET"){
             require_once 'views/blogUser/login.php';
         } 
-        else {
-            $blogUser = BlogUser::login();
-            ?>
-            <script>
-            window.location.replace("index.php?controller=blogPost&action=readAll");
-            </script>
-        <?php
+        else if ($blogUser = BlogUser::login()) {
+                if($blogUser == "You logged in!") {
+                    ?>
+                    <script>
+                    window.location.replace("index.php?controller=blogPost&action=readAll");
+                    </script>
+                    <?php  
+                } else {
+                    echo "<script>alert('" . $blogUser . "')</script>";
+                    require_once 'views/blogUser/login.php';
+            }
         }
     }
 

@@ -131,7 +131,8 @@
 
             // Check if username is empty(if the username inserted in the field is empty) 
             if(empty(trim($_POST["username"]))){
-                $username_err = 'Please enter username.';
+                $username_err = 'Please enter your username.';
+                return $username_err;
             } else{
                 $username = trim($_POST["username"]);
             }
@@ -139,6 +140,7 @@
             // Check if password is empty(if the username inserted in the field is empty) 
             if(empty(trim($_POST['password']))){
                 $password_err = 'Please enter your password.';
+                return $password_err;
             } else{
                 $password = trim($_POST['password']);
             }
@@ -157,20 +159,25 @@
 
                                 if(password_verify($password, $hashed_password)){
                                     
-                                       $param_password = trim($_POST["password"]);
-                                       $_SESSION['username'] = $username;
-                                       $_SESSION['userID'] = $row['blogUserID'];
-                                       $_SESSION['firstname'] = $row['firstName'];
-                                       $_SESSION['lastname'] = $row['lastName'];
-                                       $_SESSION['profilepic'] = $row['profilePic'];
+                                    $param_password = trim($_POST["password"]);
+                                    $_SESSION['username'] = $username;
+                                    $_SESSION['userID'] = $row['blogUserID'];
+                                    $_SESSION['firstname'] = $row['firstName'];
+                                    $_SESSION['lastname'] = $row['lastName'];
+                                    $_SESSION['profilepic'] = $row['profilePic'];
+
+                                    $loginSuccess = "You logged in!";
+                                    return $loginSuccess;
                                 }else {
-                                    $password_err = 'The password you entered was not valid.';
+                                    $password_err = 'The password you entered was incorrect.';
+                                    return $password_err;
                                 }
                             } 
 
                         } 
                         else { 
-                            $password_err = "Oops! Something went wrong. Please try again later.";
+                            $password_err = "The username or password you entered was incorrect. Please try again";
+                            return $password_err;
                         }
                     }
                     // Close the prepared statement
