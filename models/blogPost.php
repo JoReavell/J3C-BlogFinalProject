@@ -34,7 +34,7 @@
           . " dateCreated, category.category, noOfViews, profilePic "
           . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID "
           . " INNER JOIN category ON blogPost.category = category.categoryID"
-          . " ORDER BY dateCreated DESC LIMIT 10;";
+          . " ORDER BY dateCreated DESC LIMIT 16;";
       $req = $db->query($sql);
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blogPost) {
@@ -53,7 +53,7 @@
               . " FROM blogPost INNER JOIN blogUser ON blogPost.author = blogUser.blogUserID"
               . " INNER JOIN category ON blogPost.category = category.categoryID"
               . " WHERE username = :username"
-              . " ORDER BY dateCreated DESC LIMIT 10";
+              . " ORDER BY dateCreated DESC LIMIT 16";
       $req = $db->prepare($sql);
       $req->execute(['username' => $username]);
       foreach($req->fetchAll() as $blogPost) {
@@ -91,7 +91,7 @@
               . " WHERE title LIKE $keyword"
               . " OR summary LIKE $keyword"
               . " OR mainContent LIKE $keyword"
-              . " ORDER BY dateCreated DESC LIMIT 10";
+              . " ORDER BY dateCreated DESC LIMIT 16";
 
       $req = $db->prepare($sql);
       //$req->execute(['keyword' => $keyword]); //for some reason it isn't working this way so put $keyword straight into search sql????
