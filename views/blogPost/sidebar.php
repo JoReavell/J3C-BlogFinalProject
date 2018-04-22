@@ -7,7 +7,7 @@
                             <a href="?controller=pages&action=aboutUs" class="image"><img class="img-responsive" src="views/images/aboutus.jpg" alt="about us" /></a>
                             <div class="author-widget">
                                 <h4 class="author-name">J3C Team</h4>
-                                <p style="margin-bottom: 10%;">Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where is hard work and commitment is J3C.</p>
+                                <p style="margin-bottom: 10%;">Is the best team from GetIntoTech who created their first MVC project. They share a great passion for coding, teamwork, tears, smiles, gin and cats. Where there is hard work and commitment is J3C.</p>
                             </div>
                         </section>
                         <!-- Mini Posts -->
@@ -29,9 +29,9 @@
                                     <header>
                                             <h3><a href="index.php?controller=blogPost&action=read&id=<?php echo $blogPost['blogPostID']; ?>"><?php echo $blogPost['title'] ?></a></h3>
                                             <time class="published"><?php echo $blogPost['dateCreated'] ?></time>
-                                            <a href="#" class="author"><img src="views/images/<?php echo $blogPost['profilePic'] ?>" alt="" /></a>
+                                            <a href="index.php?controller=blogPost&action=read&id=<?php echo $blogPost['blogPostID']; ?>" class="author"><img src="views/images/<?php echo $blogPost['profilePic'] ?>" alt="" /></a>
                                     </header>
-                                <a href="#" class="image"><img src="views/images/<?php echo $blogPost['image'] ?>" alt="" /></a>
+                                <a href="index.php?controller=blogPost&action=read&id=<?php echo $blogPost['blogPostID']; ?>" class="image"><img src="views/images/<?php echo $blogPost['image'] ?>" alt="" /></a>
                             </article>
                           <?php                           
                             //$list[] = new BlogPost($blogPost['blogPostID'], $blogPost['title'], $blogPost['summary'], $blogPost['mainContent'], $blogPost['image'], $blogPost['author'], $blogPost['dateCreated'], $blogPost['category'], $blogPost['noOfViews'], $blogPost['profilePic']);
@@ -59,8 +59,7 @@
                                         <h3><a href="index.php?controller=blogPost&action=read&id=<?php echo $blogPost['blogPostID']; ?>"><?php echo $blogPost['title'] ?></a></h3>
                                         <time class="published"><?php echo $blogPost['dateCreated'] ?></time>
                                     </header>   
-                                        <a href="#" class="image"><img src="views/images/<?php echo $blogPost['image'] ?>" alt="" /></a>
-                                                                
+                                        <a href="index.php?controller=blogPost&action=read&id=<?php echo $blogPost['blogPostID']; ?>" class="image"><img src="views/images/<?php echo $blogPost['image'] ?>" alt="" /></a>                       
                             </article>
                             </li>
                           <?php                           
