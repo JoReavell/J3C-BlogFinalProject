@@ -80,7 +80,7 @@
                     <!-- About -->
                     <section class="blurb">
                         <h2 class="title">Claudia Danciu</h2>
-                        <a href="https://www.linkedin.com/in/claudiadanciu/" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Dia.jpg" alt="about us" /></a>
+                        <a href="https://www.linkedin.com/in/claudiadanciu/" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/claudiaD.png" alt="about us" /></a>
 
                         <div class="author-widget ">
                             <h6 class="author-name" style='letter-spacing:-1.0px'></h6>
