@@ -39,8 +39,8 @@
                     <!-- About -->
                     <section class="blurb">
                         <h2 class="title">Jo Reavell</h2>
-
                         <a href="https://www.linkedin.com/in/joanne-reavell-102663136/" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Jo.png" alt="about us" /></a>
+
                         <div class="author-widget">
                             <h4 class="author-name" style='letter-spacing:1px'></h4>
                         </div>
@@ -60,8 +60,8 @@
                     <!-- About -->
                     <section class="blurb">
                         <h2 class="title">Jen Patchett</h2>
-
                         <a href="https://www.linkedin.com/in/jenpatchett/" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/JenPat.png" alt="about us" /></a>
+
                         <div class="author-widget">
                             <h6 class="author-name" style='letter-spacing:-1.2px'></h6>
                              </div>
@@ -80,8 +80,8 @@
                     <!-- About -->
                     <section class="blurb">
                         <h2 class="title">Claudia Danciu</h2>
-
                         <a href="https://www.linkedin.com/in/claudiadanciu/" class="image"><img class="img-responsive" style="height: 200px;" src="views/images/Dia.jpg" alt="about us" /></a>
+
                         <div class="author-widget ">
                             <h6 class="author-name" style='letter-spacing:-1.0px'></h6>
                         </div>
