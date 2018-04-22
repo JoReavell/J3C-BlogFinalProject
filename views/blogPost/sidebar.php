@@ -75,15 +75,15 @@
                                     <div class="widget-content">
                                             <div class="row">
                                                
-                                                <a target="_blank" href="views/images/slider/tod.jpg" class="col-sm-4 col-xs-3 galleryPic" style="margin-bottom: 2%"><img src="views/images/slider/tod.jpg"></a>
-                                                <a target="_blank" href="views/images/slider/jan.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/slider/jan.jpg" alt="Instagram Image"></a>
-                                                <a target="_blank" href="views/images/slider/january.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/slider/january.jpg" alt="Instagram Image"></a>
-                                                <a target="_blank" href="views/images/class.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/class.jpg" alt="Instagram Image"></a>
-                                                <a target="_blank" href="views/images/abus.jpg" class="col-sm-4 col-xs-3 " style="margin-bottom: 2%"><img src="views/images/abus.jpg" alt="Instagram Image"></a>
-                                                <a target="_blank" href="views/images/wote.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/wote.jpg" alt="Instagram Image"></a>
-                                                <a target="_blank" href="views/images/joje.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/joje.jpg" alt="Instagram Image"></a>
-                                                <a target="_blank" href="views/images/clajen.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/clajen.jpg" alt="Instagram Image"></a>
-                                                <a target="_blank" href="views/images/skyfaith.jpg" class="col-sm-4 col-xs-3 "><img src="views/images/skyfaith.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/slider/tod.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/slider/tod.jpg"></a>
+                                                <a target="_blank" href="views/images/slider/jan.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/slider/jan.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/slider/january.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/slider/january.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/class.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/class.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/abus.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/abus.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/wote.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/wote.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/joje.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/joje.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/clajen.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/clajen.jpg" alt="Instagram Image"></a>
+                                                <a target="_blank" href="views/images/skyfaith.jpg" class="col-sm-4 col-xs-3 galleryPic"><img src="views/images/skyfaith.jpg" alt="Instagram Image"></a>
                                             </div>
                                     </div>
                             </div>
