@@ -15,7 +15,7 @@
              <img class="d-block w-100" src="views/images/slider/sky1.jpg" alt="First slide">
                <div class="feat-overlay">
                  <div class="carousel-caption d-none d-md-block carousel-title feat-inner ">
-                  <h2><a href="">We learned how to be a team</a></h2>
+                  <h2><a href="http://localhost/blogFinalProject/index.php?controller=blogPost&action=read&id=39">We learned how to be a team</a></h2>
 
                  </div>
                </div>
@@ -25,7 +25,7 @@
                <img class="d-block w-100" src="views/images/slider/sky2.jpg" alt="Second slide">
                <div class="feat-overlay">
                  <div class="carousel-caption d-none d-md-block carousel-title feat-inner">
-                     <h2><a href="single-post.html">We learned in an agile way</a></h2>
+                     <h2><a href="http://localhost/blogFinalProject/index.php?controller=blogPost&action=read&id=33">We learned in an agile way</a></h2>
                  </div>
                </div>
            </div>
@@ -35,7 +35,7 @@
                  <img class="d-block w-100" src="views/images/slider/sky3.jpg" alt="Third slide">
                      <div class="feat-overlay">
                          <div class="carousel-caption d-none d-md-block carousel-title feat-inner">
-                             <h2><a href="">We started from scratch</a></h2>
+                             <h2><a href="http://localhost/blogFinalProject/index.php?controller=blogPost&action=read&id=32">We started from scratch</a></h2>
 
                          </div>
                      </div>
@@ -45,7 +45,7 @@
                  <img class="d-block w-100" src="views/images/slider/victoria.png" alt="Forth slide">
                      <div class="feat-overlay">
                          <div class="carousel-caption d-none d-md-block carousel-title feat-inner">
-                             <h2><a href="">We've had a great teacher</a></h2>
+                             <h2><a href="http://localhost/blogFinalProject/index.php?controller=blogPost&action=read&id=36">We've had a great teacher</a></h2>
                          </div>
                      </div>
              </div>
