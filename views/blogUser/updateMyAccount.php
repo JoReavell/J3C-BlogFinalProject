@@ -64,7 +64,7 @@
                             </tbody>
                         </table>
                             <div style="margin-top: 15%">
-                  <a href="#" class="btn btn-sm">Delete my account</a>
+                  
                   <a href="#" onclick="document.getElementById('updateAccount').submit()" class="btn btn-primary">Update my account</a>
                             </div>
                 </div>
