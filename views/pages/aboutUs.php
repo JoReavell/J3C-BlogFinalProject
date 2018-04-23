@@ -21,7 +21,7 @@
                     <section class="blurb">
                         <h2 class="title">Jenny O'Leary</h2>
 
-                        <a href="https://www.linkedin.com/in/jenny-o-leary-092a03a1/" class="image"><img class="img-responsive" style="height: 200px;"  src="views/images/Jenny.png" alt="about us" /></a>
+                        <a href="https://www.linkedin.com/in/jenny-o-leary-092a03a1/" class="image"><img class="img-responsive" style="height: 200px;"  src="views/images/JeO.png" alt="about us" /></a>
                         <div class="author-widget">
                             <h4 class="author-name" style='letter-spacing:1px'></h4>
                             </div>
