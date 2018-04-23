@@ -99,7 +99,7 @@
                             alt="featured-post">
                     </div>
                     <div class="featured-post-title">
-                        <h3><a href="#">Insight Day</a></h3>
+                        <h3><a href="http://localhost/blogFinalProject/index.php?controller=blogPost&action=read&id=30">Insight Day</a></h3>
                         <time datetime="2017" class="post-date">December 6, 2017</time>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                         <img src="views/images/slider/TheProgram.jpg" style="max-height: 200px" alt="featured-post">
                     </div>
                     <div class="featured-post-title">
-                        <h3><a href="#">The programme</a></h3>
+                        <h3><a href="http://localhost/blogFinalProject/index.php?controller=blogPost&action=read&id=44">The programme</a></h3>
                         <time datetime="2018" class="post-date">January 15, 2018</time>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                         <img src="views/images/slider/tod.jpg"  style="max-height: 200px" alt="featured-post" >
                     </div>
                     <div class="featured-post-title">
-                        <h3><a href="#">Today</a></h3>
+                        <h3><a href="http://localhost/blogFinalProject/index.php?controller=blogPost&action=read&id=45#">Today</a></h3>
                         <time datetime="2018" class="post-date">April 25, 2018</time>
                     </div>
                 </div>
