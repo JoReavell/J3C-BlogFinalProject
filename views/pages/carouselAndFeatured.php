@@ -66,24 +66,23 @@
 </section>
     
 <!-- JavaScript for the carousel -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-           $(document).ready(function () {
-    $(".start-slide").click(function () {
-        $("#myCarrousel").carousel('cycle');
-    });
-
-    $(".prev-slide").click(function () {
-        $("#myCarrousel").carousel('prev');
-    });
-
-   $(".next-slide").click(function () {
-        $("#myCarrousel").carousel('next');
-    });
-})
+            $(document).ready(function(){
+                $(".start-slide").click(function(){
+                    $("#myCarousel").carousel('cycle');
+                });
+            });
+            $(document).ready(function(){
+                $(".prev-slide").click(function(){
+                    $("#myCarousel").carousel('prev');
+                });
+            });
+            $(document).ready(function(){
+                $(".next-slide").click(function(){
+                    $("#myCarousel").carousel('next');
+                });
+            });
 </script>
 <!-- End Carousel-->              
 <!-- Featured Posts -->
