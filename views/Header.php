@@ -9,20 +9,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Bootstrap -->
-	<!--<link rel='stylesheet' href='css/bootstrap.min.css'/>-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
 
 	<!-- Font Awesome -->
-        <link href="views/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Google Fonts -->
-	<link href='views/css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
-	<link href='views/css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
+	<!--<link href='views/css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>-->
+	<!--<link href='views/css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>-->
         <link rel="icon" href="views/images/favicon/favicon.ico">
         
         <!-- Main Style -->
         <link href="views/css/style.css" rel="stylesheet" type="text/css"/>
+        
+        <!--JS-->
+        
 	
 </head>
 <body >

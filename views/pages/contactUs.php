@@ -113,7 +113,8 @@
 
 <!--back-to-top-->
 
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrsthx6SjytN7X5hfwab5sINCwjwIATLg&callback=initMap"
+    async defer></script>
 <script>
     function initMap() {
           
@@ -134,6 +135,5 @@
     </script>
    
     <!-- map variable defines properties for map. var map = .... creates new map inside <div> element --> 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrsthx6SjytN7X5hfwab5sINCwjwIATLg&callback=initMap"
-    async defer></script>
+    
     <!-- script loads once page loaded -->  
