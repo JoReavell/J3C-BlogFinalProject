@@ -15,8 +15,8 @@
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Google Fonts -->
-	<link href='views/css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>
-	<link href='views/css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>
+	<!--<link href='views/css/fonts/sky-medium.woff' rel='stylesheet' type='text/css'>-->
+	<!--<link href='views/css/fonts/sky-regular.woff' rel='stylesheet' type='text/css'>-->
         <link rel="icon" href="views/images/favicon/favicon.ico">
         
         <!-- Main Style -->
