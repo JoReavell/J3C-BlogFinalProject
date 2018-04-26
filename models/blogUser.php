@@ -37,13 +37,13 @@
 
     public static function signUp() {
         $db = Db::getInstance();
-        $req = $db->prepare("INSERT INTO bloguser (username, firstName, lastName, email, password, profilePic) "
+        $req = $db->prepare("INSERT INTO blogUser (username, firstName, lastName, email, password, profilePic) "
                 . "VALUES (:username, :firstName, :lastName, :email, :password, :defaultPic)");        
         // set parameters and execute
         //Filter the text part of the input.
         if(!empty(trim($_POST["username"]))){
             $filteredUsername = filter_input(INPUT_POST,'username', FILTER_SANITIZE_SPECIAL_CHARS);
-            $sql = "SELECT blogUserID FROM bloguser WHERE username = :username";
+            $sql = "SELECT blogUserID FROM blogUser WHERE username = :username";
 
             $checkUsername = $db->prepare($sql);
             $checkUsername->execute([':username' => $filteredUsername]);
@@ -59,7 +59,7 @@
         }
         if(!empty(trim($_POST["email"]))){
             $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
-            $sql = "SELECT blogUserID FROM bloguser WHERE email = :email";
+            $sql = "SELECT blogUserID FROM blogUser WHERE email = :email";
 
             $checkEmail = $db->prepare($sql);
             $checkEmail->execute([':email' => $filteredEmail]);
@@ -125,7 +125,7 @@
     
     public static function login(){
       $instance=Db::getInstance();
-      $req=$instance->prepare("SELECT username, password FROM bloguser WHERE username = :username"); 
+      $req=$instance->prepare("SELECT username, password FROM blogUser WHERE username = :username"); 
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -147,7 +147,7 @@
 
             // Validate credentials with MySQL (check if what the user is posting is the same with the user from mysql
             if(empty($username_err) && empty($password_err)){
-                $sql = "SELECT username, password, blogUserID, firstName, lastName, profilePic FROM bloguser WHERE username = :username";
+                $sql = "SELECT username, password, blogUserID, firstName, lastName, profilePic FROM blogUser WHERE username = :username";
                 if($stmt = $instance->prepare($sql)){
                     $param_username = trim($_POST["username"]);
                     $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
@@ -194,7 +194,7 @@ public static function viewMyAccount($blogUserID) {
       $instance = Db::getInstance();
       //use intval to make sure $id is an integer
       $id = intval($blogUserID);
-      $req = $instance->prepare('SELECT * FROM bloguser WHERE blogUserID = :blogUserID');
+      $req = $instance->prepare('SELECT * FROM blogUser WHERE blogUserID = :blogUserID');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogUserID' => $id));
       
