@@ -259,7 +259,7 @@ public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $id = intval($id);
-      $sql = "delete FROM blogpost WHERE blogPostID = :id";
+      $sql = "delete FROM blogPost WHERE blogPostID = :id";
       $req = $db->prepare($sql);
       // the query was prepared, now replace :id with the actual $id value
       $req->bindParam(':id', $id);

@@ -22,8 +22,8 @@ Is this an OK way to do it? Had to put sql in here as it's like a page in a page
         <?php
         $db = Db::getInstance();
         $sql = "SELECT CONCAT(firstname, ' ', lastname) AS username, profilePic, blogComment "
-                . "FROM blogcomments JOIN bloguser "
-                . "ON blogcomments.blogUserID = bloguser.blogUserID "
+                . "FROM blogComments JOIN bloguser "
+                . "ON blogComments.blogUserID = bloguser.blogUserID "
                 . "WHERE blogPostID = $blogPost->id "
                 . "ORDER BY blogCommentID desc;";
         $req = $db->query($sql);
