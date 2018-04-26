@@ -232,7 +232,7 @@ public static function updateMyAccount($blogUserID, $firstName, $lastName, $emai
         BlogUser::uploadFile($_FILES['image']['name']);
         //If there is a file to upload then update the database. Otherwise don't.
         $profilePic = $_FILES['image']['name'];
-        $req = $instance->prepare("UPDATE bloguser set profilePic = :profilePic WHERE blogUserID = :blogUserID");
+        $req = $instance->prepare("UPDATE blogUser set profilePic = :profilePic WHERE blogUserID = :blogUserID");
         $req->bindParam(':profilePic', $profilePic, PDO::PARAM_STR);
         $req->bindParam(':blogUserID', $blogUserID);
         $blogProfileSuccess = $req->execute();
